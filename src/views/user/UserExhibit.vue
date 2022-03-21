@@ -124,20 +124,17 @@
       
       
       <li>
-        <a href="/profile/492752319/basicinfo" >
+        <router-link  to="/userexhibit/userdata">
           <i class="profile-icon p-ico-info"></i>
           基本资料
           <i class="icon-angle-right"></i>
-        </a>
+        </router-link>
       </li>
-
-      
     </ul>
   </div>
 </div>
-
-
     <div class="nk-content">
+      <router-view></router-view>
         <div class="module-box">
             <div class="module-head clearfix">
                 <h1>成就</h1>

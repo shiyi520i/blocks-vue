@@ -70,7 +70,7 @@
 <script>
 
 export default {
-  name: 'Header1',
+  name: 'Header',
   inject: ['$authing'],
   methods: {
     handeLogin: async function () {
