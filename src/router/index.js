@@ -9,16 +9,20 @@ const routes = [
         name: 'Login',
         component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue'),
         children: [{
-            path: 'ca',
+            path: 'category',
             component: () => import(/* webpackChunkName: "about" */ '../views/company/Category')
             },
             {
-                path: 's',
+                path: 'search',
                 component: () => import(/* webpackChunkName: "about" */ '../components/Seach.vue')
             },
             {
-                path: 'c',
+                path: 'courses',
                 component: () => import(/* webpackChunkName: "about" */ '../components/Courses.vue')
+            },
+            {
+                path: '/userexhibit',
+                component: () => import(/* webpackChunkName: "about" */ '../views/user/UserExhibit')
             }
         ]
     },

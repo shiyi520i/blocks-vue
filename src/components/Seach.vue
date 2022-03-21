@@ -1,29 +1,8 @@
-<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>人力资源网</title>
-  <meta http-equiv="keywords" content=""/>
-  <meta http-equiv="description" content=""/>
-  <%include("/includes/front.html"){}%>
-  <script src="https://unpkg.com/this.axios/dist/this.axios.min.js"></script>
-  <script src="${contextPath}/js/vue/pageination/zpageNav.js"></script>
-  <link rel="stylesheet" href="${contextPath}/js/vue/pageination/zpageNav.css">
-  &lt;!&ndash; 引入样式 &ndash;&gt;
-  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-  &lt;!&ndash; 引入组件库 &ndash;&gt;
-  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-  <style>
-
-  </style>
-</head>-->
-
-
-
 <template>
-<!--<div id="app">-->
 <div>
-
+<br>
+<br>
+<br>
   <div class="nei_zhiwei_top">
     <div class="container">
       <div class="mg_t_20"></div>
@@ -411,7 +390,7 @@
   </div>
 
   <!--回到顶部-->
-  <!--    <el-backtop target=".nei_zhiwei_top .nei_zhiwei_cont"></el-backtop>-->
+      <el-backtop target=".nei_zhiwei_top .nei_zhiwei_cont"></el-backtop>
 </div><!--app-->
 </template>
 <script>
@@ -639,7 +618,9 @@ export default ({
 </script>
 
 <style>
-@import 'src/assets/common/css/bootstrap.min.css';
+@import '../assets/common/css/bootstrap.min.css';
+@import '../assets/common/css/ui2.css';
+@import '../assets/common/css/front.css';
 </style>
 
 

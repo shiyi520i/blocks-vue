@@ -5,7 +5,7 @@
     <header class="nc-nav-header-fake" id="nc-nav-header">
       <nav>
         <a href="index.html" class="nc-nav-header-logo" style="width: 140px;">
-          <img src="src/assets/common/picture/1636944252254TIDXY.png">
+          <img src="../assets/common/picture/1636944252254TIDXY.png">
         </a>
         <div class="nc-nav-header-menu" style="margin-right: 12px;">
           <div class="nc-nav-header-menu-item " data-type="home">
@@ -23,38 +23,38 @@
           </div>-->
 
            <div class="nc-nav-header-menu-item" data-type="learn">
-            <router-link to="/c">学习</router-link>
+            <router-link to="/courses">学习</router-link>
           </div>
           <div class="nc-nav-header-menu-item " data-type="jobs">
-            <router-link to="/s">求职</router-link>
+            <router-link to="/search">求职</router-link>
           </div>
           <div class="nc-nav-header-menu-item " data-type="discussion">
-            <router-link to="/ca">在招公司</router-link>
+            <router-link to="/category">在招公司</router-link>
           </div>
           <div class="nc-nav-header-menu-item " data-type="found">
-            <a href="javascript:void(0);">发现</a>
+            <router-link to="/userexhibit">个人中心</router-link>
           </div>
 
         </div>
 
         <div class="nc-nav-header-search">
           <span>帖子、文章、试题、公司、牛友</span>
-          <img class="nc-nav-header-search-icon" src="src/assets/common/picture/1641376106810GCJAX.png" alt="search">
+          <img class="nc-nav-header-search-icon" src="../assets/common/picture/1641376106810GCJAX.png" alt="search">
         </div>
 
         <div style="display: flex; align-items: center; font-size: 14px; margin-left: 20px; margin-left: 20px;">
           <a href="hrconsole.html#/job-manage"
              style="width: 92px; height: 32px; background: #EEFAF7; color: #32ca99; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-right: 12px;">
-            我要招人 <img src="src/assets/common/picture/1645409535023RDRAH.png" style="width: 14px; height: 14px;">
+            我要招人 <img src="../assets/common/picture/1645409535023RDRAH.png" style="width: 14px; height: 14px;">
           </a>
           <a href="index2.html"
              style="width: 92px; height: 32px; background: #EEFAF7; color: #32ca99; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-right: 8px;">
-            去企业版 <img src="src/assets/common/picture/1645409535023RDRAH.png" style="width: 14px; height: 14px;">
+            去企业版 <img src="../assets/common/picture/1645409535023RDRAH.png" style="width: 14px; height: 14px;">
           </a>
         </div>
 
         <div class="nc-nav-header-info" style="margin-left: 0;">
-          <img class="nc-nav-header-icon" style="margin-right: 20px;" src="src/assets/common/picture/1641375989276WRAOB.png"
+          <img class="nc-nav-header-icon" style="margin-right: 20px;" src="../assets/common/picture/1641375989276WRAOB.png"
                alt="app">
           <div class="nc-nav-header-sign" style="background-color: #32ca99;" @click="handeLogin">登录 / 注册</div>
         </div>
@@ -90,13 +90,13 @@ export default {
 </script>
 
 <style>
-@import "src/assets/common/css/global.css";
-@import "src/assets/common/css/global.ui.css";
-@import "src/assets/common/css/base.css";
-@import "src/assets/common/css/default.css";
-@import "src/assets/common/css/common.css";
-@import "src/assets/common/css/env.css";
-@import "src/assets/common/css/element-ui.css";
-@import "src/assets/common/css/courseCollection.css";
-@import "src/assets/common/css/main.entry.css";
+@import "../assets/common/css/global.css";
+@import "../assets/common/css/global.ui.css";
+@import "../assets/common/css/base.css";
+@import "../assets/common/css/default.css";
+@import "../assets/common/css/common.css";
+@import "../assets/common/css/env.css";
+@import "../assets/common/css/element-ui.css";
+@import "../assets/common/css/courseCollection.css";
+@import "../assets/common/css/main.entry.css";
 </style>

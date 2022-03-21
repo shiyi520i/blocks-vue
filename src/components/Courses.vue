@@ -49,7 +49,7 @@
           </div>
           <div class="nk-class-mod" style="position: relative;">
             <div class="title-img">
-              <img src="src/assets/common/picture/recent-study.png" alt="">
+              <img src="../assets/common/picture/recent-study.png" alt="">
             </div>
             <div class="nk-class-empty" style="margin-top: 50px;font-size: 16px;">
               <p>进入学院，找到适合你的课程</p>
@@ -62,7 +62,7 @@
             <ul class="nav-university">
               <div class="university-img">
                 <a href="javascript:;" target="_blank">
-                  <img src="src/assets/common/picture/university.png" alt=""
+                  <img src="../assets/common/picture/university.png" alt=""
                        style="width: 110px; margin-top: 10px; margin-left: 30px;">
                 </a>
               </div>
@@ -82,7 +82,7 @@
 
         <div class="nk-module-white js-scroll-fire">
           <div style="text-align: center;">
-            <img src="src/assets/common/picture/apply.png" alt="" style="width: 205px;">
+            <img src="../assets/common/picture/apply.png" alt="" style="width: 205px;">
           </div>
           <div class="course-mod nk-module-content">
             <div class="course-mod-bd">
@@ -90,7 +90,7 @@
                 <a href="javascript:;" style="height: 100%; display: inline-block; margin: 10px;">
                   <li style="margin:0;">
                     <div>
-                      <img src="src/assets/common/picture/入口-面试技巧-360x260.jpg" alt="">
+                      <img src="../assets/common/picture/入口-面试技巧-360x260.jpg" alt="">
                     </div>
                     <div class="signup-detail">
                       <p>
@@ -101,7 +101,7 @@
                 <a href="javascript:;" style="height: 100%; display: inline-block; margin: 10px;">
                   <li style="margin:0;">
                     <div>
-                      <img src="src/assets/common/picture/入口-简历课-360x260.jpg" alt="">
+                      <img src="../assets/common/picture/入口-简历课-360x260.jpg" alt="">
                     </div>
                     <div class="signup-detail">
                       <p>
@@ -112,7 +112,7 @@
                 <a href="javascript:;" style="height: 100%; display: inline-block; margin: 10px;">
                   <li style="margin:0;">
                     <div>
-                      <img src="src/assets/common/picture/入口-java-360x260.jpg" alt="">
+                      <img src="../assets/common/picture/入口-java-360x260.jpg" alt="">
                     </div>
                     <div class="signup-detail">
                       <p>
@@ -123,7 +123,7 @@
                 <a href="javascript:;" style="height: 100%; display: inline-block; margin: 10px;">
                   <li style="margin:0;">
                     <div>
-                      <img src="src/assets/common/picture/入口-C-360x260.jpg" alt="">
+                      <img src="../assets/common/picture/入口-C-360x260.jpg" alt="">
                     </div>
                     <div class="signup-detail">
                       <p>
@@ -134,7 +134,7 @@
                 <a href="javascript:;" style="height: 100%; display: inline-block; margin: 10px;">
                   <li style="margin:0;">
                     <div>
-                      <img src="src/assets/common/picture/入口-算法入门-360x260.jpg" alt="">
+                      <img src="../assets/common/picture/入口-算法入门-360x260.jpg" alt="">
                     </div>
                     <div class="signup-detail">
                       <p>
@@ -145,7 +145,7 @@
                 <a href="javascript:;" style="height: 100%; display: inline-block; margin: 10px;">
                   <li style="margin:0;">
                     <div>
-                      <img src="src/assets/common/picture/入口-算法提升-360x260.jpg" alt="">
+                      <img src="../assets/common/picture/入口-算法提升-360x260.jpg" alt="">
                     </div>
                     <div class="signup-detail">
                       <p>
@@ -160,13 +160,13 @@
 
         <div class="nk-module-white js-scroll-job">
           <div class="nk-module-gray" style="text-align: center;">
-            <img src="src/assets/common/picture/experience.png" alt="" style="width: 205px;">
+            <img src="../assets/common/picture/experience.png" alt="" style="width: 205px;">
           </div>
           <div class="course-mod job-strategy-mod nk-module-content">
             <div class="course-mod-bd">
               <section class="mb4">
                 <div class="course-mod-hd">
-                  <img src="src/assets/common/picture/exp.png" alt="" style="width: 171px;">
+                  <img src="../assets/common/picture/exp.png" alt="" style="width: 171px;">
                 </div>
               </section>
               <div class="strategy-section">
@@ -176,46 +176,46 @@
                   <ul class="strategy-list">
 
                     <li><a href="javascript:;" target="_blank"><img
-                        src="src/assets/common/picture/C1F8B45936F73541F2D9C1D76B9B01EE.jpg" alt="" class="pic">
+                        src="../assets/common/picture/C1F8B45936F73541F2D9C1D76B9B01EE.jpg" alt="" class="pic">
                     </a></li>
 
                     <li><a href="javascript:;" target="_blank"><img
-                        src="src/assets/common/picture/31C31542964AA8C17253C35C4D7EF5C4.jpg" alt="" class="pic">
+                        src="../assets/common/picture/31C31542964AA8C17253C35C4D7EF5C4.jpg" alt="" class="pic">
                     </a></li>
 
                     <li><a href="1039.html" target="_blank"><img
-                        src="src/assets/common/picture/B86B3899CF92842B66114261B77124DF.jpg" alt="" class="pic">
+                        src="../assets/common/picture/B86B3899CF92842B66114261B77124DF.jpg" alt="" class="pic">
                     </a></li>
 
                     <li><a href="javascript:;" target="_blank"><img
-                        src="src/assets/common/picture/03F6DB23634DE00267570E5B4A3C7284.jpg" alt="" class="pic">
+                        src="../assets/common/picture/03F6DB23634DE00267570E5B4A3C7284.jpg" alt="" class="pic">
                     </a></li>
 
                     <li><a href="javascript:;" target="_blank"><img
-                        src="src/assets/common/picture/4E005D8FEFDF528BF36166D571EB7632.jpg" alt="" class="pic">
+                        src="../assets/common/picture/4E005D8FEFDF528BF36166D571EB7632.jpg" alt="" class="pic">
                     </a></li>
 
                     <li><a href="javascript:;" target="_blank"><img
-                        src="src/assets/common/picture/451A6322BE2755C5F6EFB85E493CF7B7.jpg" alt="" class="pic">
+                        src="../assets/common/picture/451A6322BE2755C5F6EFB85E493CF7B7.jpg" alt="" class="pic">
                     </a></li>
 
                     <li><a href="javascript:;" target="_blank"><img
-                        src="src/assets/common/picture/B0892FACD7509369169FF3D37AA2A7D6.jpg" alt="" class="pic">
+                        src="../assets/common/picture/B0892FACD7509369169FF3D37AA2A7D6.jpg" alt="" class="pic">
                     </a></li>
 
                     <li><a href="javascript:;" target="_blank"><img
-                        src="src/assets/common/picture/B4EF1D53C5FC5BF9657D6E757641E3FD.jpg" alt="" class="pic">
+                        src="../assets/common/picture/B4EF1D53C5FC5BF9657D6E757641E3FD.jpg" alt="" class="pic">
                     </a></li>
                     <li><a href="javascript:;" target="_blank"><img
-                        src="src/assets/common/picture/A9094BBC3002219664BF10D545310CB9.jpg" alt="" class="pic">
-                    </a></li>
-
-                    <li><a href="javascript:;" target="_blank"><img
-                        src="src/assets/common/picture/808236DF68AB495195B0E8C553B61271.jpg" alt="" class="pic">
+                        src="../assets/common/picture/A9094BBC3002219664BF10D545310CB9.jpg" alt="" class="pic">
                     </a></li>
 
                     <li><a href="javascript:;" target="_blank"><img
-                        src="src/assets/common/picture/D0D716035AF5098E85282C2DF1E44EF7.jpg" alt="" class="pic">
+                        src="../assets/common/picture/808236DF68AB495195B0E8C553B61271.jpg" alt="" class="pic">
+                    </a></li>
+
+                    <li><a href="javascript:;" target="_blank"><img
+                        src="../assets/common/picture/D0D716035AF5098E85282C2DF1E44EF7.jpg" alt="" class="pic">
                     </a></li>
                   </ul>
                 </div>
@@ -226,7 +226,7 @@
 
         <div class="nk-module-white" id="jixunying">
           <div class="nk-module-gray" style="text-align: center;">
-            <img src="src/assets/common/picture/strategy.png" alt="" style="width: 205px;">
+            <img src="../assets/common/picture/strategy.png" alt="" style="width: 205px;">
           </div>
           <div class="course-mod job-strategy-mod js-scroll-tenh nk-module-content">
             <div class="course-mod-bd">
@@ -297,13 +297,13 @@
               </ul>
               <section class="job-strategy-item js-scroll-tutoring" style="padding-top:20px;">
                 <div class="course-mod-hd">
-                  <img src="src/assets/common/picture/D520D06CFCCD0756C62CE45608AEEF30.jpg" alt="" style="width: 154px;">
+                  <img src="../assets/common/picture/D520D06CFCCD0756C62CE45608AEEF30.jpg" alt="" style="width: 154px;">
                 </div>
                 <div class="single-service-list">
                   <ul style="display: flex; justify-content: space-between;">
                     <a href="javascript:;" target="_blank">
                       <li>
-                        <img class="bg" src="src/assets/common/picture/1.png" alt="">
+                        <img class="bg" src="../assets/common/picture/1.png" alt="">
 
                         <div class="cont">
                           <h4>Java 实战面试项目</h4>
@@ -316,7 +316,7 @@
 
                     <a href="javascript:;" target="_blank" style="margin-left: 10px">
                       <li>
-                        <img class="bg" src="src/assets/common/picture/2.png" alt="">
+                        <img class="bg" src="../assets/common/picture/2.png" alt="">
 
                         <div class="cont">
                           <h4>C++ 实战面试项目</h4>
@@ -328,7 +328,7 @@
                     </a>
                     <a href="410.html" target="_blank" style="margin-left: 10px">
                       <li>
-                        <img class="bg" src="src/assets/common/picture/3.png" alt="">
+                        <img class="bg" src="../assets/common/picture/3.png" alt="">
 
                         <div class="cont">
                           <h4>前端实战面试项目</h4>
@@ -346,14 +346,14 @@
 
               <section class="job-strategy-item">
                 <div class="course-mod-hd">
-                  <img src="src/assets/common/picture/bok.png" alt="" style="width: 131px;">
+                  <img src="../assets/common/picture/bok.png" alt="" style="width: 131px;">
                 </div>
                 <div class="nowcoder-special-column">
                   <ul>
                     <li class="item js-nc-wrap-link" data-href="https://blog.nowcoder.net/zhuanlan/qmGDjv"
                         data-target="_blank">
                       <div class="pic">
-                        <img src="src/assets/common/picture/826546_1585800813932_FB5C81ED3A220004B71069645F112867.jpg" alt="">
+                        <img src="../assets/common/picture/826546_1585800813932_FB5C81ED3A220004B71069645F112867.jpg" alt="">
                       </div>
                       <div class="cont">
                         <div class="hd">
@@ -378,7 +378,7 @@
                     <li class="item js-nc-wrap-link" data-href="https://blog.nowcoder.net/zhuanlan/wjvzjl"
                         data-target="_blank">
                       <div class="pic">
-                        <img src="src/assets/common/picture/826546_1585563218447_09DD8C2662B96CE14928333F055C5580.jpg" alt="">
+                        <img src="../assets/common/picture/826546_1585563218447_09DD8C2662B96CE14928333F055C5580.jpg" alt="">
                       </div>
                       <div class="cont">
                         <div class="hd">
@@ -404,7 +404,7 @@
                     <li class="item js-nc-wrap-link" data-href="https://blog.nowcoder.net/zhuanlan/9MJvMQ"
                         data-target="_blank">
                       <div class="pic">
-                        <img src="src/assets/common/picture/826546_1585563257633_10FB15C77258A991B0028080A64FB42D.jpg" alt="">
+                        <img src="../assets/common/picture/826546_1585563257633_10FB15C77258A991B0028080A64FB42D.jpg" alt="">
                       </div>
                       <div class="cont">
                         <div class="hd">
@@ -430,7 +430,7 @@
                     <li class="item js-nc-wrap-link" data-href="https://blog.nowcoder.net/zhuanlan/Y0xvjy"
                         data-target="_blank">
                       <div class="pic">
-                        <img src="src/assets/common/picture/826546_1585800977365_F19C9085129709EE14D013BE869DF69B.jpg" alt="">
+                        <img src="../assets/common/picture/826546_1585800977365_F19C9085129709EE14D013BE869DF69B.jpg" alt="">
                       </div>
                       <div class="cont">
                         <div class="hd">
@@ -456,7 +456,7 @@
                     <li class="item js-nc-wrap-link" data-href="https://blog.nowcoder.net/zhuanlan/LMVLm7"
                         data-target="_blank">
                       <div class="pic">
-                        <img src="src/assets/common/picture/826546_1585564576160_785AC8A5337E83B742098B744E9A1232.jpg" alt="">
+                        <img src="../assets/common/picture/826546_1585564576160_785AC8A5337E83B742098B744E9A1232.jpg" alt="">
                       </div>
                       <div class="cont">
                         <div class="hd">
@@ -482,7 +482,7 @@
                     <li class="item js-nc-wrap-link" data-href="https://www.nowcoder.com/tutorial/10018/index"
                         data-target="_blank">
                       <div class="pic">
-                        <img src="src/assets/common/picture/826546_1585563189637_9EB9CD58B9EA5E04C890326B5C1F471F.jpg" alt="">
+                        <img src="../assets/common/picture/826546_1585563189637_9EB9CD58B9EA5E04C890326B5C1F471F.jpg" alt="">
                       </div>
                       <div class="cont">
                         <div class="hd">
@@ -508,7 +508,7 @@
                     <li class="item js-nc-wrap-link" data-href="https://www.nowcoder.com/tutorial/10029/index"
                         data-target="_blank">
                       <div class="pic">
-                        <img src="src/assets/common/picture/5088755_1592387487346_0817A01BDE431DB5A4AD16FD6C63A842.jpg" alt="">
+                        <img src="../assets/common/picture/5088755_1592387487346_0817A01BDE431DB5A4AD16FD6C63A842.jpg" alt="">
                       </div>
                       <div class="cont">
                         <div class="hd">
@@ -535,7 +535,7 @@
                     <li class="item js-nc-wrap-link" data-href="https://www.nowcoder.com/tutorial/10030/index"
                         data-target="_blank">
                       <div class="pic">
-                        <img src="src/assets/common/picture/583723156_1592471634631_3E4BACECF8D5A09A285809871102AC5D.jpg" alt="">
+                        <img src="../assets/common/picture/583723156_1592471634631_3E4BACECF8D5A09A285809871102AC5D.jpg" alt="">
                       </div>
                       <div class="cont">
                         <div class="hd">
@@ -559,7 +559,7 @@
                     <li class="item js-nc-wrap-link" data-href="https://www.nowcoder.com/tutorial/10036/index"
                         data-target="_blank">
                       <div class="pic">
-                        <img src="src/assets/common/picture/691666214_1602914980931_1925ADECEC44609BC61F11983E2C623B.jpg" alt="">
+                        <img src="../assets/common/picture/691666214_1602914980931_1925ADECEC44609BC61F11983E2C623B.jpg" alt="">
                       </div>
                       <div class="cont">
                         <div class="hd">
@@ -586,7 +586,7 @@
                     <li class="item js-nc-wrap-link" data-href="https://www.nowcoder.com/tutorial/10037/index"
                         data-target="_blank">
                       <div class="pic">
-                        <img src="src/assets/common/picture/691666214_1602915051297_67BD7118B9DDF80FDDBAF93FC5CD9D0B.jpg" alt="">
+                        <img src="../assets/common/picture/691666214_1602915051297_67BD7118B9DDF80FDDBAF93FC5CD9D0B.jpg" alt="">
                       </div>
                       <div class="cont">
                         <div class="hd">
@@ -617,7 +617,7 @@
 
         <div class="js-scroll-live nk-module-white">
           <div class="nk-module-gray" style="text-align: center;">
-            <img src="src/assets/common/picture/live.png" alt="" style="width: 205px;">
+            <img src="../assets/common/picture/live.png" alt="" style="width: 205px;">
           </div>
           <div class="course-mod nk-module-content">
             <div class="course-mod-bd">
@@ -628,7 +628,7 @@
                   <div class="work-live-main">
                     <div class="work-live-item">
                       <a class="head-pic" href="javascript:void(0)"><img
-                          src="src/assets/common/picture/FBD7507AF7A4FE727E5489B4E3DF09A4.jpg"></a>
+                          src="../assets/common/picture/FBD7507AF7A4FE727E5489B4E3DF09A4.jpg"></a>
                       <div class="work-live-detail">
                         <span class="sign-new">简 介</span>Shopee北京研发中心 HRBP，负责 MAP、MLP团队的人力相关工作。互联网 HR领域专家，毕业于北京邮电大学，
                         10年以上互联网领域 HR 工作经验，专注于研发、产品等团队的组织和人才发展工作，曾服务于爱奇艺、阿里等公司。
@@ -636,7 +636,7 @@
                     </div>
                     <div class="work-live-item">
                       <a class="head-pic" href="javascript:void(0)"><img
-                          src="src/assets/common/picture/56AD95A39DB6D9671DA946936FB8B1C5.jpg"></a>
+                          src="../assets/common/picture/56AD95A39DB6D9671DA946936FB8B1C5.jpg"></a>
                       <div class="work-live-detail">
                         <span class="sign-new">简 介</span>Shopee 深度学习平台负责人, 毕业于浙江大学。负责过旷视 Brain++AI 生产力平台及开源深度学习框架天元（
                         MegEngine ）。在深度学习、高性能计算（HPC）、弹性计算基础设施、高可用高性能可伸缩分布式存储系统、微服务体系等领域拥有十余年丰富经验。目前在Shopee
@@ -645,7 +645,7 @@
                     </div>
                     <div class="work-live-item">
                       <a class="head-pic" href="javascript:void(0)"><img
-                          src="src/assets/common/picture/E05A573B37F1214C740E1C22870D9493.jpg"></a>
+                          src="../assets/common/picture/E05A573B37F1214C740E1C22870D9493.jpg"></a>
                       <div class="work-live-detail">
                         <span class="sign-new">简 介</span>音视频专家工程师, Shopee 多媒体中心直播方向，负责直播
                         SDK研发、优化工作。毕业于北京工商大学，曾负责自研引擎研发，实现跨海直播类日课量 10万 + ，各类指标数据比肩声网、
@@ -656,12 +656,12 @@
                   <div class="work-live-info js-work-live-info" data-lefttime="9656112" data-chapter-id="3925">
                     <a href="javascript:;" target="_blank" class="work-live-entry link-green js-work-live-start"
                        style="display:none;">
-                      <img src="src/assets/common/picture/video-icon.png">
+                      <img src="../assets/common/picture/video-icon.png">
                       <p>进入直播</p>
                     </a>
                     <a href="javascript:void(0);" target="_blank"
                        class="work-live-entry link-green nc-req-auth js-signup">
-                      <img src="src/assets/common/picture/video-icon.png">
+                      <img src="../assets/common/picture/video-icon.png">
                       <p>课程报名</p>
                     </a>
                     <p>
@@ -674,13 +674,13 @@
 
 
               <div class="course-mod-hd" style="display: flex;">
-                <img src="src/assets/common/picture/rev.png" alt="" height="20">
+                <img src="../assets/common/picture/rev.png" alt="" height="20">
                 <a href="javascript:;" class="color-green" style="margin-left: auto;">查看更多</a>
               </div>
               <ul class="course-live-list">
                 <li>
                   <div class="course-live-img">
-                    <img src="src/assets/common/picture/4107856_1575019652986_60x60.png">
+                    <img src="../assets/common/picture/4107856_1575019652986_60x60.png">
                   </div>
                   <div class="course-live-txt">
                     <a class="txt" href="javascript:;" target="_blank">
@@ -690,7 +690,7 @@
                 </li>
                 <li>
                   <div class="course-live-img">
-                    <img src="src/assets/common/picture/蚂蚁集团彩-圆-120x120.png">
+                    <img src="../assets/common/picture/蚂蚁集团彩-圆-120x120.png">
                   </div>
                   <div class="course-live-txt">
                     <a class="txt" href="javascript:;" target="_blank">
@@ -700,7 +700,7 @@
                 </li>
                 <li>
                   <div class="course-live-img">
-                    <img src="src/assets/common/picture/999991370_1598691740090_120-120轻舟智航.png">
+                    <img src="../assets/common/picture/999991370_1598691740090_120-120轻舟智航.png">
                   </div>
                   <div class="course-live-txt">
                     <a class="txt" href="javascript:;" target="_blank">
@@ -710,7 +710,7 @@
                 </li>
                 <li>
                   <div class="course-live-img">
-                    <img src="src/assets/common/picture/999991354_1552473029850_富途.png">
+                    <img src="../assets/common/picture/999991354_1552473029850_富途.png">
                   </div>
                   <div class="course-live-txt">
                     <a class="txt" href="javascript:;" target="_blank">
@@ -720,7 +720,7 @@
                 </li>
                 <li>
                   <div class="course-live-img">
-                    <img src="src/assets/common/picture/49808a52b9b1f204a0764bcc1a380dd.jpg">
+                    <img src="../assets/common/picture/49808a52b9b1f204a0764bcc1a380dd.jpg">
                   </div>
                   <div class="course-live-txt">
                     <a class="txt" href="javascript:;" target="_blank">
@@ -730,7 +730,7 @@
                 </li>
                 <li>
                   <div class="course-live-img">
-                    <img src="src/assets/common/picture/999991370_1594097911168_彩圆logo.png">
+                    <img src="../assets/common/picture/999991370_1594097911168_彩圆logo.png">
                   </div>
                   <div class="course-live-txt">
                     <a class="txt" href="javascript:;" target="_blank">
@@ -740,7 +740,7 @@
                 </li>
                 <li>
                   <div class="course-live-img">
-                    <img src="src/assets/common/picture/上上签logo1.png">
+                    <img src="../assets/common/picture/上上签logo1.png">
                   </div>
                   <div class="course-live-txt">
                     <a class="txt" href="javascript:;" target="_blank">
@@ -750,7 +750,7 @@
                 </li>
                 <li>
                   <div class="course-live-img">
-                    <img src="src/assets/common/picture/圆彩120x120.png">
+                    <img src="../assets/common/picture/圆彩120x120.png">
                   </div>
                   <div class="course-live-txt">
                     <a class="txt" href="javascript:;" target="_blank">
@@ -767,22 +767,22 @@
 
         <div class="nk-module-white js-institute-mod">
           <div class="nk-module-gray" style="text-align: center;">
-            <img src="src/assets/common/picture/learn.png" alt="" style="width: 205px;">
+            <img src="../assets/common/picture/learn.png" alt="" style="width: 205px;">
           </div>
           <div class="course-mod nk-module-content">
             <div class="course-mod-hd">
-              <img src="src/assets/common/picture/get.png" alt="" style="width: 131px;">
+              <img src="../assets/common/picture/get.png" alt="" style="width: 131px;">
             </div>
             <div class="course-mod-bd">
               <ul class="basic-study-list">
                 <li>
                   <div class="hd">
-                    <img src="src/assets/common/picture/8.png" alt="">
+                    <img src="../assets/common/picture/8.png" alt="">
                     <h4>Java方向</h4>
                   </div>
                   <a class="course-list-box" href="5fc0c07cd9d44e66b3baafd76f1f5b9f.html" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580898882521_062F798501999A3D1CACBFB6DD65BFBB.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580898882521_062F798501999A3D1CACBFB6DD65BFBB.jpg" alt="">
                       <div class="tag">
                         <span>精</span>
                       </div>
@@ -797,7 +797,7 @@
                   </a>
                   <a class="course-list-box" href="10021.html" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580898893082_673DA3ED35CDEE0675D132CB0C6D6D03.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580898893082_673DA3ED35CDEE0675D132CB0C6D6D03.jpg" alt="">
                       <div class="tag tag2">
                         <span class="icon-nc-play"></span>
                       </div>
@@ -812,7 +812,7 @@
                   </a>
                   <a class="course-list-box" href="305.html" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580898901282_307DD441F9B29B2AB0E791434C1C8342.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580898901282_307DD441F9B29B2AB0E791434C1C8342.jpg" alt="">
                       <div class="tag tag3">
                         <span class="icon-nc-crown"></span>
                       </div>
@@ -828,12 +828,12 @@
                 </li>
                 <li>
                   <div class="hd">
-                    <img src="src/assets/common/picture/11.png" alt="">
+                    <img src="../assets/common/picture/11.png" alt="">
                     <h4>C语言方向</h4>
                   </div>
                   <a class="course-list-box" href="8f7c3e0e7efd441d8f7c9c8d43c2a0f4.html" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580898850806_6D36AFD86371015069A76AF4F8B43898.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580898850806_6D36AFD86371015069A76AF4F8B43898.jpg" alt="">
                       <div class="tag">
                         <span>精</span>
                       </div>
@@ -848,7 +848,7 @@
                   </a>
                   <a class="course-list-box" href="1049.html" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/826546_1585563045511_5409C304FB9CF4DA37FCE1D446239ABE.jpg" alt="">
+                      <img src="../assets/common/picture/826546_1585563045511_5409C304FB9CF4DA37FCE1D446239ABE.jpg" alt="">
                       <div class="tag tag2">
                         <span class="icon-nc-play"></span>
                       </div>
@@ -864,12 +864,12 @@
                 </li>
                 <li>
                   <div class="hd">
-                    <img src="src/assets/common/picture/11.png" alt="">
+                    <img src="../assets/common/picture/11.png" alt="">
                     <h4>C++方向</h4>
                   </div>
                   <a class="course-list-box" href="7bdcb36b1ff74114b026c46b7ac64ac1.html" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580894107456_E62A546C2F4F333D93B64572DC47D19B.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580894107456_E62A546C2F4F333D93B64572DC47D19B.jpg" alt="">
                       <div class="tag">
                         <span>精</span>
                       </div>
@@ -884,7 +884,7 @@
                   </a>
                   <a class="course-list-box" href="10012.html" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580894114915_8D3CD272C6E969136E543931E019F957.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580894114915_8D3CD272C6E969136E543931E019F957.jpg" alt="">
                       <div class="tag tag2">
                         <span class="icon-nc-play"></span>
                       </div>
@@ -899,7 +899,7 @@
                   </a>
                   <a class="course-list-box" href="javascript:;" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580894126069_099605855D8DE45F4B01F961F3E87E74.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580894126069_099605855D8DE45F4B01F961F3E87E74.jpg" alt="">
                       <div class="tag tag3">
                         <span class="icon-nc-crown"></span>
                       </div>
@@ -915,12 +915,12 @@
                 </li>
                 <li>
                   <div class="hd">
-                    <img src="src/assets/common/picture/31.png" alt="">
+                    <img src="../assets/common/picture/31.png" alt="">
                     <h4>Python方向</h4>
                   </div>
                   <a class="course-list-box" href="dc2c82d6557548beb0e2252869be13d8.html" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580898350753_70008DEA131AA48C661D7BEFEAA4BA20.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580898350753_70008DEA131AA48C661D7BEFEAA4BA20.jpg" alt="">
                       <div class="tag">
                         <span>精</span>
                       </div>
@@ -935,7 +935,7 @@
                   </a>
                   <a class="course-list-box" href="10041.html" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580898359670_E306015A974BC4DA1A60C4DA81FA8882.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580898359670_E306015A974BC4DA1A60C4DA81FA8882.jpg" alt="">
                       <div class="tag tag2">
                         <span class="icon-nc-play"></span>
                       </div>
@@ -951,12 +951,12 @@
                 </li>
                 <li>
                   <div class="hd">
-                    <img src="src/assets/common/picture/21.png" alt="">
+                    <img src="../assets/common/picture/21.png" alt="">
                     <h4>前端方向</h4>
                   </div>
                   <a class="course-list-box" href="javascript:;" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580898584119_93B4107F4CCAB345664E0F2E821DFE74.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580898584119_93B4107F4CCAB345664E0F2E821DFE74.jpg" alt="">
                       <div class="tag">
                         <span>精</span>
                       </div>
@@ -971,7 +971,7 @@
                   </a>
                   <a class="course-list-box" href="javascript:;" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580898646588_04D64FE7F0A0B0BC374A2A234B48011B.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580898646588_04D64FE7F0A0B0BC374A2A234B48011B.jpg" alt="">
                       <div class="tag">
                         <span>精</span>
                       </div>
@@ -986,7 +986,7 @@
                   </a>
                   <a class="course-list-box" href="javascript:;" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580898613733_52706DA5A521C9543BE73119C24D0F88.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580898613733_52706DA5A521C9543BE73119C24D0F88.jpg" alt="">
                       <div class="tag">
                         <span>精</span>
                       </div>
@@ -1002,12 +1002,12 @@
                 </li>
                 <li>
                   <div class="hd">
-                    <img src="src/assets/common/picture/4.png" alt="">
+                    <img src="../assets/common/picture/4.png" alt="">
                     <h4>数据库方向</h4>
                   </div>
                   <a class="course-list-box" href="3fbb1dc787f34a9cad2c73be2b21d8d6.html" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580899325951_C8D6BA72602763C2211EE05D5EF334F9.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580899325951_C8D6BA72602763C2211EE05D5EF334F9.jpg" alt="">
                       <div class="tag">
                         <span>精</span>
                       </div>
@@ -1022,7 +1022,7 @@
                   </a>
                   <a class="course-list-box" href="javascript:;" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580898710663_BB019401FE78AF1BD38F81B00F883FFA.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580898710663_BB019401FE78AF1BD38F81B00F883FFA.jpg" alt="">
                       <div class="tag tag2">
                         <span class="icon-nc-play"></span>
                       </div>
@@ -1038,12 +1038,12 @@
                 </li>
                 <li>
                   <div class="hd">
-                    <img src="src/assets/common/picture/7.png" alt="">
+                    <img src="../assets/common/picture/7.png" alt="">
                     <h4>PHP方向</h4>
                   </div>
                   <a class="course-list-box" href="javascript:;" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580898159786_44E8BCFDAB2E80904CAECF359A502472.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580898159786_44E8BCFDAB2E80904CAECF359A502472.jpg" alt="">
                       <div class="tag tag3">
                         <span class="icon-nc-crown"></span>
                       </div>
@@ -1058,7 +1058,7 @@
                   </a>
                   <a class="course-list-box" href="1007.html" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580898171016_EDE373EAC81E8AAE7AC978C8C4F45CC5.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580898171016_EDE373EAC81E8AAE7AC978C8C4F45CC5.jpg" alt="">
                       <div class="tag tag2">
                         <span class="icon-nc-play"></span>
                       </div>
@@ -1074,12 +1074,12 @@
                 </li>
                 <li>
                   <div class="hd">
-                    <img src="src/assets/common/picture/5.png" alt="">
+                    <img src="../assets/common/picture/5.png" alt="">
                     <h4>C#方向</h4>
                   </div>
                   <a class="course-list-box" href="javascript:;" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580894025345_FDEF15595FFDC3A9F94A07EDB3B10ED7.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580894025345_FDEF15595FFDC3A9F94A07EDB3B10ED7.jpg" alt="">
                       <div class="tag tag3">
                         <span class="icon-nc-crown"></span>
                       </div>
@@ -1094,7 +1094,7 @@
                   </a>
                   <a class="course-list-box" href="10052.html" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580894032938_9589C614240E428EE76374A6A9FCB0D0.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580894032938_9589C614240E428EE76374A6A9FCB0D0.jpg" alt="">
                       <div class="tag tag2">
                         <span class="icon-nc-play"></span>
                       </div>
@@ -1110,12 +1110,12 @@
                 </li>
                 <li>
                   <div class="hd">
-                    <img src="src/assets/common/picture/6.png" alt="">
+                    <img src="../assets/common/picture/6.png" alt="">
                     <h4>产品经理</h4>
                   </div>
                   <a class="course-list-box" href="159.html" target="_blank">
                     <div class="item">
-                      <img src="src/assets/common/picture/9398821_1580898108457_8660FF6CC7A89DBBAF88AB5ED92CA86F.jpg" alt="">
+                      <img src="../assets/common/picture/9398821_1580898108457_8660FF6CC7A89DBBAF88AB5ED92CA86F.jpg" alt="">
                       <div class="tag tag3">
                         <span class="icon-nc-crown"></span>
                       </div>
@@ -1137,18 +1137,18 @@
 
         <div class="nk-module-white js-scroll-course">
           <div class="nk-module-gray" style="text-align: center;">
-            <img src="src/assets/common/picture/more-lesson.png" alt="" style="width: 205px;">
+            <img src="../assets/common/picture/more-lesson.png" alt="" style="width: 205px;">
           </div>
           <div class="course-mod nk-module-content">
             <div class="course-mod-bd">
               <div class="course-mod-hd">
-                <img src="src/assets/common/picture/pra.png" alt="" style="width: 131px;">
+                <img src="../assets/common/picture/pra.png" alt="" style="width: 131px;">
               </div>
               <div class="course-wrap clearfix">
                 <div class="course-info">
                   <a href="elementary.html">
                     <div class="course-pic"><img
-                        src="src/assets/common/picture/59_1562812569996_749BD49F84EFFEB953A8572D22FB6F5E.jpg" alt=""></div>
+                        src="../assets/common/picture/59_1562812569996_749BD49F84EFFEB953A8572D22FB6F5E.jpg" alt=""></div>
                     <div class="course-detail">
                       <div class="item-tit clearfix">
                         <span class="tag-label tag-border-orange mark-group-tag">￥299</span>
@@ -1168,7 +1168,7 @@
                 <div class="course-info">
                   <a href="javascript:;">
                     <div class="course-pic"><img
-                        src="src/assets/common/picture/2_1605863650547_AFCAC94781B3F93D9280A6429D691FA4.jpg" alt=""></div>
+                        src="../assets/common/picture/2_1605863650547_AFCAC94781B3F93D9280A6429D691FA4.jpg" alt=""></div>
                     <div class="course-detail">
                       <div class="item-tit clearfix">
                         <span class="tag-label tag-border-orange mark-group-tag">拼团￥699.0</span>
@@ -1188,7 +1188,7 @@
                 <div class="course-info">
                   <a href="javascript:;">
                     <div class="course-pic"><img
-                        src="src/assets/common/picture/2_1605863895725_79F31D19C7A45CCE9B1CC2E3D2278DF2.jpg" alt=""></div>
+                        src="../assets/common/picture/2_1605863895725_79F31D19C7A45CCE9B1CC2E3D2278DF2.jpg" alt=""></div>
                     <div class="course-detail">
                       <div class="item-tit clearfix">
                         <span class="tag-label tag-border-orange mark-group-tag">拼团￥399.0</span>
@@ -1208,7 +1208,7 @@
                 <div class="course-info">
                   <a href="410.html">
                     <div class="course-pic"><img
-                        src="src/assets/common/picture/179730950_1594726212130_89B8BA35AB9AAD30D508B2457A80237A.jpg" alt=""></div>
+                        src="../assets/common/picture/179730950_1594726212130_89B8BA35AB9AAD30D508B2457A80237A.jpg" alt=""></div>
                     <div class="course-detail">
                       <div class="item-tit clearfix">
                         <span class="tag-label tag-border-orange mark-group-tag">拼团￥279.0</span>
@@ -1227,7 +1227,7 @@
                 </div>
                 <div class="course-info">
                   <a href="javascript:;">
-                    <div class="course-pic"><img src="src/assets/common/picture/32.png" alt=""></div>
+                    <div class="course-pic"><img src="../assets/common/picture/32.png" alt=""></div>
                     <div class="course-detail">
                       <div class="item-tit clearfix">
                         <span class="tag-label tag-border-green">公开课</span>
@@ -1247,7 +1247,7 @@
                 <div class="course-info">
                   <a href="javascript:;">
                     <div class="course-pic"><img
-                        src="src/assets/common/picture/59_1523851845955_EC5A558F4A6E6B7A7FAF9480FF066A2E.jpg" alt=""></div>
+                        src="../assets/common/picture/59_1523851845955_EC5A558F4A6E6B7A7FAF9480FF066A2E.jpg" alt=""></div>
                     <div class="course-detail">
                       <div class="item-tit clearfix">
                         <span class="tag-label tag-border-green">公开课</span>
@@ -1288,7 +1288,7 @@
                 <div class="course-info">
                   <a href="javascript:;">
                     <div class="course-pic"><img
-                        src="src/assets/common/picture/179730950_1598494707930_802EE15FC40FA614E957679876A4814C.jpg" alt=""></div>
+                        src="../assets/common/picture/179730950_1598494707930_802EE15FC40FA614E957679876A4814C.jpg" alt=""></div>
                     <div class="course-detail">
                       <div class="item-tit clearfix">
                         <span class="tag-label tag-border-orange mark-group-tag">￥299</span>
@@ -1308,7 +1308,7 @@
 
                 <div class="course-info">
                   <a href="javascript:;">
-                    <div class="course-pic"><img src="src/assets/common/picture/CA473110F134EA6E91377E2EF0B68CD6.jpg" alt=""></div>
+                    <div class="course-pic"><img src="../assets/common/picture/CA473110F134EA6E91377E2EF0B68CD6.jpg" alt=""></div>
                     <div class="course-detail">
                       <div class="item-tit clearfix">
                         <span class="tag-label tag-border-orange mark-group-tag">￥1199</span>
@@ -1329,13 +1329,13 @@
             </div>
             <div class="course-mod-bd">
               <div class="course-mod-hd">
-                <img src="src/assets/common/picture/alg.png" alt="" style="width: 131px;">
+                <img src="../assets/common/picture/alg.png" alt="" style="width: 131px;">
               </div>
               <div class="course-wrap clearfix">
                 <div class="course-info">
                   <a href="javascript:;">
                     <div class="course-pic"><img
-                        src="src/assets/common/picture/59_1600326899496_8A42CDD032CC5A7756B589E5288DF111.jpg" alt=""></div>
+                        src="../assets/common/picture/59_1600326899496_8A42CDD032CC5A7756B589E5288DF111.jpg" alt=""></div>
                     <div class="course-detail">
                       <div class="item-tit clearfix">
                         <span class="tag-label tag-border-orange mark-group-tag">￥399</span>
@@ -1355,7 +1355,7 @@
                 <div class="course-info">
                   <a href="javascript:;">
                     <div class="course-pic"><img
-                        src="src/assets/common/picture/59_1600326953543_106DF34AADDE51FDD3355A11AB52718C.jpg" alt=""></div>
+                        src="../assets/common/picture/59_1600326953543_106DF34AADDE51FDD3355A11AB52718C.jpg" alt=""></div>
                     <div class="course-detail">
                       <div class="item-tit clearfix">
                         <span class="tag-label tag-border-orange mark-group-tag">￥399</span>
@@ -1375,7 +1375,7 @@
                 <div class="course-info">
                   <a href="javascript:;">
                     <div class="course-pic"><img
-                        src="src/assets/common/picture/59_1600326969683_BECAB87746B2CC31981E991614729BFC.jpg" alt=""></div>
+                        src="../assets/common/picture/59_1600326969683_BECAB87746B2CC31981E991614729BFC.jpg" alt=""></div>
                     <div class="course-detail">
                       <div class="item-tit clearfix">
                         <span class="tag-label tag-border-orange mark-group-tag">￥599</span>
@@ -1395,7 +1395,7 @@
                 <div class="course-info">
                   <a href="javascript:;">
                     <div class="course-pic"><img
-                        src="src/assets/common/picture/59_1600326972845_6397B7E69A752047638571BE6695AA83.jpg" alt=""></div>
+                        src="../assets/common/picture/59_1600326972845_6397B7E69A752047638571BE6695AA83.jpg" alt=""></div>
                     <div class="course-detail">
                       <div class="item-tit clearfix">
                         <span class="tag-label tag-border-orange mark-group-tag">￥599</span>
@@ -1414,7 +1414,7 @@
                 </div>
                 <div class="course-info">
                   <a href="algorithm.html">
-                    <div class="course-pic"><img src="src/assets/common/picture/vod_course_chengyun_217x145.png" alt=""></div>
+                    <div class="course-pic"><img src="../assets/common/picture/vod_course_chengyun_217x145.png" alt=""></div>
                     <div class="course-detail">
                       <div class="item-tit clearfix">
 
@@ -1443,7 +1443,7 @@
 
         <div class="nk-module-white js-scroll-game">
           <div class="nk-module-gray" style="text-align: center;">
-            <img src="src/assets/common/picture/more-free-lessons.png" alt="" style="width: 205px;">
+            <img src="../assets/common/picture/more-free-lessons.png" alt="" style="width: 205px;">
           </div>
           <div class="course-mod nk-module-content">
             <div class="js-business-cooperation">
@@ -1477,7 +1477,7 @@
         <div class="ft-cont clearfix">
           <div class="ft-app">
             <div class="ft-qrcode-box">
-              <img src="src/assets/common/picture/app_download.png">
+              <img src="../assets/common/picture/app_download.png">
             </div>
             <p>扫一扫，把题目装进口袋</p>
           </div>
@@ -1531,12 +1531,12 @@
               </li>
               <li>
                 <a class="ft-info-item" target="_blank" href="javascript:;">京ICP备14055008号-4</a>
-                <a class="ft-info-item ml-1" target="_blank" href="src/assets/common/file/icp.png">增值电信业务经营许可证</a>
+                <a class="ft-info-item ml-1" target="_blank" href="../assets/common/file/icp.png">增值电信业务经营许可证</a>
                 <a class="ft-info-item ml-1" target="_blank" href="license-center.html#business">营业执照</a>
                 <a class="ft-info-item ml-1" target="_blank" href="license-center.html#human-resources">人力资源服务许可证</a>
               </li>
               <li>
-                <img src="src/assets/common/picture/ghs.png" height="18">
+                <img src="../assets/common/picture/ghs.png" height="18">
                 <a class="ft-info-item" target="_blank" href="javascript:;">京公网安备
                   11010502036488号</a>
               </li>
@@ -1565,13 +1565,13 @@
 </template>
 
 <style>
-@import "src/assets/common/css/global.css";
-@import "src/assets/common/css/global.ui.css";
-@import "src/assets/common/css/base.css";
-@import "src/assets/common/css/default.css";
-@import "src/assets/common/css/common.css";
-@import "src/assets/common/css/env.css";
-@import "src/assets/common/css/element-ui.css";
-@import "src/assets/common/css/courseCollection.css";
-@import "src/assets/common/css/main.entry.css";
+@import "../assets/common/css/global.css";
+@import "../assets/common/css/global.ui.css";
+@import "../assets/common/css/base.css";
+@import "../assets/common/css/default.css";
+@import "../assets/common/css/common.css";
+@import "../assets/common/css/env.css";
+/*@import "../assets/common/css/element-ui.css";*/
+@import "../assets/common/css/courseCollection.css";
+@import "../assets/common/css/main.entry.css";
 </style>

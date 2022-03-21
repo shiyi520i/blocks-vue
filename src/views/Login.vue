@@ -1,30 +1,21 @@
 <template>
   <div>
-    <div>
-      <Header/>
-    </div>
+        <Header/>
     <!--展示的地方-->
-    <div  class="main-container">
-<!--      <transition>
-        <keep-alive>
-          <router-view></router-view>
-        </keep-alive>
-      </transition>-->
-    </div>
-    <div>
-      <AppFooter/>
-    </div>
+    <el-footer>
+      <Footer/>
+    </el-footer>
   </div>
 </template>
 
 <script>
-import AppFooter from "@/components/AppFoot"
+import Footer from "@/components/Footer"
 import Header from "@/router/Header"
 
 export default {
   name: 'Login',
   components: {
-    AppFooter,
+    Footer,
     Header
   },
 
@@ -47,25 +38,6 @@ export default {
 
 <style>
 
-.headline {
-  height: 40px;
-  line-height: 40px;
-  width: 100%;
-  background: #f5f5f5;
-  border-bottom: 1px solid #eeeeee;
-}
-
-.headline-cont {
-  height: 40px;
-  width: 1100px;
-  margin: 0 auto;
-}
-
-.headline-info2 {
-  height: auto;
-  margin-top: 5px;
-}
-
 .headline-info2 ul li {
   float: left;
   padding: 0 5px;
@@ -85,7 +57,6 @@ export default {
   background: #D8544F;
   color: #ffffff
 }
-
 
 .main-container {
   /*  35 = footer  */

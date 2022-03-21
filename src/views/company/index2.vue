@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <head>
 <meta charset="utf-8">
@@ -64,4 +65,4 @@ var gioDomain =
 <script src="static/js/env1.js"></script>
 <script type="text/javascript" src="static/js/jsencrypt.min.js"></script>
 <script src="static/js/main.entry4.js" type="text/javascript"></script>
-</body>
+</body>-->
