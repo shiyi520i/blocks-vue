@@ -4,6 +4,7 @@
 		<button @click="handleLogout">登出</button>
 		<button @click="handleResourc">调用后端资源</button>
 		<button @click="sortPost">测试</button>
+    <v-distpicker></v-distpicker>
 	</div>
 </template>
 
@@ -41,7 +42,7 @@ export default {
 			}
 		},
     sortPost(){
-      this.axios.get('http://127.0.0.1:8080/busRecruitinfo/getall'
+      this.axios.get('http://localhost:4000/api/busRecruitinfo/getall'
       ).then(response => {
         console.log(response.data)
       })

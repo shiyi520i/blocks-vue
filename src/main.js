@@ -6,11 +6,12 @@ import 'element-ui/lib/theme-chalk/index.css';
 import router from './router';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import Distpicker from 'v-distpicker'
+import { AuthenticationClient } from 'authing-js-sdk';
 
+Vue.component('v-distpicker', Distpicker)
 Vue.use(ElementUI);
 Vue.use(VueAxios, axios)
-
-import { AuthenticationClient } from 'authing-js-sdk';
 
 const authing = new AuthenticationClient({
 	appId: '6226abf77a4aa03fc8397fc1',

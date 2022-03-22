@@ -8,7 +8,7 @@
       <div class="mg_t_20"></div>
       <div class="row mg_b_20">
         <div class="col-12 mg_b_15">
-          <form class="mg_b_15" action="" target="_self" >
+          <form class="mg_b_15"  >
             <div class="S_input_group">
               <div class="S_input">
                 <input class="S_input_inner form-control"  v-model="keyword"  autocomplete="off" value="" placeholder="请输入职位或公司关键字搜索">
@@ -32,7 +32,7 @@
       <div class="hr"></div>
       <div class="row mg_b_10">
         <div class="col-12">
-          <form class="nei_job_search" action="" target="_self" method="GET">
+          <form class="nei_job_search" >
             <div class="mb-3 d-flex" >
               <div class="search_title text-muted text-justify">职位类别</div>
               <div class="flex-grow-1" >
@@ -101,20 +101,20 @@
                             effect="dark">
                           全
                         </el-tag>&nbsp;&nbsp;
-                        <a class="nei_job_name text-truncate" target="_blank"  title="" data-toggle="modal" data-target="#exampleModal" v-on:click="lookPost(index,result)" v-html="result.r_post"></a>
-                        <small class="text-muted text-nowrap ml-4">[<span>{{result.r_province}}{{result.r_city}}</span>]</small></div>
+                        <a class="nei_job_name text-truncate" target="_blank"  title="" data-toggle="modal" data-target="#exampleModal" v-on:click="lookPost(index,result)" v-html="result.rpost"></a>
+                        <small class="text-muted text-nowrap ml-4">[<span>{{result.rprovince}}{{result.rcity}}</span>]</small></div>
                       <ul class="subnav subnav-divider text-muted mg_t_15">
                         <li>
-                          <div><span class="N_text_salary">{{result.r_minsalary}}-{{result.r_maxsalary}}k/月</span></div>
+                          <div><span class="N_text_salary">{{result.rminsalary}}-{{result.rmaxsalary}}k/月</span></div>
                         </li>
                         <li class="d-none d-lg-flex">
-                          <div><span v-text="result.r_old"></span></div>
+                          <div><span v-text="result.rold"></span></div>
                         </li>
                         <li class="d-none d-lg-flex">
-                          <div><span v-text="result.r_age"></span></div>
+                          <div><span v-text="result.rage"></span></div>
                         </li>
                         <li>
-                          <div><span v-text="result.r_time"></span></div>
+                          <div><span v-text="result.rtime"></span></div>
                         </li>
                       </ul>
                     </div>
@@ -188,21 +188,21 @@
                           <a class="nei_company_name text-truncate" target="_blank"
                              title=""
                              @mouseover="showPopo(index,result)"
-                             slot="reference">{{result.r_name}}</a>
+                             slot="reference">{{result.rname}}</a>
                         </el-popover>
-                        <div v-if="result.r_ischeck === 1">
+                        <div v-if="result.rischeck === 1">
                           <span class="badge badge-primary ml-2" title="企业认证">认证</span>
                         </div>
                         <div v-else>
                           <span class="badge badge-pill badge-secondary" title="企业认证">未认证</span>
                         </div>
                       </div>
-                      <p class="text-small mg_t_15"><span class="text-muted">{{result.r_ztype}}</span></p>
+                      <p class="text-small mg_t_15"><span class="text-muted">{{result.rztype}}</span></p>
                     </div>
                   </div>
                   <div class="d-none d-lg-flex col-lg-1 flex-middle justify-content-center">
                     <div class="nei_company_logo mb-2" style="width:54px;height:54px">
-                      <el-image shape="square" :size="54" fit="contain" :src="result.r_logo"></el-image>
+                      <el-image shape="square" :size="54" fit="contain" :src="result.rlogo"></el-image>
                       <!--<img style="width: 54px;height: 54px" title="" :src="result.r_logo" alt="logo">-->
                     </div>
                   </div>
@@ -211,7 +211,7 @@
                   <div >
                     <!--<span v-for="we in result.r_welfares">{{we}}</span>-->
                     <el-tag
-                        v-for="we in result.r_welfares"
+                        v-for="we in result.rwelfares"
                         type="danger"
                         effect="plain"
                         :key="we">
@@ -273,8 +273,8 @@
 
                   <div class="mb-2">
                     <div class="bg-white no-gutters p-4">
-                      <h4 class="">{{onePost.r_post}}</h4>
-                      <h4 class="font-weight-bold N_text_salary">{{onePost.r_minsalary}}-{{onePost.r_maxsalary}}k/月</h4>
+                      <h4 class="">{{onePost.rpost}}</h4>
+                      <h4 class="font-weight-bold N_text_salary">{{onePost.rminsalary}}-{{onePost.rmaxsalary}}k/月</h4>
 
                       <p class="welfare_list pl-0" >
                         <span v-for="welfare in welfares" :key="welfare">{{welfare}}</span>
@@ -282,11 +282,11 @@
 
                       <hr>
                       <ul class="subnav subnav-divider mt-2 mb-4">
-                        <li title="区域">{{onePost.r_city}}&nbsp;-&nbsp;{{onePost.r_area}}</li>
-                        <li title="工作经验">{{onePost.r_jexperience}}</li>
-                        <li title="需要学历">{{onePost.r_erequirement}}</li>
-                        <li title="招聘人数">{{onePost.r_number}}人</li>
-                        <li title="所属行业">{{onePost.r_ztype}}</li>
+                        <li title="区域">{{onePost.rcity}}&nbsp;-&nbsp;{{onePost.rarea}}</li>
+                        <li title="工作经验">{{onePost.rjexperience}}</li>
+                        <li title="需要学历">{{onePost.rerequirement}}</li>
+                        <li title="招聘人数">{{onePost.rnumber}}人</li>
+                        <li title="所属行业">{{onePost.rztype}}</li>
                       </ul>
                       <p>
                         <button id="" class="btn btn-primary  mr-3" type="button" @click="applyPost(onePost)">
@@ -303,11 +303,11 @@
                     <div class="bg-white no-gutters">
                       <div class="mb-4 pd_20">
                         <div class="mt_cont_tilte mb-3"><span>职位描述</span></div>
-                        <pre class="text-break color-original" v-html="onePost.r_jdescript"></pre>
+                        <pre class="text-break color-original" v-html="onePost.rjdescript"></pre>
 
                         <hr />
                         <div class="mt_cont_tilte mb-3"><span>工作地点</span></div>
-                        <p>{{onePost.r_province}}{{onePost.r_city}}{{onePost.r_area}}{{onePost.r_jaddress}}</p>
+                        <p>{{onePost.rprovince}}{{onePost.rcity}}{{onePost.rarea}}{{onePost.rjaddress}}</p>
                       </div><!--mb-4-->
 
                     </div><!--row bg-white-->
@@ -540,11 +540,11 @@ export default ({
       lookPost(index,p){
         this.axios.get('${contextPath}/member/postOne',{
           params: {
-            id:p.r_id
+            id:p.rid
           }
         }).then(response => {
           this.onePost= response.data;
-          var arr= response.data.r_welfares;
+          var arr= response.data.rwelfares;
           this.welfares = arr.split(",")
           //console.log(this.welfares+'aaaaaaa')
         })
@@ -605,6 +605,14 @@ export default ({
       },
       hotClick(index,hot){
         this.pageHandler(1,hot)
+      },
+      test(){
+        this.axios.get('http://localhost:4000/api/busRecruitinfo/getall', {
+        }).then(response => {
+          this.results = response.data;
+          console.log(response.data);
+          console.log(this.results)
+        })
       }
     },
     created: function () {
@@ -612,6 +620,7 @@ export default ({
       this.sortPost();
       this.getByWidth();
       this.pageHandler(1);
+      this.test();
     }
   });
 
