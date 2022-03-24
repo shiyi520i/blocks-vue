@@ -1571,7 +1571,6 @@
 @import "../assets/common/css/default.css";
 @import "../assets/common/css/common.css";
 @import "../assets/common/css/env.css";
-/*@import "../assets/common/css/element-ui.css";*/
 @import "../assets/common/css/courseCollection.css";
 @import "../assets/common/css/main.entry.css";
 </style>

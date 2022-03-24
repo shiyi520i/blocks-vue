@@ -445,7 +445,7 @@ background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#5eaaff), to(#047BFF));/
 
 
 /*人力新增*/
-.S_input_group{position: relative; display: flex; color: #456296;}
+.S_input_group{position: relative; display: flex; color: #32ca99;}
 .S_input{flex: 1;}
 .S_input_inner{border-radius: inherit; height:50px;}
 .S_btn_zheng{ border-radius:inherit; min-width:120px; height:50px;line-height: 35px;}
@@ -685,7 +685,7 @@ background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#5eaaff), to(#047BFF));/
 
 .flex-grow-1{    flex-grow: 1!important;}
 .nei_active>a {
-    color: #ff6000!important;
+    color: #32ca99!important;
 }
 .subnav>*>:first-child {
     display: block;

@@ -5,7 +5,8 @@
     <header class="nc-nav-header-fake" id="nc-nav-header">
       <nav>
         <a href="index.html" class="nc-nav-header-logo" style="width: 140px;">
-          <img src="../assets/common/picture/1636944252254TIDXY.png">
+<!--          <img src="../assets/common/picture/1636944252254TIDXY.png">-->
+         <img src="../assets/common/picture/blocks.png">
         </a>
         <div class="nc-nav-header-menu" style="margin-right: 12px;">
           <div class="nc-nav-header-menu-item " data-type="home">
@@ -17,12 +18,7 @@
           <div class="nc-nav-header-menu-item " data-type="interview">
             <a href="index1.html">面试</a>
           </div>
-
-<!--          <div class="nc-nav-header-menu-item nc-nav-header-active" data-type="learn">
-            <router-link to="/c">学习</router-link>
-          </div>-->
-
-           <div class="nc-nav-header-menu-item" data-type="learn">
+           <div class="nc-nav-header-menu-item nc-nav-header-active" data-type="learn">
             <router-link to="/courses">学习</router-link>
           </div>
           <div class="nc-nav-header-menu-item " data-type="jobs">
@@ -34,14 +30,14 @@
           <div class="nc-nav-header-menu-item " data-type="found">
             <router-link to="/userexhibit">个人中心</router-link>
           </div>
-
         </div>
-
-        <div class="nc-nav-header-search">
+<!--        <div class="nc-nav-header-search">
           <span>帖子、文章、试题、公司、牛友</span>
           <img class="nc-nav-header-search-icon" src="../assets/common/picture/1641376106810GCJAX.png" alt="search">
-        </div>
+        </div>-->
+        <div  style="width: 260px">
 
+        </div>
         <div style="display: flex; align-items: center; font-size: 14px; margin-left: 20px; margin-left: 20px;">
           <a href="hrconsole.html#/job-manage"
              style="width: 92px; height: 32px; background: #EEFAF7; color: #32ca99; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-right: 12px;">

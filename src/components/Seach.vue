@@ -2,7 +2,6 @@
 <div>
 <br>
 <br>
-<br>
   <div class="nei_zhiwei_top">
     <div class="container">
       <div class="mg_t_20"></div>
@@ -16,14 +15,14 @@
               <button class="btn btn-secondary S_btn_zheng"  @click.prevent="searchKey" id="searchbtn">搜&nbsp;索</button>
             </div>
           </form>
-          <!-- 热门推荐 8 -->
+          <!-- 热门推荐  -->
           <div class="S_hot_search d-none d-md-flex">
             <div class="text-nowrap mg_r_20">
               <span class="color_gray">热门推荐</span>
             </div>
             <div class="S_search_list">
               <div v-for="(hotPost,index) in hotPosts"   :key="index">
-                <a class="S_link_hover"   @click="hotClick(index,hotPost)">{{hotPost.hpost}}</a>
+                <a class="S_link_hover"   @click="hotClick(index,hotPost)">{{hotPost.name}}</a>
               </div>
             </div>
           </div>
@@ -76,6 +75,7 @@
     </div><!--container-->
   </div><!--nei_zhiwei_top-->
 
+
   <div class="nei_zhiwei_cont mg_t_20 mg_b_20">
     <div class="container">
       <div class="row">
@@ -101,7 +101,7 @@
                             effect="dark">
                           全
                         </el-tag>&nbsp;&nbsp;
-                        <a class="nei_job_name text-truncate" target="_blank"  title="" data-toggle="modal" data-target="#exampleModal" v-on:click="lookPost(index,result)" v-html="result.rpost"></a>
+                        <a class="nei_job_name text-truncate"   v-on:click="lookPost(index,result)" v-html="result.rpost"></a>
                         <small class="text-muted text-nowrap ml-4">[<span>{{result.rprovince}}{{result.rcity}}</span>]</small></div>
                       <ul class="subnav subnav-divider text-muted mg_t_15">
                         <li>
@@ -136,17 +136,17 @@
 
                                   <div class="flex-fill">
                                     <div class="su-flex su-flex-middle">
-                                      <span class="txt_h2 font-weight-bold mb-0 mr-2">{{popos.e_name}}</span>
+                                      <span class="txt_h2 font-weight-bold mb-0 mr-2">{{popos.name}}</span>
                                       <span class="badge badge-primary mr-2">企业认证</span>
                                       <span class="badge badge-danger mr-2">实名认证</span>
                                     </div>
 
                                     <ul class="subnav text-muted d-inline-flex mt-2">
                                       <li>
-                                        <span>{{popos.e_type}}</span>
+                                        <span>{{popos.type}}</span>
                                       </li>
                                       <li>
-                                        <span>{{popos.e_number}}人以上</span>
+                                        <span>{{popos.number}}人以上</span>
                                       </li>
                                     </ul>
                                   </div>
@@ -171,9 +171,9 @@
 
                                           <hr />
                                           <div class="mt_cont_tilte mb-3"><span>联系我们</span></div>
-                                          <p>座机：{{popos.e_Landline}}</p>
-                                          <p>邮箱：{{popos.e_email}}</p>
-                                          <p>地址：{{popos.e_province}}{{popos.e_city}}{{popos.e_area}}{{popos.e_address}}</p>
+                                          <p>座机：{{popos.Landline}}</p>
+                                          <p>邮箱：{{popos.email}}</p>
+                                          <p>地址：{{popos.province}}{{popos.city}}{{popos.area}}{{popos.address}}</p>
                                         </div><!--mb-4-->
 
                                       </div><!--row bg-white-->
@@ -191,10 +191,11 @@
                              slot="reference">{{result.rname}}</a>
                         </el-popover>
                         <div v-if="result.rischeck === 1">
-                          <span class="badge badge-primary ml-2" title="企业认证">认证</span>
+                          <span class="v-tag" title="企业认证"></span>
                         </div>
                         <div v-else>
-                          <span class="badge badge-pill badge-secondary" title="企业认证">未认证</span>
+<!--                          <span class="badge badge-pill badge-secondary" title="企业认证">未认证</span>-->
+                          <span class="v-tag" title="企业认证"></span>
                         </div>
                       </div>
                       <p class="text-small mg_t_15"><span class="text-muted">{{result.rztype}}</span></p>
@@ -228,21 +229,27 @@
           </div>
 
 
-
-<!--          <div class="wrap" id="wrap">
-
-            <zpagenav v-bind:page="page" v-bind:page-size="pageSize" v-bind:total="total"
-                      v-bind:max-page="maxPage"  v-on:pagehandler="pageHandler">
-            </zpagenav>
-          </div>-->
-
+          <!--分页-->
+          <div class="wrap" id="wrap">
+            <el-pagination
+                background
+                layout="prev, pager, next"
+                @current-change="pageHandler"
+                :page-size="pageSize"
+                :current-page="page"
+                :hide-on-single-page="vl"
+                :total="100">
+            </el-pagination>
+          </div>
         </div><!--col-lg-9-->
+
+        <!--热门公司排行-->
         <div class="col-lg-3 d-none d-xl-block">
           <div class="bg-white pos_rel pd_10 card_shadow">
             <div class="mt_cont_tilte"><span>热门公司</span></div>
             <div class="nei_right_body" v-for="weight in weights" :key="weight">
               <ul class="nei_zhiwei_list" >
-                <li><a :href="url+weight.e_id+'&'+'pageSize=5'" target="_blank" >
+                <li><a :href="url+weight.id+'&'+'pageSize=5'" target="_blank" >
                   <p>{{weight.name}}&nbsp;&nbsp;<i class="fa fa-free-code-camp fa-lg" style="color:red"></i></p>
                   <span>{{weight.type}}</span></a></li>
               </ul>
@@ -255,17 +262,11 @@
 
 
 
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">职位信息</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
+  <!-- 职位信息 -->
+  <el-dialog
+      title="职位信息"
+      :visible.sync="dialogVisible"
+      width="50%">
           <div class="nei_zhiwei_cont mg_t_20 mg_b_20">
             <div class="container">
               <div class="row">
@@ -328,9 +329,9 @@
                             <img title="" style="width: 54px; height: 54px;" alt="logo" src="${contextPath}/images/front/comp/comp1.png">
                           </div>
                           <h5 class="mb-1 text-truncate"></h5>
-                          <a class="text-dark font-weight-bold" title="" target="_blank" href="">{{popos.e_name}}</a>
+                          <a class="text-dark font-weight-bold" title="" target="_blank" href="">{{popos.name}}</a>
                           <p>
-                            <small class="d-block text-truncate">{{popos.e_type}}</small>
+                            <small class="d-block text-truncate">{{popos.type}}</small>
                           </p>
                           <p><span class="badge badge-primary mr-1" title="企业认证">企业认证</span>
                             <span class="badge badge-success mr-1" title="实名认证">实名认证</span>
@@ -361,13 +362,13 @@
                           <h5 class="font-weight-bold">联系方式</h5>
                           <div class="text-muted">
                             <div class="mt-1">
-                              <i class="fa fa-user-o mr-2"></i><span class="text-muted">{{popos.e_conname}}</span>
+                              <i class="fa fa-user-o mr-2"></i><span class="text-muted">{{popos.conname}}</span>
                             </div>
                             <div class="mt-1">
-                              <i class="fa fa-whatsapp mr-2"></i><span style="color: var(--red)">{{popos.e_Landline}}</span>
+                              <i class="fa fa-whatsapp mr-2"></i><span style="color: var(--red)">{{popos.Landline}}</span>
                             </div>
                             <div class="mt-1 text-truncate">
-                              <i class="fa fa-send-o mr-2"></i><a class="text-muted" target="_blank" href="">{{popos.e_email}}</a>
+                              <i class="fa fa-send-o mr-2"></i><a class="text-muted" target="_blank" href="">{{popos.email}}</a>
                             </div>
                           </div>
 
@@ -380,17 +381,13 @@
               </div><!--row-->
             </div><!--container-->
           </div><!--nei_zhiwei_cont-->
-        </div>
-        <!--            <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>-->
-      </div>
-    </div>
-  </div>
+  </el-dialog>
+
+
 
   <!--回到顶部-->
-      <el-backtop target=".nei_zhiwei_top .nei_zhiwei_cont"></el-backtop>
+      <el-backtop></el-backtop>
+
 </div><!--app-->
 </template>
 <script>
@@ -398,14 +395,18 @@ export default ({
     name:'serch',
     data(){
       return {
+        vl:true,  //一页时是否隐藏
+        dialogVisible: false,  //显示弹窗
         keyword: '',
         keywords: '',
-        results: [],
+        results: [
+          {rpost:'前端',rjdescript:'a',rprovince:'广东',rcity:'惠州',rztype:'服务业',rwelfares:'餐补',rname:'广东有限公司'}
+        ],
         weights:[],
         onePost: [],
         welfares:[],
         page: 1,  //显示的是哪一页
-        pageSize: 4, //每一页显示的数据条数
+        pageSize: 5, //每一页显示的数据条数
         total: 0, //记录总数
         maxPage: 9,//最大页数
         num1: 0,//ativty
@@ -416,7 +417,7 @@ export default ({
         popos: [],//提示框-
         hotPosts:[],//热词
         breakmsg:'',//返回的消息
-        url:'${contextPath}/member/enterprise/getInfor?e_id=',
+        url:'${contextPath}/member/enterprise/getInfor?id=',
         nj:'',//搜索词
         nt:'',
         nn:'',
@@ -484,6 +485,7 @@ export default ({
       }
     },
     methods: {
+      //关键词搜索
       searchKey() {
         this.pageHandler(1)
       },
@@ -495,7 +497,7 @@ export default ({
         var keyword = this.keyword;
         this.page = page;
 
-        this.axios.get('${contextPath}/member/searchPost', {
+        this.axios.get('http://localhost:4000/api/busRecruitinfo/getpage', {
           params: {
             pageSize: this.pageSize,
             pageNo: page,
@@ -507,14 +509,13 @@ export default ({
           }
         }).then(response => {
           this.total = response.data.totalRows;
-          this.results = response.data.data;
+          this.results = response.data;
         })
 
       },
       onclick1(index, type) {
         this.num1 = index
         this.nj = type.jtype
-        console.log(index, type.jtype, this.keywords,'${contextPath}');
         //this.searchKey()
       },
       onclick2(index, type) {
@@ -533,12 +534,14 @@ export default ({
         console.log(index, type.salary, this.keywords);
       },
       getByWidth(){
-        this.axios.get('${contextPath}/member/getWeight').then(response => {
+        this.axios.get('http://localhost:4000/api/weight/getweight').then(response => {
+          console.log(response)
           this.weights= response.data;
         })
       },
       lookPost(index,p){
-        this.axios.get('${contextPath}/member/postOne',{
+        this.dialogVisible = true
+        this.axios.get('http://localhost:4000/api/companyinfo/getall',{
           params: {
             id:p.rid
           }
@@ -546,19 +549,20 @@ export default ({
           this.onePost= response.data;
           var arr= response.data.rwelfares;
           this.welfares = arr.split(",")
-          //console.log(this.welfares+'aaaaaaa')
+
         })
-        this.showPopo(index,p)
+       // this.showPopo(index,p)
       },
       showPopo(index,popo){
         this.axios.get('${contextPath}/member/getComOne',{
           params:{
-            id:popo.e_id,
+            id:popo.id,
           }
         }).then(response => {
           this.popos= response.data;
         })
       },
+      //申请职位
       applyPost() {
         this.$confirm('系统将自动发送简历到该公司，请确认申请该职位?', '提示', {
           confirmButtonText: '申请',
@@ -568,7 +572,7 @@ export default ({
           this.axios.get('${contextPath}/member/applyPost', {
             params: {
               rid: this.onePost.r_id,
-              eid: this.onePost.e_id,
+              eid: this.onePost.id,
               rpost: this.onePost.r_post
             }
           }).then(response => {
@@ -597,30 +601,23 @@ export default ({
           });
         });
       },
+      //热门职位排序
       sortPost(){
-        this.axios.get('${contextPath}/member/sortPost'
+        this.axios.get('http://localhost:4000/api/sortpost/getweight'
         ).then(response => {
           this.hotPosts= response.data;
         })
       },
+      //热门搜索
       hotClick(index,hot){
         this.pageHandler(1,hot)
       },
-      test(){
-        this.axios.get('http://localhost:4000/api/busRecruitinfo/getall', {
-        }).then(response => {
-          this.results = response.data;
-          console.log(response.data);
-          console.log(this.results)
-        })
-      }
     },
     created: function () {
       //created  表示页面加载完毕，立即执行
       this.sortPost();
       this.getByWidth();
       this.pageHandler(1);
-      this.test();
     }
   });
 

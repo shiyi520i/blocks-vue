@@ -1,7 +1,15 @@
 <template>
   <div>
-        <Header/>
+    <Header/>
     <!--展示的地方-->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div style="z-index:-100;position: relative;"><h>欢迎来到blocks</h></div>
     <el-footer>
       <Footer/>
     </el-footer>
@@ -16,7 +24,7 @@ export default {
   name: 'Login',
   components: {
     Footer,
-    Header
+    Header,
   }
 };
 </script>

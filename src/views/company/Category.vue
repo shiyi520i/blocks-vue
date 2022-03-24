@@ -1422,6 +1422,7 @@
                   </div>
                 </a>
               </div>
+
               <div class="pagination">
                 <ul data-total="74">
 
@@ -1440,6 +1441,7 @@
                   <li class="txt-pager js-last-pager"><a data-page="74" href="javascript:;">末页</a></li>
                 </ul>
               </div>
+
 
 
             </div>
@@ -1603,6 +1605,5 @@
 @import "../../assets/common/css/default.css";
 @import "../../assets/common/css/common.css";
 @import "../../assets/common/css/env.css";
-/*@import "../../assets/common/css/element-ui.css";*/
 @import "../../assets/common/css/tech.css";
 </style>
