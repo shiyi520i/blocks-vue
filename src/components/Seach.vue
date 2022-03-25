@@ -391,12 +391,16 @@
 </div><!--app-->
 </template>
 <script>
+
+import Qs from 'qs'
+
 export default ({
     name:'serch',
     data(){
       return {
         vl:true,  //一页时是否隐藏
         dialogVisible: false,  //显示弹窗
+        baseurl:'http://localhost:4000/api/',
         keyword: '',
         keywords: '',
         results: [
@@ -497,7 +501,7 @@ export default ({
         var keyword = this.keyword;
         this.page = page;
 
-        this.axios.get('http://localhost:4000/api/busRecruitinfo/getpage', {
+        this.axios.get(this.baseurl+'busRecruitinfo/getpage', {
           params: {
             pageSize: this.pageSize,
             pageNo: page,
@@ -508,8 +512,8 @@ export default ({
             jobtype: this.nj,
           }
         }).then(response => {
-          this.total = response.data.totalRows;
-          this.results = response.data;
+          this.total = response.data.total;
+          this.results = response.data.records
         })
 
       },
@@ -534,46 +538,69 @@ export default ({
         console.log(index, type.salary, this.keywords);
       },
       getByWidth(){
-        this.axios.get('http://localhost:4000/api/weight/getweight').then(response => {
-          console.log(response)
+        this.axios.get(this.baseurl+'weight/getweight').then(response => {
           this.weights= response.data;
         })
       },
-      lookPost(index,p){
+
+      //查看一条职位信息
+      lookPost(index, p) {
+        console.log(p)
+        let userinfo = JSON.parse(localStorage.getItem('userInfo'))
+        let uid = userinfo['sub']
         this.dialogVisible = true
-        this.axios.get('http://localhost:4000/api/companyinfo/getall',{
-          params: {
-            id:p.rid
-          }
-        }).then(response => {
-          this.onePost= response.data;
-          var arr= response.data.rwelfares;
+        let param = new URLSearchParams()
+        param.append('id', p.rid)
+        param.append('cid', p.cid)
+        param.append('uid', uid)
+        param.append('postname', p.rpost)
+        console.log(param,param.get("id"))
+        this.axios({
+              method: 'post',
+              url: this.baseurl + 'busRecruitinfo/postone',
+              data: {
+                id:p.rid,
+                cid:p.cid,
+                uid:uid,
+                postname:p.rpost
+              },
+             // headers: {'Content-Type':'application/x-www-form-urlencoded'},
+            }
+        ).then(response => {
+          this.onePost = response.data;
+          var arr = response.data.rwelfares;
           this.welfares = arr.split(",")
 
         })
-       // this.showPopo(index,p)
+         this.showPopo(index,p)
       },
+
+      //查看一条公司信息
       showPopo(index,popo){
-        this.axios.get('${contextPath}/member/getComOne',{
-          params:{
+        console.log(popo)
+        this.axios.post(this.baseurl+'companyinfo/getcomone',
+          {
             id:popo.id,
           }
-        }).then(response => {
+        ).then(response => {
           this.popos= response.data;
         })
       },
       //申请职位
       applyPost() {
+        let userinfo=JSON.parse(localStorage.getItem('userInfo'))
+        let uid=userinfo['sub']
         this.$confirm('系统将自动发送简历到该公司，请确认申请该职位?', '提示', {
           confirmButtonText: '申请',
           cancelButtonText: '取消',
           type: 'success'
         }).then(() => {
-          this.axios.get('${contextPath}/member/applyPost', {
+          this.axios.get(this.baseurl+'record/applypost', {
             params: {
               rid: this.onePost.r_id,
               eid: this.onePost.id,
-              rpost: this.onePost.r_post
+              rpost: this.onePost.r_post,
+              uid:uid
             }
           }).then(response => {
             this.breakmsg=response.data.msg;
@@ -603,7 +630,7 @@ export default ({
       },
       //热门职位排序
       sortPost(){
-        this.axios.get('http://localhost:4000/api/sortpost/getweight'
+        this.axios.get(this.baseurl+'sortpost/getweight'
         ).then(response => {
           this.hotPosts= response.data;
         })
