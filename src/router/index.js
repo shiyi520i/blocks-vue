@@ -25,10 +25,21 @@ const routes = [
             {
                 path: 'userexhibit',
                 component: () => import(/* webpackChunkName: "about" */ '../views/user/UserExhibit'),
-                children:[{
+                children: [{
                     path: 'userdata',
                     component: () => import(/* webpackChunkName: "about" */ '../views/user/UserData'),
-                }]
+                },
+                    {
+                        path: 'userinfos',
+                        component: () => import(/* webpackChunkName: "about" */ '../views/user/UserInfos'),
+                    }
+                ]
+            },{
+                path: 'a',
+                component: () => import(/* webpackChunkName: "about" */ '../views/company/CompanyInfo')
+            },{
+                path: 'news',
+                component: () => import(/* webpackChunkName: "about" */ '../views/user/news')
             }
         ]
     },

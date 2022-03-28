@@ -3,7 +3,6 @@
 		<div>user-info:{{ userInfo }}</div>
 		<button @click="handleLogout">登出</button>
 		<button @click="handleResourc">调用后端资源</button>
-		<button @click="sortPost">测试</button>
     <v-distpicker></v-distpicker>
 	</div>
 </template>
@@ -41,12 +40,6 @@ export default {
 				alert('无权访问接口');
 			}
 		},
-    sortPost(){
-      this.axios.get('http://localhost:4000/api/busRecruitinfo/getall'
-      ).then(response => {
-        console.log(response.data)
-      })
-    }
 	}
 };
 </script>

@@ -23,7 +23,7 @@ export default {
 			localStorage.setItem('accessToken', access_token);
 			localStorage.setItem('idToken', id_token);
 			localStorage.setItem('userInfo', JSON.stringify(userInfo));
-			this.$router.push('/user-info');
+			this.$router.push('/');
 		}
 	}
 }

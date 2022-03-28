@@ -16,7 +16,7 @@
             <a href="company.html">题库</a>
           </div>
           <div class="nc-nav-header-menu-item " data-type="interview">
-            <a href="index1.html">面试</a>
+            <router-link to="/news">新闻</router-link>
           </div>
            <div class="nc-nav-header-menu-item nc-nav-header-active" data-type="learn">
             <router-link to="/courses">学习</router-link>
@@ -45,14 +45,31 @@
           </a>
           <a href="index2.html"
              style="width: 92px; height: 32px; background: #EEFAF7; color: #32ca99; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-right: 8px;">
-            去企业版 <img src="../assets/common/picture/1645409535023RDRAH.png" style="width: 14px; height: 14px;">
+            企业认证 <img src="../assets/common/picture/1645409535023RDRAH.png" style="width: 14px; height: 14px;">
           </a>
         </div>
 
         <div class="nc-nav-header-info" style="margin-left: 0;">
-          <img class="nc-nav-header-icon" style="margin-right: 20px;" src="../assets/common/picture/1641375989276WRAOB.png"
+          <img class="nc-nav-header-icon" style="margin-right: 20px;"
+               src="../assets/common/picture/1641375989276WRAOB.png"
                alt="app">
-          <div class="nc-nav-header-sign" style="background-color: #32ca99;" @click="handeLogin">登录 / 注册</div>
+
+          <div v-if="iflogin">
+            <el-popover
+                placement="bottom"
+                :width="50"
+                trigger="hover">
+              <div ><router-link to="/userexhibit"><el-link><i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;个人信息</el-link></router-link>
+                <br/>
+                <el-link @click="handleLogout"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>&nbsp;登出</el-link></div>
+              <el-button slot="reference" type="text" style="color: #32ca99;">用户姓名</el-button>
+            </el-popover>
+<!--            <router-link to="/userexhibit" class="nc-nav-header-sign" style="background-color: #32ca99;">个人信息</router-link>-->
+          </div>
+          <div v-else>
+            <div class="nc-nav-header-sign" style="background-color: #32ca99;" @click="handeLogin">登录 / 注册</div>
+          </div>
+
         </div>
       </nav>
     </header>
@@ -67,8 +84,15 @@
 
 export default {
   name: 'Header',
+  data(){
+    return{
+      iflogin:false,
+      disabled: false
+    }
+  },
   inject: ['$authing'],
   methods: {
+    //登入
     handeLogin: async function () {
       // PKCE 场景使用示例
       // 生成一个 code_verifier
@@ -79,7 +103,23 @@ export default {
       // 构造 OIDC 授权码 + PKCE 模式登录 URL
       let url = this.$authing.buildAuthorizeUrl({codeChallenge: codeChallengeDigest, codeChallengeMethod: 'S256'});
       window.location.href = url;
-    }
+    },
+    //判断是否登录
+    ifLofin(){
+      let userinfo = JSON.parse(localStorage.getItem('userInfo'))
+      console.log(userinfo)
+      if(userinfo!=null){
+        this.iflogin=true
+      }
+    },
+   // 登出
+    handleLogout: function() {
+      localStorage.clear();
+      window.location.href = this.$authing.buildLogoutUrl({ redirectUri: 'http://localhost:4000' });
+    },
+  },
+  created() {
+    this.ifLofin()
   }
 };
 
