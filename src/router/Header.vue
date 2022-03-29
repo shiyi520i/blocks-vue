@@ -9,27 +9,12 @@
          <img src="../assets/common/picture/blocks.png">
         </a>
         <div class="nc-nav-header-menu" style="margin-right: 12px;">
-          <div class="nc-nav-header-menu-item " data-type="home">
-            <a href="index.html">首页</a>
-          </div>
-          <div class="nc-nav-header-menu-item " data-type="question">
-            <a href="company.html">题库</a>
-          </div>
-          <div class="nc-nav-header-menu-item " data-type="interview">
-            <router-link to="/news">新闻</router-link>
-          </div>
-           <div class="nc-nav-header-menu-item nc-nav-header-active" data-type="learn">
+          <el-link v-for="(menu,index) in menus" class="nc-nav-header-menu-item " :key="index" :class="{header_active:index==num}"  :underline="false" @click="changeNum(index)">
+            <router-link :to="menu.to">{{menu.item}}</router-link>
+          </el-link>
+<!--           <div class="nc-nav-header-menu-item nc-nav-header-active" data-type="learn">
             <router-link to="/courses">学习</router-link>
-          </div>
-          <div class="nc-nav-header-menu-item " data-type="jobs">
-            <router-link to="/search">求职</router-link>
-          </div>
-          <div class="nc-nav-header-menu-item " data-type="discussion">
-            <router-link to="/category">在招公司</router-link>
-          </div>
-          <div class="nc-nav-header-menu-item " data-type="found">
-            <router-link to="/userexhibit">个人中心</router-link>
-          </div>
+          </div>-->
         </div>
 <!--        <div class="nc-nav-header-search">
           <span>帖子、文章、试题、公司、牛友</span>
@@ -64,7 +49,6 @@
                 <el-link @click="handleLogout"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>&nbsp;登出</el-link></div>
               <el-button slot="reference" type="text" style="color: #32ca99;">用户姓名</el-button>
             </el-popover>
-<!--            <router-link to="/userexhibit" class="nc-nav-header-sign" style="background-color: #32ca99;">个人信息</router-link>-->
           </div>
           <div v-else>
             <div class="nc-nav-header-sign" style="background-color: #32ca99;" @click="handeLogin">登录 / 注册</div>
@@ -87,7 +71,15 @@ export default {
   data(){
     return{
       iflogin:false,
-      disabled: false
+      disabled: false,
+      num:0,
+      menus:[
+          {item:'首页',to:'/'},
+          {item:'新闻',to:'/news'},
+          {item:'学习',to:'/courses'},
+          {item:'求职',to:'/search'},
+          {item:'在招公司',to:'/category'},
+      ]
     }
   },
   inject: ['$authing'],
@@ -117,6 +109,9 @@ export default {
       localStorage.clear();
       window.location.href = this.$authing.buildLogoutUrl({ redirectUri: 'http://localhost:4000' });
     },
+    changeNum(i){
+      this.num=i
+    }
   },
   created() {
     this.ifLofin()
@@ -132,7 +127,7 @@ export default {
 @import "../assets/common/css/default.css";
 @import "../assets/common/css/common.css";
 @import "../assets/common/css/env.css";
-@import "../assets/common/css/element-ui.css";
 @import "../assets/common/css/courseCollection.css";
 @import "../assets/common/css/main.entry.css";
+.header_active:after{background-color:#32ca99;bottom:-8px;content:"";height:4px;left:50%;margin-left:-6px;position:absolute;width:12px}
 </style>

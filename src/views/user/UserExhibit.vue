@@ -279,57 +279,6 @@
       </div>
 
 
-      <div class="fixed-menu">
-
-
-        <ul>
-          <li>
-            <a class="gotop js-nav-go-top" title="回到顶部"></a>
-          </li>
-          <li>
-            <a class="fixed-wb" target="_blank" href="http://www.weibo.com/nowcoder"></a>
-          </li>
-          <li>
-            <a href="tencent://groupwpa/?subcmd=all&param=7B2267726F757055696E223A3135373539343730352C2274696D655374616D70223A313431333130373737387D0A"
-               class="qq" title="QQ"></a>
-          </li>
-
-          <li>
-            <a class="wx"></a>
-            <div class="wx-qrcode">
-              <img src="../../assets/common/picture/wx-rcode.jpg" alt="二维码"/>
-              <p>扫描二维码，关注牛客网</p>
-            </div>
-          </li>
-          <li>
-            <a href="https://www.nowcoder.com/subject/index/b211632d69fd42f7b55aae38d4242fda" class="feedback"
-               title="意见反馈"></a>
-            <a href="https://www.nowcoder.com/subject/index/b211632d69fd42f7b55aae38d4242fda" class="feedback-letter">意见反馈</a>
-          </li>
-          <li>
-            <a class="qrcode"></a>
-            <div class="wx-qrcode">
-              <img src="../../assets/common/picture/web_app_download.png" alt="二维码"/>
-              <p>下载牛客APP，随时随地刷题</p>
-            </div>
-          </li>
-        </ul>
-
-
-      </div>
-
-
-      <div class="living-layer js-global-tips" style="display:none;">
-        <a class="icon-nc-cancel"></a>
-        <a class="cont js-global-tips-href" href="" target="_blank">
-          <i class="icon-nc-play"></i>
-          <div class="living-layer-cont">
-            <p class="living-layer-title"></p>
-            <p></p>
-          </div>
-        </a>
-      </div>
-
 
     </div>
   </div>
