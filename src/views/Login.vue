@@ -9,7 +9,7 @@
     <br>
     <br>
     <br>
-    <div style="z-index:-100;position: relative;"><h>欢迎来到blocks</h></div>
+    <div style="z-index:-100;position: relative;">欢迎来到blocks</div>
     <el-footer>
       <Footer/>
     </el-footer>

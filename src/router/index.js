@@ -13,16 +13,16 @@ const routes = [
             {
                 path: 'category',
                 component: () => import(/* webpackChunkName: "about" */ '../views/company/Category')
-            },
-            {
+            }, {
                 path: 'search',
                 component: () => import(/* webpackChunkName: "about" */ '../components/Seach.vue')
-            },
-            {
+            }, {
                 path: 'courses',
                 component: () => import(/* webpackChunkName: "about" */ '../components/Courses.vue')
-            },
-            {
+            }, {
+                path: 'newsinfo',
+                component: () => import(/* webpackChunkName: "about" */ '../views/user/NewsInfo')
+            },{
                 path: 'userexhibit',
                 component: () => import(/* webpackChunkName: "about" */ '../views/user/UserExhibit'),
                 children: [{
@@ -35,23 +35,27 @@ const routes = [
                     }]
                 }]
             }, {
-                path: 'a',
+                path: 'CompanyInfo/:id',
                 component: () => import(/* webpackChunkName: "about" */ '../views/company/CompanyInfo')
             }, {
                 path: 'news',
-                component: () => import(/* webpackChunkName: "about" */ '../views/user/news')
+                component: () => import(/* webpackChunkName: "about" */ '../views/user/News')
             }
         ]
-    },
-    {
+    }, {
         path: '/callback',
         name: 'App',
         component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
-    },
-    {
+    }, {
         path: '/user-info',
         name: 'UserInfo',
         component: () => import(/* webpackChunkName: "about" */ '../views/UserInfo.vue')
+    }, {
+        path: '/e',
+        component: () => import(/* webpackChunkName: "about" */ '../components/MEditor')
+    }, {
+        path: '/p',
+        component: () => import(/* webpackChunkName: "about" */ '../components/Pdf')
     }
 ];
 

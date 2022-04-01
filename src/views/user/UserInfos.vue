@@ -10,7 +10,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="11">
-          <el-form-item label="电话">
+          <el-form-item label="期望职位">
             <el-input v-model="form.name"></el-input>
           </el-form-item>
         </el-col>
@@ -27,14 +27,14 @@
           </el-form-item>
         </el-col>
       </el-form-item>
-      <el-form-item label="姓名">
+      <el-form-item label="毕业学校">
         <el-col :span="11">
           <el-form-item>
             <el-input v-model="form.name"></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="11">
-          <el-form-item label="电话">
+          <el-form-item label="毕业时间">
             <el-input v-model="form.name"></el-input>
           </el-form-item>
         </el-col>
@@ -76,7 +76,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log('submit!');
+
     }
   }
 }

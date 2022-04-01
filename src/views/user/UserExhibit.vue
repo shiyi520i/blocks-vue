@@ -34,12 +34,12 @@
           </div>
         </div>
         <div class="profile-oprt-box">
-          <a title="简历上传" class="btn btn-primary btn-sm fui-plus click-follow nc-req-auth"
-             @click="dialogVisible = true">
-            简历上传</a>
-          <a class="btn btn-primary btn-sm fui-chat click-send-message nc-req-auth nc-req-active"
-             data-sender-id="492752319" data-sender-name="如若丶"
-          >私信</a>
+          <el-button type="text" class="b"
+                     @click="dialogVisible = true"><i class="fa fa-upload" aria-hidden="true"></i>简历上传
+          </el-button>
+          <el-button type="text" class="b"
+                     @click="d1 = true"><i class="fa fa-file-pdf-o b" aria-hidden="true"></i>预览简历
+          </el-button>
 
           <a class="icon-reorder link-green profile-oprt-link">
             <div class="tooltip bottom tooltip-info">
@@ -78,7 +78,17 @@
       </el-dialog>
 
 
+      <!--预览简历-->
+      <el-dialog
+          title="简历预览"
+          :visible.sync="d1"
+          width="30%">
+        <Pdf :url="url"></Pdf>
+      </el-dialog>
       <div class="nk-bar">
+
+
+
 
 
         <div class="module-box">
@@ -279,16 +289,22 @@
       </div>
 
 
-
     </div>
   </div>
 </template>
 
 <script>
+import Pdf from "@/components/Pdf";
+
 export default {
+  components: {
+    Pdf
+  },
   data() {
     return {
-      dialogVisible: false
+      dialogVisible: false,
+      d1: false,
+      url:'wocaoniam'
     };
   },
   methods: {
@@ -314,4 +330,10 @@ export default {
 @import "../../assets/common/css/env.css";
 @import "../../assets/common/css/profilemainnew.css";
 @import "../../assets/common/css/main.entry.css";
+
+.b {
+  color: #32ca99;
+}
+b:hover {background:#f4f4f4;
+  color:#000;}
 </style>

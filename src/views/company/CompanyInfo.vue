@@ -6,14 +6,6 @@
 
     <div class="nk-main clearfix">
 
-      <div class="crumbs-path">
-        <a href="/">首页</a>
-        <span>&gt;</span>
-        <a href="/stacks">技术栈</a>
-        <span>&gt;</span>
-        <span class="crumbs-end">阿里巴巴</span>
-      </div>
-
       <div class="nk-content">
         <div class="module-box">
 
@@ -24,9 +16,7 @@
             <div class="tech-intr-detail">
               <div class="tech-intr-title">
                 <h1>阿里巴巴</h1>
-                <span class="v-tag"></span> <a class="check-error nc-req-auth js-action-correction"
-                                               href="javascript:void(0);">纠错</a>
-
+                <span class="v-tag"></span>
               </div>
               <p>阿里巴巴集团的使命是让天下没有难做的生意。
                 我们旨在助力企业，帮助其变革营销、销售和经营的方式，提升其效率。我们为商家、品牌、零售商及其他企业提供技术基础设施以及营销平台，帮助其借助新技术的力量与用户和客户进行互动，并更高效地经营。
@@ -34,7 +24,7 @@
                 https://talent.alibaba.com/home/</p>
               <div class="tech-intr-box">
                 <a href="/community/134" class="btn btn-primary btn-auto" target="_blank">进入公司主页</a>
-                <a href="javascript:void(0);" class="btn btn-primary nc-req-auth js-add-stack">添加技术栈</a>
+                <a  class="btn btn-primary nc-req-auth js-add-stack">添加技术栈</a>
               </div>
             </div>
 
@@ -179,19 +169,23 @@
     </div>
 
 
-    <div class="living-layer js-global-tips" style="display:none;">
-      <a href="javascript:void(0);" class="icon-nc-cancel"></a>
-      <a class="cont js-global-tips-href" href="" target="_blank">
-        <i class="icon-nc-play"></i>
-        <div class="living-layer-cont">
-          <p class="living-layer-title"></p>
-          <p></p>
-        </div>
-      </a>
-    </div>
-
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+
+  },
+  mounted() {
+    console.log(this.$route.params.id)
+  }
+}
+</script>
 
 <style>
 @import "../../assets/common/css/global.css";
@@ -200,5 +194,5 @@
 @import "../../assets/common/css/default.css";
 @import "../../assets/common/css/common.css";
 @import "../../assets/common/css/env.css";
-/*@import "src/assets/common/css/techtogether.css";*/
+@import "../../assets/common/css/techtogether.css";
 </style>
