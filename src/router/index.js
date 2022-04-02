@@ -25,7 +25,8 @@ const routes = [
             },{
                 path: 'userexhibit',
                 component: () => import(/* webpackChunkName: "about" */ '../views/user/UserExhibit'),
-                children: [{
+                children: [
+                    {
                     path: 'userdata',
                     component: () => import(/* webpackChunkName: "about" */ '../views/user/UserData'),
                     children: [{
@@ -33,7 +34,10 @@ const routes = [
                         component: () => import(/* webpackChunkName: "about" */ '../views/user/UserInfos'),
 
                     }]
-                }]
+                }, {
+                        path: 'usercar',
+                        component: () => import(/* webpackChunkName: "about" */ '../views/user/UserCar')}
+                ]
             }, {
                 path: 'CompanyInfo/:id',
                 component: () => import(/* webpackChunkName: "about" */ '../views/company/CompanyInfo')
@@ -56,6 +60,9 @@ const routes = [
     }, {
         path: '/p',
         component: () => import(/* webpackChunkName: "about" */ '../components/Pdf')
+    }, {
+        path: '/404',
+        component: () => import(/* webpackChunkName: "about" */ '../views/404')
     }
 ];
 

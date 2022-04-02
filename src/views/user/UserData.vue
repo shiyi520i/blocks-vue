@@ -12,14 +12,14 @@
             <i class="el-icon-user"></i>
             用户名
           </template>
-          kooriookami
+          {{form.username}}
         </el-descriptions-item>
         <el-descriptions-item>
           <template slot="label">
             <i class="el-icon-mobile-phone"></i>
             手机号
           </template>
-          18100000000
+          {{form.phone}}
         </el-descriptions-item>
         <el-descriptions-item>
           <template slot="label">
@@ -33,28 +33,28 @@
             <i class="el-icon-user"></i>
             期望职位
           </template>
-          kooriookami
+          {{form.postition}}
         </el-descriptions-item>
         <el-descriptions-item>
           <template slot="label">
             <i class="el-icon-mobile-phone"></i>
             毕业时间
           </template>
-          18100000000
+          {{form.grtime}}
         </el-descriptions-item>
         <el-descriptions-item>
           <template slot="label">
             <i class="el-icon-tickets"></i>
-            备注
+            毕业学校
           </template>
-          <el-tag size="small">学校</el-tag>
+          <el-tag size="small">{{form.graduate}}</el-tag>
         </el-descriptions-item>
         <el-descriptions-item>
           <template slot="label">
             <i class="el-icon-location-outline"></i>
             邮箱
           </template>
-          苏州市
+          {{form.email}}
         </el-descriptions-item>
 
         <el-descriptions-item>
@@ -73,11 +73,20 @@
 
 <script>
 export default {
+  name:'UserData',
   data() {
     return {
-      size: 'medium'
-    };
-  }
+      form: {
+        username: '',
+        email: '',
+        age: '',
+        phone: '',
+        graduate: '',
+        grtime: '',
+        postition: ''
+      }
+    }
+  },
 }
 </script>
 

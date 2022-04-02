@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="c">
     <br>
     <br>
     <br>
@@ -67,6 +67,7 @@
             class="upload-demo"
             drag
             action="https://jsonplaceholder.typicode.com/posts/"
+
             multiple>
           <i class="el-icon-upload"></i>
           <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
@@ -147,11 +148,11 @@
 
 
             <li>
-              <a href="/profile/492752319/note">
+              <router-link to="/userexhibit/usercar">
                 <i class="profile-icon p-ico-note"></i>
-                笔记
+                记录
                 <i class="icon-angle-right"></i>
-              </a>
+              </router-link>
             </li>
 
 
@@ -304,7 +305,8 @@ export default {
     return {
       dialogVisible: false,
       d1: false,
-      url:'wocaoniam'
+      url:'wocaoniam',
+      a:''
     };
   },
   methods: {
@@ -336,4 +338,9 @@ export default {
 }
 b:hover {background:#f4f4f4;
   color:#000;}
+
+.c {
+  width: 1000px;
+  margin: 0 auto;
+}
 </style>
