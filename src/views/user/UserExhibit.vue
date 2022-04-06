@@ -104,11 +104,11 @@
 
 
             <li>
-              <a href="/profile/492752319/moment">
+              <router-link to="/userexhibit/editing">
                 <i class="profile-icon with-icon-nc icon-nc-trends"></i>
                 动态
                 <i class="icon-angle-right"></i>
-              </a>
+              </router-link>
             </li>
 
 
@@ -121,11 +121,11 @@
             </li>
 
             <li>
-              <a href="/profile/492752319/myDiscussPost">
+              <router-link to="/userexhibit/check">
                 <i class="profile-icon p-ico-ft"></i>
-                讨论帖
+                审核
                 <i class="icon-angle-right"></i>
-              </a>
+              </router-link>
             </li>
 
 

@@ -1,4 +1,7 @@
 <template>
+  <div>
+  作者：<el-input></el-input>
+  摘要：<el-input></el-input>
   <div class="markdown-container">
     <div class="container">
       <div class="title">编辑器</div>
@@ -10,13 +13,15 @@
           style="min-height: 600px"
       />
       <el-button class="editor-btn" type="primary" @click="submit"
-      >提交</el-button
+      >发布</el-button
       >
     </div>
+  </div>
   </div>
 </template>
 <script>
 export default {
+  name:'MEditor',
   data: function() {
     return {
       content: "",

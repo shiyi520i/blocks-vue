@@ -35,8 +35,14 @@ const routes = [
 
                     }]
                 }, {
+                        path: 'check',
+                        component: () => import(/* webpackChunkName: "about" */ '../views/admin/Check')},
+                    {
                         path: 'usercar',
-                        component: () => import(/* webpackChunkName: "about" */ '../views/user/UserCar')}
+                        component: () => import(/* webpackChunkName: "about" */ '../views/user/UserCar')},
+                    {
+                        path: 'editing',
+                        component: () => import(/* webpackChunkName: "about" */ '../views/admin/Editing')}
                 ]
             }, {
                 path: 'CompanyInfo/:id',
@@ -63,6 +69,9 @@ const routes = [
     }, {
         path: '/404',
         component: () => import(/* webpackChunkName: "about" */ '../views/404')
+    },{
+        path: '/test',
+        component: () => import(/* webpackChunkName: "about" */ '../views/user/test')
     }
 ];
 

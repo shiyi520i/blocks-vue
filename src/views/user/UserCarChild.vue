@@ -21,7 +21,7 @@
       </div>
     </el-card>
     <el-dialog
-        title="职位信息"
+        title="详细信息"
         :visible.sync="dvb"
         width="50%">
       <Post :title="uid"></Post>

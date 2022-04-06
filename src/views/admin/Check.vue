@@ -31,7 +31,7 @@
 import UserCarChild from "@/views/user/UserCarChild";
 
 export default {
-  name:'UserCar',
+  name:'Check',
   components: {
     UserCarChild
   },
@@ -44,9 +44,8 @@ export default {
       companys: [],
       type: 2,
       tabs:[
-          {i:2,s:'fa fa-user',tagname:'我的申请'},
-          {i:3,s:'fa fa-window-restore',tagname:'浏览记录'},
-          {i:0,s:'fa fa-commenting',tagname:'面试消息'}]
+        {i:2,s:'fa fa-user',tagname:'等待审核'},
+        {i:3,s:'fa fa-window-restore',tagname:'审核记录'}]
     };
   },
   methods: {
@@ -65,19 +64,19 @@ export default {
         this.companys = response.data.records
       })
     },
-    changeType(i) {
+/*    changeType(i) {
       this.type = i
       console.log(i)
       this.pageHandler()
-    },
-    look(id) {
+    },*/
+/*    look(id) {
       this.$router.push({
         path: `/CompanyInfo/${id}`,
       })
-    }
+    }*/
   },
   mounted() {
-    this.pageHandler()
+   // this.pageHandler()
   }
 }
 </script>
