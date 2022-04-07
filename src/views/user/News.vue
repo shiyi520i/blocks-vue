@@ -16,53 +16,45 @@
           </li>
         </ul>
       </div>
+
       <!--主体内容-->
       <div class="nk-content" style="margin-left: 210px;">
 
         <div class="module-box discuss-index-common  post-card-list">
 
-
           <div class="module-body">
 
-
-            <ul class="common-list ">
+            <ul class="common-list " v-for="(newinfo,index) in news" :key="index">
               <li class="clearfix">
-
 
                 <div class="discuss-detail">
                   <div class="discuss-head">
-                    <a class="head-pic js-nc-avatar         js-nc-card
-    " data-card-uid="1030032973" href="javascript:;"><img alt="头像"
-                                                          src="static/picture/D6969C98BC2C0947BA4D4AA0CDF33902.jpg"></a>
-
-                    <a class="d-name level-color-5         js-nc-card
-    " data-card-uid="1030032973" href="javascript:;">牛客职位推荐</a>
-
-                    <a title="牛客运营" href="authentication.html" class="js-nc-title-tips" target="_blank">
-                      <img class="item.idenClass" data-identity="item.level" src="static/picture/12.png">
-                    </a>
-
+                    <a class="head-pic js-nc-avatar js-nc-card" data-card-uid="1030032973"><img alt="头像"
+                                                                                                src="https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/logo.png"></a>
+                    <a class="d-name level-color-5 js-nc-card" data-card-uid="1030032973">{{ newinfo.author }}</a>
+                    <!--                    <a title="牛客运营" href="authentication.html" class="js-nc-title-tips" target="_blank">
+                                          <img class="item.idenClass" data-identity="item.level" src="static/picture/12.png">
+                                        </a>-->
                     <span>5小时前回复</span>
-                    <span>2022-01-14</span>
+                    <span>{{ newinfo.time }}</span>
                   </div>
 
                   <div class="discuss-main clearfix">
-                    <router-link to="/newsinfo" rel="prefetch"  class="js-gio" data-gio="$gioNum">
-                      22届校招补录专场正式开启！offer与你一步之遥！
-                    </router-link>
+                    <a @click="lookInfo(newinfo.id)" rel="prefetch" class="js-gio">
+                      {{ newinfo.title }}
+                    </a>
                     <span class="disTop">置顶</span>
 
 
                     <div class="discuss-content">
                       <img src="static/picture/305DE276897792E7EA77059332E6E300.jpg" class="discuss-content-img" alt="">
-                      <a  class="discuss-content-tag mr-1">春招</a>
-                      <a  class="discuss-content-tag mr-1">招聘进度</a>
-                      <a  class="discuss-content-tag mr-1">秋招</a>
-                      <a  class="discuss-content-tag mr-1">校招</a>
-                      <a  class="discuss-content-tag mr-1">职场</a>
-                      <a  class="discuss-content-tag mr-1">求offer</a>
-                      <a  class="discuss-content-text">各位牛油们，6月毕业季近在咫尺，
-                        从去年就开始准备校招的你，是否已经拿到理想的offer了呢？ 是否因为考研实习错过秋招或者对当前的offer还不太满意？ [紧张] 都...</a>
+                      <a class="discuss-content-tag mr-1">春招</a>
+                      <a class="discuss-content-tag mr-1">招聘进度</a>
+                      <a class="discuss-content-tag mr-1">秋招</a>
+                      <a class="discuss-content-tag mr-1">校招</a>
+                      <a class="discuss-content-tag mr-1">职场</a>
+                      <a class="discuss-content-tag mr-1">求offer</a>
+                      <a class="discuss-content-text">{{ newinfo.summary }}</a>
                     </div>
 
                   </div>
@@ -84,11 +76,54 @@
         </div>
       </div>
     </div>
+    <div class="wrap" id="wrap">
+      <el-pagination
+          background
+          layout="prev, pager, next"
+          @current-change="pageHandler"
+          :page-size="pageSize"
+          :current-page="pageNo"
+          :hide-on-single-page="isHid"
+          :total="total">
+      </el-pagination>
+    </div>
   </div>
 </template>
 
 <script>
-
+export default {
+  name: 'news',
+  data() {
+    return {
+      isHid: true,
+      news: [],
+      pageNo: 1,
+      pageSize: 5,
+      total: 1
+    }
+  },
+  methods: {
+    pageHandler() {
+      this.axios.get(this.baseUrl + 'news/getsimple', {
+        params: {
+          pageSize: this.pageSize,
+          pageNo: this.pageNo,
+        }
+      }).then(response => {
+        this.total = response.data.total;
+        this.news = response.data.records
+      })
+    },
+    lookInfo(id){
+      this.$router.push({
+        path: `/newsinfo/${id}`,
+      })
+    }
+  },
+  mounted() {
+    this.pageHandler()
+  }
+}
 </script>
 
 <style>

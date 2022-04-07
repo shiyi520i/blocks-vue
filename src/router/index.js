@@ -20,7 +20,7 @@ const routes = [
                 path: 'courses',
                 component: () => import(/* webpackChunkName: "about" */ '../components/Courses.vue')
             }, {
-                path: 'newsinfo',
+                path: 'newsinfo/:id',
                 component: () => import(/* webpackChunkName: "about" */ '../views/user/NewsInfo')
             },{
                 path: 'userexhibit',
@@ -63,9 +63,6 @@ const routes = [
     }, {
         path: '/e',
         component: () => import(/* webpackChunkName: "about" */ '../components/MEditor')
-    }, {
-        path: '/p',
-        component: () => import(/* webpackChunkName: "about" */ '../components/Pdf')
     }, {
         path: '/404',
         component: () => import(/* webpackChunkName: "about" */ '../views/404')

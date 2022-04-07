@@ -9,19 +9,14 @@
       <div class="profile-info-wrapper">
         <div class="profile-level level5"></div>
         <div class="profile-info-main">
-          <a class="head-pic js-nc-avatar " data-avatar-uid="492752319">
-            <img alt="头像" src="../../assets/common/picture/400m.png">
+          <a class="head-pic js-nc-avatar" @click="changeAvatar">
+            <img alt="头像" :src="avatarUrl">
           </a>
-
           <div class="profile-info-cont">
             <section>
-              <a class="profile-user-name js-nc-title-tips level-color-5" data-title="如若丶"
+              <a class="profile-user-name js-nc-title-tips" data-title="如若丶"
                  data-encode="1">如若丶</a>
               <span class="sex-ico male-ico js-nc-title-tips" title="男"></span>
-              <span>
-                        
-                      </span>
-
             </section>
             <ul class="profile-cont clearfix">
               <li><i class="icon-profile-edu"></i>惠州学院</li>
@@ -35,7 +30,7 @@
         </div>
         <div class="profile-oprt-box">
           <el-button type="text" class="b"
-                     @click="dialogVisible = true"><i class="fa fa-upload" aria-hidden="true"></i>简历上传
+                     @click="uploadPdf"><i class="fa fa-upload" aria-hidden="true"></i>简历上传
           </el-button>
           <el-button type="text" class="b"
                      @click="d1 = true"><i class="fa fa-file-pdf-o b" aria-hidden="true"></i>预览简历
@@ -59,19 +54,19 @@
 
       <!--弹窗文件上传-->
       <el-dialog
-          title="简历上传"
+          :title="title"
           :visible.sync="dialogVisible"
           width="30%"
-          :before-close="handleClose">
+         >
         <el-upload
             class="upload-demo"
             drag
-            action="https://jsonplaceholder.typicode.com/posts/"
-
+            :action="this.baseUrl+'/news/u'"
+            :on-success="onSuccess"
             multiple>
           <i class="el-icon-upload"></i>
           <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-          <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
+          <div class="el-upload__tip" slot="tip">只能上传jpg/png/pdf文件，且不超过500kb</div>
         </el-upload>
         <span slot="footer" class="dialog-footer">
     <el-button @click="dialogVisible = false">取 消</el-button>
@@ -250,7 +245,7 @@
               </div>
 
 
-              <div class="paw-mod js-mod-link" data-href="/sns/492752319/following">
+              <div class="paw-mod js-mod-link">
                 <div class="paw-mod-hd">
                   <h2>关注</h2>
                   <div class="num"><i class="icon-nc-star1"></i>
@@ -259,12 +254,12 @@
                 </div>
                 <div class="paw-mod-bd">
 
-                  <a href="/sns/492752319/following">
+                  <a >
                     <i class="icon-nc-people-add"></i>
                     <span class="txt">关注了</span>
                     <span class="num">5</span>
                   </a>
-                  <a href="/sns/492752319/followers">
+                  <a >
                     <i class="icon-nc-people"></i>
                     <span class="txt">关注者</span>
                     <span class="num">0</span>
@@ -303,10 +298,12 @@ export default {
   },
   data() {
     return {
+      title:'',
       dialogVisible: false,
       d1: false,
-      url:'wocaoniam',
-      a:''
+      a:'',
+      fileList:[],
+      avatarUrl:'https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/menAvatar.png'
     };
   },
   methods: {
@@ -317,6 +314,17 @@ export default {
           })
           .catch(_ => {
           });
+    },
+    changeAvatar(){
+      this.dialogVisible=true
+      this.title="更换头像"
+    },
+    onSuccess(response, file, fileList){
+      this.avatarUrl=response
+    },
+    uploadPdf(){
+      this.dialogVisible=true
+      this.title="简历上传"
     }
   }
 };

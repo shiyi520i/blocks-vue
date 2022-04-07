@@ -58,7 +58,7 @@ export default {
   },
   data(){
     return {
-      pdfUrl:"http://file.gp58.com/file/2018-11-14/111405.pdf",
+      pdfUrl:"https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/7286770033419020776测试.pdf",
       pageNum:1,
       pageTotalNum:1,
       pageRotate:0,

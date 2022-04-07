@@ -1,10 +1,8 @@
 <template>
   <div>
-  作者：<el-input></el-input>
-  摘要：<el-input></el-input>
-  <div class="markdown-container">
-    <div class="container">
-      <div class="title">编辑器</div>
+  题目：<el-input v-model="title"></el-input>
+  摘要：<el-input v-model="summary"></el-input>
+    <div >
       <mavon-editor
           v-model="content"
           ref="md"
@@ -17,15 +15,17 @@
       >
     </div>
   </div>
-  </div>
 </template>
 <script>
 export default {
   name:'MEditor',
   data: function() {
     return {
-      content: "",
-      html: "",
+      title:'',
+      author:'',
+      summary:'',
+      content: '',
+      html: '',
       configs: {}
     };
   },
@@ -51,7 +51,29 @@ export default {
     submit() {
       console.log(this.content);
       console.log(this.html);
-      this.$message.success("提交成功！");
+      this.axios({
+            method: 'post',
+            url: this.baseUrl + 'news/savenews',
+            data: {
+              title:this.title,
+              author:this.author,
+              summary:this.summary,
+              content: this.content,
+              html: this.html,
+            },
+            // headers: {'Content-Type':'application/x-www-form-urlencoded'},
+          }
+      ).then(response => {
+        this.$message({
+          message: '恭喜你，发布成功！',
+          type: 'success'
+        })
+      }).catch(e=>{
+        this.$message({
+          message: '发布失败，请联系管理员'+e,
+          type: 'error'
+        });
+      })
     }
   }
 };
