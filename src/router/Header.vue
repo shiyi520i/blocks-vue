@@ -4,18 +4,15 @@
 
       <header class="nc-nav-header-fake" id="nc-nav-header">
         <nav>
-          <a href="index.html" class="nc-nav-header-logo" style="width: 140px;">
+          <router-link to="/" class="nc-nav-header-logo" style="width: 140px;">
             <!--          <img src="../assets/common/picture/1636944252254TIDXY.png">-->
             <img src="../assets/common/picture/blocks.png">
-          </a>
+          </router-link>
           <div class="nc-nav-header-menu" style="margin-right: 12px;">
             <el-link v-for="(menu,index) in menus" class="nc-nav-header-menu-item " :key="index"
                      :class="{header_active:index==num}" :underline="false" @click="changeNum(index)">
               <router-link :to="menu.to">{{ menu.item }}</router-link>
             </el-link>
-            <!--           <div class="nc-nav-header-menu-item nc-nav-header-active" data-type="learn">
-                        <router-link to="/courses">学习</router-link>
-                      </div>-->
           </div>
           <!--        <div class="nc-nav-header-search">
                     <span>帖子、文章、试题、公司、牛友</span>
@@ -29,7 +26,7 @@
                style="width: 92px; height: 32px; background: #EEFAF7; color: #32ca99; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-right: 12px;">
               我要招人 <img src="../assets/common/picture/1645409535023RDRAH.png" style="width: 14px; height: 14px;">
             </a>
-            <a
+            <a @click="divlog=true"
                style="width: 92px; height: 32px; background: #EEFAF7; color: #32ca99; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-right: 8px;">
               企业认证 <img src="../assets/common/picture/1645409535023RDRAH.png" style="width: 14px; height: 14px;">
             </a>
@@ -70,10 +67,19 @@
     <div>
       <router-view></router-view>
     </div>
+
+    <el-dialog
+        :visible.sync="divlog"
+        width="40%">
+      <Approve></Approve>
+    </el-dialog>
+
   </div>
 </template>
 
 <script>
+
+import Approve from "@/views/company/Approve";
 
 export default {
   name: 'Header',
@@ -81,6 +87,7 @@ export default {
     return {
       iflogin: false,
       disabled: false,
+      divlog:false,
       username: '',
       num: 0,
       menus: [
@@ -93,6 +100,9 @@ export default {
     }
   },
   inject: ['$authing'],
+  components:{
+    Approve
+  },
   methods: {
     //登入
     handeLogin: async function () {

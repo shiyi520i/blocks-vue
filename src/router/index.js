@@ -66,9 +66,6 @@ const routes = [
     }, {
         path: '/404',
         component: () => import(/* webpackChunkName: "about" */ '../views/404')
-    },{
-        path: '/test',
-        component: () => import(/* webpackChunkName: "about" */ '../views/user/test')
     }
 ];
 
