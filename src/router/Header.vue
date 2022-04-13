@@ -22,7 +22,7 @@
 
           </div>
           <div style="display: flex; align-items: center; font-size: 14px; margin-left: 20px; margin-left: 20px;">
-            <a
+            <a @click="drawer=true"
                style="width: 92px; height: 32px; background: #EEFAF7; color: #32ca99; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-right: 12px;">
               我要招人 <img src="../assets/common/picture/1645409535023RDRAH.png" style="width: 14px; height: 14px;">
             </a>
@@ -43,7 +43,7 @@
                   :width="0"
                   trigger="hover">
                 <div>
-                  <el-avatar :size="60"  @error="false">
+                  <el-avatar :size="60" @error="false">
                     <img src="https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/avatar.jpg"/>
                   </el-avatar>
                   <router-link to="/userexhibit">
@@ -74,12 +74,20 @@
       <Approve></Approve>
     </el-dialog>
 
+    <el-drawer
+        title="标题"
+        :visible.sync="drawer"
+        :with-header="false">
+      <ReleasePost/>
+    </el-drawer>
+
   </div>
 </template>
 
 <script>
 
 import Approve from "@/views/company/Approve";
+import ReleasePost from "@/views/company/ReleasePost";
 
 export default {
   name: 'Header',
@@ -87,7 +95,8 @@ export default {
     return {
       iflogin: false,
       disabled: false,
-      divlog:false,
+      divlog: false,
+      drawer: false,
       username: '',
       num: 0,
       menus: [
@@ -100,8 +109,9 @@ export default {
     }
   },
   inject: ['$authing'],
-  components:{
-    Approve
+  components: {
+    Approve,
+    ReleasePost
   },
   methods: {
     //登入

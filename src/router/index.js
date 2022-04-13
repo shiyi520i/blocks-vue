@@ -42,7 +42,10 @@ const routes = [
                         component: () => import(/* webpackChunkName: "about" */ '../views/user/UserCar')},
                     {
                         path: 'editing',
-                        component: () => import(/* webpackChunkName: "about" */ '../views/admin/Editing')}
+                        component: () => import(/* webpackChunkName: "about" */ '../views/admin/Editing')},
+                    {
+                        path: 'postmanage',
+                        component: () => import(/* webpackChunkName: "about" */ '../views/company/PostManage')}
                 ]
             }, {
                 path: 'CompanyInfo/:id',

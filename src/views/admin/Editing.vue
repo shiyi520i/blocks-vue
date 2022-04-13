@@ -13,6 +13,8 @@
       :data="tableData"
       style="width: 100%">
     <el-table-column
+        column-key="date"
+        sortable
         label="发布时间"
         width="180">
       <template slot-scope="scope">

@@ -92,7 +92,7 @@
             <li>
               <a href="/profile/492752319?noredirect=true" class="selected">
                 <i class="profile-icon p-ico-home"></i>
-                首页
+                用户首页
                 <i class="icon-angle-right"></i>
               </a>
             </li>
@@ -101,24 +101,24 @@
             <li>
               <router-link to="/userexhibit/editing">
                 <i class="profile-icon with-icon-nc icon-nc-trends"></i>
-                动态
+                新闻动态
                 <i class="icon-angle-right"></i>
               </router-link>
             </li>
 
 
             <li>
-              <a href="/profile/492752319/tests">
+              <router-link to="/userexhibit/postmanage">
                 <i class="profile-icon p-ico-subject "></i>
-                刷题
+                职位管理
                 <i class="icon-angle-right"></i>
-              </a>
+              </router-link>
             </li>
 
             <li>
               <router-link to="/userexhibit/check">
                 <i class="profile-icon p-ico-ft"></i>
-                审核
+                职位审核
                 <i class="icon-angle-right"></i>
               </router-link>
             </li>
@@ -145,7 +145,7 @@
             <li>
               <router-link to="/userexhibit/usercar">
                 <i class="profile-icon p-ico-note"></i>
-                记录
+                浏览记录
                 <i class="icon-angle-right"></i>
               </router-link>
             </li>
@@ -303,7 +303,8 @@ export default {
       d1: false,
       a:'',
       fileList:[],
-      avatarUrl:'https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/menAvatar.png'
+      avatarUrl:'https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/menAvatar.png',
+      classNum:0
     };
   },
   methods: {
