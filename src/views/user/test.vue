@@ -8,9 +8,7 @@
         <el-input v-model="form.rpost"></el-input>
       </el-form-item>
       <el-form-item label="学历要求">
-        <el-select v-model="form.rerequirement" placeholder="请选择职业类型">
-          <el-option v-for="p1 in parameterOne" :label="p1.name" :value="p1.id"></el-option>
-        </el-select>
+        <el-input v-model="parameterOne[form.rerequirement].name"></el-input>
       </el-form-item>
       <el-form-item label="招聘人数">
         <el-input v-model="form.rnumber"></el-input>
@@ -41,53 +39,8 @@
           <el-option v-for="p3 in parameterThree" :label="p3.name" :value="p3.id"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="招聘时间">
-        <el-col :span="11">
-          <el-date-picker
-              type="date"
-              placeholder="开始日期"
-              v-model="form.rstarttime"
-              style="width: 100%;"
-
-          ></el-date-picker>
-        </el-col>
-        <el-col class="line" :span="2">--</el-col>
-        <el-col :span="11">
-          <el-date-picker
-              type="date"
-              placeholder="结束日期"
-              v-model="form.rendtime"
-              style="width: 100%;"
-              ></el-date-picker>
-        </el-col>
-      </el-form-item>
-      <el-form-item label="是否全职">
-        <el-switch v-model="form.rworktype"></el-switch>
-      </el-form-item>
-      <el-form-item label="是否急招">
-        <el-switch v-model="form.rstats"></el-switch>
-      </el-form-item>
-      <el-form-item label="职位描述">
-        <el-input
-            type="textarea"
-            v-model="form.rjdescript"
-            autosize
-        ></el-input>
-      </el-form-item>
-      <el-form-item label="工作职责">
-        <el-input
-            type="textarea"
-            autosize
-            v-model="form.rjduty"
-        ></el-input>
-      </el-form-item>
     </el-form>
-    <div>
-  <span slot="footer" class="dialog-footer">
-    <el-button type="primary" @click="onSubmit">发布</el-button>
-    <el-button type="primary" @click="ob">发布</el-button>
-  </span>
-    </div>
+
   </div>
 </template>
 <script>
@@ -103,7 +56,7 @@ export default {
         rjdescript: '',//职位描述
         rjaddress: '',//工作地址
         rjexperience: '',//工作经验
-        rerequirement: '',//学历要求
+        rerequirement: 1,//学历要求
         rjduty: '',//工作职责
         rjrequirement: '',//工作要求
         rnumber: '',//招聘人数

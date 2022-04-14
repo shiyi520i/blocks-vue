@@ -31,45 +31,54 @@
       <div class="hr"></div>
       <div class="row mg_b_10">
         <div class="col-12">
-          <form class="nei_job_search" >
-            <div class="mb-3 d-flex" >
-              <div class="search_title text-muted text-justify">职位类别</div>
-              <div class="flex-grow-1" >
-                <ul class="N__search_labels subnav subnav-pill mb-0">
-                  <li class="" :class="{nei_active:index==num1}" v-for="(jobtype,index) in jobtypes" v-on:click="onclick1(index,jobtype)" :key="index">
-                    <a class="text-nowrap" >{{jobtype.jtype}}</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+          <form class="nei_job_search">
             <div class="mb-3 d-flex">
-              <div class="search_title text-muted text-justify">发布时间</div>
-              <div class="flex-grow-1" >
-                <ul class="N__search_labels subnav subnav-pill mb-0">
-                  <li :class="{nei_active:index==num2}" v-for="(subtime,index) in subtimes" v-on:click="onclick2(index,subtime)" :key="index">
-                    <a class="text-nowrap" >{{subtime.time}}</a>
-                  </li>
-                </ul>
+              <div class="divcssa">
+              <el-dropdown @command="handleCommand1">
+                 <span class="el-dropdown-link">
+                  <font color="#32ca99">{{nj===''?'职位类别':nj}}</font>
+                   <i class="el-icon-arrow-down el-icon--right"></i>
+                </span>
+                <el-dropdown-menu slot="dropdown" >
+                  <el-dropdown-item v-for="(jobtype,index) in jobtypes" :command="jobtype.jtype" :key="index">{{jobtype.jtype}}</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
+              </div >
+              <div class="divcssa">
+              <el-dropdown @command="handleCommand2">
+                 <span class="el-dropdown-link">
+                  <font color="#32ca99">{{nt===''?'发布时间':nt}}</font>
+                   <i class="el-icon-arrow-down el-icon--right"></i>
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item v-for="(subtime,index) in subtimes" :command="subtime.time" :key="index">{{subtime.time}}</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
               </div>
-            </div><div class="mb-3 d-flex">
-            <div class="search_title text-muted text-justify">工作性质</div>
-            <div class="flex-grow-1" >
-              <ul class="N__search_labels subnav subnav-pill mb-0" >
-                <li :class="{nei_active:index==num3}" v-for="(jobnature,index) in jobnatures" v-on:click="onclick3(index,jobnature)" :key="index">
-                  <a class="text-nowrap" >{{jobnature.nature}}</a>
-                </li>
-              </ul>
+              <div class="divcssa">
+              <el-dropdown @command="handleCommand3">
+                 <span class="el-dropdown-link">
+                  <font color="#32ca99">{{nn===''?'工作性质':nn}}</font>
+                   <i class="el-icon-arrow-down el-icon--right"></i>
+                </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item v-for="(jobnature,index) in jobnatures" :command="jobnature.nature" :key="index">{{jobnature.nature}}</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown >
+              </div>
+              <div class="divcssa">
+              <el-dropdown @command="handleCommand4">
+                 <span class="el-dropdown-link">
+                  <font color="#32ca99">{{ns===''?'职位薪资':ns}}</font>
+                   <i class="el-icon-arrow-down el-icon--right"></i>
+                </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item v-for="(salary,index) in salarys" :command="salary.salary" :key="index">{{salary.salary}}</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+              </div>
             </div>
-          </div><div class="mb-3 d-flex">
-            <div class="search_title text-muted text-justify">职位薪资</div>
-            <div class="flex-grow-1" >
-              <ul class="N__search_labels  subnav subnav-pill mb-0" >
-                <li :class="{nei_active:index==num4}"  v-for="(salary,index) in salarys" v-on:click="onclick4(index,salary)" :key="index">
-                  <a class="text-nowrap">{{salary.salary}}</a>
-                </li>
-              </ul>
-            </div>
-          </div></form>
+          </form>
         </div>
       </div><!--row-->
     </div><!--container-->
@@ -88,32 +97,35 @@
                   <div class="col-lg-7 col-md-7">
                     <div class="pd_20">
                       <div class="dis-flex flex-middle">
-                        <!--<span class="N_mark N_square N_top mr-2">{{result.r_stats}}</span>-->
+                        <div v-if="result.rstats===0">
                         <el-tag
                             size="mini"
                             type="danger"
                             effect="dark">
                           急
                         </el-tag>&nbsp;&nbsp;
+                        </div>
+                        <div v-if="result.rworktype===0">
                         <el-tag
                             size="mini"
                             type="success"
                             effect="dark">
                           全
                         </el-tag>&nbsp;&nbsp;
-                        <a class="nei_job_name text-truncate"   v-on:click="lookPost(index,result)" v-html="result.rpost"></a>
+                        </div>
+                        <a class="nei_job_name text-truncate"   v-on:click="lookPost(index,result)" v-html="result.post"></a>
                         <small class="text-muted text-nowrap ml-4">[<span>{{result.rprovince}}{{result.rcity}}</span>]</small></div>
                       <ul class="subnav subnav-divider text-muted mg_t_15">
                         <li>
                           <div><span class="N_text_salary">{{result.rminsalary}}-{{result.rmaxsalary}}k/月</span></div>
                         </li>
                         <li class="d-none d-lg-flex">
-                          <div><span v-text="result.rold"></span></div>
-                        </li>
-                        <li class="d-none d-lg-flex">
-                          <div><span v-text="result.rage"></span></div>
+                          <div><span v-text="result.jexperience"></span></div>
                         </li>
                         <li>
+                          <div><span v-text="result.erequirement"></span></div>
+                        </li>
+                        <li class="d-none d-lg-flex">
                           <div><span v-text="result.rtime"></span></div>
                         </li>
                       </ul>
@@ -198,27 +210,24 @@
                           <span class="v-tag" title="企业认证"></span>
                         </div>
                       </div>
-                      <p class="text-small mg_t_15"><span class="text-muted">{{result.rztype}}</span></p>
+                      <p class="text-small mg_t_15"><span class="text-muted">{{result.type}}</span></p>
                     </div>
                   </div>
                   <div class="d-none d-lg-flex col-lg-1 flex-middle justify-content-center">
                     <div class="nei_company_logo mb-2" style="width:54px;height:54px">
-                      <el-image shape="square" :size="54" fit="contain" :src="result.rlogo"></el-image>
+                      <el-image shape="square" :size="60" fit="contain" :src="result.rlogo"></el-image>
                       <!--<img style="width: 54px;height: 54px" title="" :src="result.r_logo" alt="logo">-->
                     </div>
                   </div>
                 </div><!--row bg-white-->
                 <div class="welfare_list">
-                  <div >
-                    <!--<span v-for="we in result.r_welfares">{{we}}</span>-->
                     <el-tag
-                        v-for="we in result.rwelfares"
+                        v-for="we in result.welfares"
                         type="danger"
                         effect="plain"
                         :key="we">
                       {{ we }}
                     </el-tag>
-                  </div>
                 </div>
 
 
@@ -238,7 +247,7 @@
                 :page-size="pageSize"
                 :current-page="page"
                 :hide-on-single-page="vl"
-                :total="100">
+                :total="total">
             </el-pagination>
           </div>
         </div><!--col-lg-9-->
@@ -413,15 +422,11 @@ export default ({
         pageSize: 5, //每一页显示的数据条数
         total: 0, //记录总数
         maxPage: 9,//最大页数
-        num1: 0,//ativty
-        num2: 0,
-        num3: 0,
-        num4: 0,
         num6: 1,
         popos: [],//提示框-
         hotPosts:[],//热词
         breakmsg:'',//返回的消息
-        url:'${contextPath}/member/enterprise/getInfor?id=',
+        url:'?id=',
         nj:'',//搜索词
         nt:'',
         nn:'',
@@ -517,25 +522,18 @@ export default ({
         })
 
       },
-      onclick1(index, type) {
-        this.num1 = index
-        this.nj = type.jtype
+      handleCommand1(c) {
+        this.nj = c
         //this.searchKey()
       },
-      onclick2(index, type) {
-        this.num2 = index
-        this.nt = type.time
-        console.log(index, type.time, this.keywords);
+      handleCommand2(c) {
+        this.nt = c
       },
-      onclick3(index, type) {
-        this.num3 = index
-        this.nn = type.nature
-        console.log(index, type.nature, this.keywords);
+      handleCommand3(c) {
+        this.nn = c
       },
-      onclick4 (index, type) {
-        this.num4 = index
-        this.ns = type.salary
-        console.log(index, type.salary, this.keywords);
+      handleCommand4(c) {
+        this.ns = c
       },
       getByWidth(){
         this.axios.get(this.baseurl+'weight/getweight').then(response => {
@@ -549,18 +547,12 @@ export default ({
         let userinfo = JSON.parse(localStorage.getItem('userInfo'))
         let uid = userinfo['sub']
         this.dialogVisible = true
-        let param = new URLSearchParams()
-        param.append('id', p.rid)
-        param.append('cid', p.cid)
-        param.append('uid', uid)
-        param.append('postname', p.rpost)
-        console.log(param,param.get("id"))
         this.axios({
               method: 'post',
               url: this.baseurl + 'busRecruitinfo/postone',
               data: {
                 id:p.rid,
-                cid:p.cid,
+                cid:p.eid,
                 uid:uid,
                 postname:p.rpost
               },
@@ -639,6 +631,19 @@ export default ({
       hotClick(index,hot){
         this.pageHandler(1,hot)
       },
+      //获取参数
+      getParameter() {
+        this.axios({
+              method: 'get',
+              url: './json/parameter.json',
+            }
+        ).then(response => {
+          this.parameterOne = response.data[0].children;//学历要求
+          this.parameterTwo = response.data[1].children;//工作经验
+          this.parameterThree = response.data[2].children;//职业福利
+          console.log(this.parameter)
+        })
+      },
     },
     created: function () {
       //created  表示页面加载完毕，立即执行
@@ -654,6 +659,8 @@ export default ({
 @import '../assets/common/css/bootstrap.min.css';
 @import '../assets/common/css/ui2.css';
 @import '../assets/common/css/front.css';
+
+.divcssa{margin:0 60px}
 </style>
 
 
