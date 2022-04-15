@@ -197,11 +197,12 @@
                             </div><!--nei_zhiwei_cont-->
                           </div>
 
-                          <a class="nei_company_name text-truncate" target="_blank"
+                          <a class="nei_company_name text-truncate"
                              title=""
                              @mouseover="showPopo(index,result)"
                              slot="reference">{{result.rname}}</a>
                         </el-popover>
+
                         <div v-if="result.rischeck === 1">
                           <span class="v-tag" title="企业认证"></span>
                         </div>
@@ -215,7 +216,7 @@
                   </div>
                   <div class="d-none d-lg-flex col-lg-1 flex-middle justify-content-center">
                     <div class="nei_company_logo mb-2" style="width:54px;height:54px">
-                      <el-image shape="square" :size="60" fit="contain" :src="result.rlogo"></el-image>
+                      <el-image shape="circle" :size="60" fit="contain" :src="result.rlogo"></el-image>
                       <!--<img style="width: 54px;height: 54px" title="" :src="result.r_logo" alt="logo">-->
                     </div>
                   </div>
@@ -229,9 +230,6 @@
                       {{ we }}
                     </el-tag>
                 </div>
-
-
-
 
               </div><!--mg-2-->
             </div>
@@ -257,10 +255,14 @@
           <div class="bg-white pos_rel pd_10 card_shadow">
             <div class="mt_cont_tilte"><span>热门公司</span></div>
             <div class="nei_right_body" v-for="weight in weights" :key="weight">
-              <ul class="nei_zhiwei_list" >
-                <li><a :href="url+weight.id+'&'+'pageSize=5'" target="_blank" >
-                  <p>{{weight.name}}&nbsp;&nbsp;<i class="fa fa-free-code-camp fa-lg" style="color:red"></i></p>
-                  <span>{{weight.type}}</span></a></li>
+              <ul class="nei_zhiwei_list">
+                <li>
+<!--                  <a :href="baseurl+weight.id+'&'+'pageSize=5'">-->
+                    <a >
+                    <p>{{ weight.name }}&nbsp;&nbsp;<i class="fa fa-free-code-camp fa-lg" style="color:red"></i></p>
+                    <span>{{ weight.type }}</span>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -293,17 +295,15 @@
                       <hr>
                       <ul class="subnav subnav-divider mt-2 mb-4">
                         <li title="区域">{{onePost.rcity}}&nbsp;-&nbsp;{{onePost.rarea}}</li>
-                        <li title="工作经验">{{onePost.rjexperience}}</li>
-                        <li title="需要学历">{{onePost.rerequirement}}</li>
+                        <li title="工作经验">{{onePost.jexperience}}</li>
+                        <li title="需要学历">{{onePost.erequirement}}</li>
                         <li title="招聘人数">{{onePost.rnumber}}人</li>
                         <li title="所属行业">{{onePost.rztype}}</li>
                       </ul>
                       <p>
-                        <button id="" class="btn btn-primary  mr-3" type="button" @click="applyPost(onePost)">
-                          <span>申请职位</span>
-                        </button>
-                        <a class="nei_job_name text-truncate"><i class="fa fa-heart fa-lg" style="color:red"></i>收藏</a>
-                        <a class="nei_job_name text-truncate"><i class="fa fa-comments fa-lg" style="color:#409EFF"></i>立即沟通</a>
+                        <a class="nei_job_name text-truncate aa" @click="applyPost"><i class="fa fa-share fa-lg" style="color:#32ca99"></i><small class="text-muted">申请</small></a>
+                        <a class="nei_job_name text-truncate aa"><i class="fa fa-heart fa-lg" style="color:red"></i><small class="text-muted">收藏</small></a>
+                        <a class="nei_job_name text-truncate aa"><i class="fa fa-comments fa-lg" style="color:#409EFF"></i><small class="text-muted">沟通</small></a>
                       </p>
                     </div>
                   </div>
@@ -334,13 +334,13 @@
 
                       <div class="mb-3">
                         <div class="txt_center pl-2 pr-2 pt-3 pb-3">
-                          <div class="nei_company_logo align-center mb-2" style="height:54px">
-                            <img title="" style="width: 54px; height: 54px;" alt="logo" src="${contextPath}/images/front/comp/comp1.png">
+                          <div class="nei_company_logo align-center mb-2" >
+                            <el-image shape="circle" :size="60" fit="contain" :src="popos.logo"></el-image>
                           </div>
                           <h5 class="mb-1 text-truncate"></h5>
-                          <a class="text-dark font-weight-bold" title="" target="_blank" href="">{{popos.name}}</a>
+                          <a class="text-dark font-weight-bold" title=""  href="">{{popos.companyname}}</a>
                           <p>
-                            <small class="d-block text-truncate">{{popos.type}}</small>
+                            <small class="d-block text-truncate">{{popos.ttype}}</small>
                           </p>
                           <p><span class="badge badge-primary mr-1" title="企业认证">企业认证</span>
                             <span class="badge badge-success mr-1" title="实名认证">实名认证</span>
@@ -355,11 +355,11 @@
                               <small class="text-muted">简历查看率</small>
                             </div>
                             <div class="width_33">
-                              <h6 class="mb-1 font-weight-bold">2</h6>
+                              <h6 class="mb-1 font-weight-bold">{{onePost.count}}</h6>
                               <small class="text-muted">在招职位</small>
                             </div>
                             <div class="width_33">
-                              <h6 class="mb-1 font-weight-bold">22222</h6>
+                              <h6 class="mb-1 font-weight-bold">{{onePost.count}}</h6>
                               <small class="text-muted">被浏览次数</small>
                             </div>
                           </div>
@@ -370,14 +370,14 @@
                         <div class="p-3">
                           <h5 class="font-weight-bold">联系方式</h5>
                           <div class="text-muted">
-                            <div class="mt-1">
-                              <i class="fa fa-user-o mr-2"></i><span class="text-muted">{{popos.conname}}</span>
+                            <div class="mt-1  diva">
+                              <i class="fa fa-user-o mr-2"></i><span class="text-muted">{{onePost.conName}}</span>
                             </div>
-                            <div class="mt-1">
-                              <i class="fa fa-whatsapp mr-2"></i><span style="color: var(--red)">{{popos.Landline}}</span>
+                            <div class="mt-1  diva">
+                              <i class="fa fa-whatsapp mr-2"></i><span style="color: var(--red)">{{onePost.conPhone}}</span>
                             </div>
-                            <div class="mt-1 text-truncate">
-                              <i class="fa fa-send-o mr-2"></i><a class="text-muted" target="_blank" href="">{{popos.email}}</a>
+                            <div class="mt-1 text-truncate  diva">
+                              <i class="fa fa-send-o mr-2"></i><a class="text-muted" >{{onePost.conEmail}}</a>
                             </div>
                           </div>
 
@@ -411,7 +411,6 @@ export default ({
         dialogVisible: false,  //显示弹窗
         baseurl:'http://localhost:4000/api/',
         keyword: '',
-        keywords: '',
         results: [
           {rpost:'前端',rjdescript:'a',rprovince:'广东',rcity:'惠州',rztype:'服务业',rwelfares:'餐补',rname:'广东有限公司'}
         ],
@@ -426,7 +425,6 @@ export default ({
         popos: [],//提示框-
         hotPosts:[],//热词
         breakmsg:'',//返回的消息
-        url:'?id=',
         nj:'',//搜索词
         nt:'',
         nn:'',
@@ -543,7 +541,6 @@ export default ({
 
       //查看一条职位信息
       lookPost(index, p) {
-        console.log(p)
         let userinfo = JSON.parse(localStorage.getItem('userInfo'))
         let uid = userinfo['sub']
         this.dialogVisible = true
@@ -554,7 +551,7 @@ export default ({
                 id:p.rid,
                 cid:p.eid,
                 uid:uid,
-                postname:p.rpost
+                post:p.rpost
               },
              // headers: {'Content-Type':'application/x-www-form-urlencoded'},
             }
@@ -564,15 +561,14 @@ export default ({
           this.welfares = arr.split(",")
 
         })
-         this.showPopo(index,p)
+         this.showPopo(index,p.eid)
       },
 
       //查看一条公司信息
-      showPopo(index,popo){
-        console.log(popo)
+      showPopo(index,eid){
         this.axios.post(this.baseurl+'companyinfo/getcomone',
           {
-            id:popo.id,
+            loginId:eid,
           }
         ).then(response => {
           this.popos= response.data;
@@ -660,6 +656,10 @@ export default ({
 @import '../assets/common/css/ui2.css';
 @import '../assets/common/css/front.css';
 
+.diva{
+  float:left;
+}
+.aa{margin:0 20px}
 .divcssa{margin:0 60px}
 </style>
 
