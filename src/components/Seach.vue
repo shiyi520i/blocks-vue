@@ -36,22 +36,22 @@
               <div class="divcssa">
               <el-dropdown @command="handleCommand1">
                  <span class="el-dropdown-link">
-                  <font color="#32ca99">{{nj===''?'职位类别':nj}}</font>
+                  <font color="#32ca99">{{njname===''?'职位类别':njname}}</font>
                    <i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown" >
-                  <el-dropdown-item v-for="(jobtype,index) in jobtypes" :command="jobtype.jtype" :key="index">{{jobtype.jtype}}</el-dropdown-item>
+                  <el-dropdown-item v-for="(jobtype,index) in jobtypes" :command="jobtype" :key="index">{{jobtype.name}}</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
               </div >
               <div class="divcssa">
               <el-dropdown @command="handleCommand2">
                  <span class="el-dropdown-link">
-                  <font color="#32ca99">{{nt===''?'发布时间':nt}}</font>
+                  <font color="#32ca99">{{ntname===''?'工作经验':ntname}}</font>
                    <i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item v-for="(subtime,index) in subtimes" :command="subtime.time" :key="index">{{subtime.time}}</el-dropdown-item>
+                  <el-dropdown-item v-for="(species,index) in species" :command="species" :key="index">{{species.name}}</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
               </div>
@@ -144,7 +144,7 @@
                               <div class="container">
                                 <div class="d-flex">
                                   <div class="mr-4">
-                                    <img lazy-img="" style="max-height: 75px;" alt="logo" src="${contextPath}/images/front/comp/comp1.png"></div>
+                                    <img lazy-img="" style="max-height: 75px;" alt="logo" :src="popos.logo"></div>
 
                                   <div class="flex-fill">
                                     <div class="su-flex su-flex-middle">
@@ -155,7 +155,7 @@
 
                                     <ul class="subnav text-muted d-inline-flex mt-2">
                                       <li>
-                                        <span>{{popos.type}}</span>
+                                        <span>{{popos.ttype}}</span>
                                       </li>
                                       <li>
                                         <span>{{popos.number}}人以上</span>
@@ -183,7 +183,7 @@
 
                                           <hr />
                                           <div class="mt_cont_tilte mb-3"><span>联系我们</span></div>
-                                          <p>座机：{{popos.Landline}}</p>
+                                          <p>座机：{{popos.landline}}</p>
                                           <p>邮箱：{{popos.email}}</p>
                                           <p>地址：{{popos.province}}{{popos.city}}{{popos.area}}{{popos.address}}</p>
                                         </div><!--mb-4-->
@@ -199,7 +199,7 @@
 
                           <a class="nei_company_name text-truncate"
                              title=""
-                             @mouseover="showPopo(index,result)"
+                             @mouseover="showPopo(index,result.eid)"
                              slot="reference">{{result.rname}}</a>
                         </el-popover>
 
@@ -258,7 +258,7 @@
               <ul class="nei_zhiwei_list">
                 <li>
 <!--                  <a :href="baseurl+weight.id+'&'+'pageSize=5'">-->
-                    <a >
+                    <a @click="intoCompany(weight.loginid)">
                     <p>{{ weight.name }}&nbsp;&nbsp;<i class="fa fa-free-code-camp fa-lg" style="color:red"></i></p>
                     <span>{{ weight.type }}</span>
                   </a>
@@ -302,7 +302,7 @@
                       </ul>
                       <p>
                         <a class="nei_job_name text-truncate aa" @click="applyPost"><i class="fa fa-share fa-lg" style="color:#32ca99"></i><small class="text-muted">申请</small></a>
-                        <a class="nei_job_name text-truncate aa"><i class="fa fa-heart fa-lg" style="color:red"></i><small class="text-muted">收藏</small></a>
+                        <a class="nei_job_name text-truncate aa"><i class="fa fa-heart fa-lg" style="color:#FF6A6A"></i><small class="text-muted">收藏</small></a>
                         <a class="nei_job_name text-truncate aa"><i class="fa fa-comments fa-lg" style="color:#409EFF"></i><small class="text-muted">沟通</small></a>
                       </p>
                     </div>
@@ -355,11 +355,11 @@
                               <small class="text-muted">简历查看率</small>
                             </div>
                             <div class="width_33">
-                              <h6 class="mb-1 font-weight-bold">{{onePost.count}}</h6>
+                              <h6 class="mb-1 font-weight-bold">{{onePost.countPost}}</h6>
                               <small class="text-muted">在招职位</small>
                             </div>
                             <div class="width_33">
-                              <h6 class="mb-1 font-weight-bold">{{onePost.count}}</h6>
+                              <h6 class="mb-1 font-weight-bold">{{onePost.countRecord}}</h6>
                               <small class="text-muted">被浏览次数</small>
                             </div>
                           </div>
@@ -415,7 +415,9 @@ export default ({
           {rpost:'前端',rjdescript:'a',rprovince:'广东',rcity:'惠州',rztype:'服务业',rwelfares:'餐补',rname:'广东有限公司'}
         ],
         weights:[],
-        onePost: [],
+        onePost: [
+              {countPost:0,countRecord:0}
+        ],
         welfares:[],
         page: 1,  //显示的是哪一页
         pageSize: 5, //每一页显示的数据条数
@@ -425,44 +427,13 @@ export default ({
         popos: [],//提示框-
         hotPosts:[],//热词
         breakmsg:'',//返回的消息
+        njname:'',//搜索词
+        ntname:'',
         nj:'',//搜索词
-        nt:'',
+        nt:20,
         nn:'',
         ns:'',
-        jobtypes: [
-          {jtype: '不限'},
-          {jtype: '销售'},
-          {jtype: '行政人事文员'},
-          {jtype: '财务会计'},
-          {jtype: '普工/技工'},
-          {jtype: '客服'},
-          {jtype: 'IT计算机'},
-          {jtype: '教育培训'},
-          {jtype: '营销策划'},
-          {jtype: '餐饮娱乐'},
-          {jtype: '司机/保安/后勤'},
-          {jtype: '设计'},
-          {jtype: '物流/贸易/仓库管理'},
-          {jtype: '摄影/影视'},
-          {jtype: '房产/物业/中介'},
-          {jtype: '运营管理'},
-          {jtype: '化工制药'},
-          {jtype: '电子电气'},
-          {jtype: '金融证券'},
-          {jtype: '美容/美发'},
-          {jtype: '银行保险'},
-          {jtype: '建筑施工'},
-          {jtype: '医疗医药'},
-          {jtype: '电子通讯'},
-          {jtype: '翻译法律'},
-          {jtype: '超市/百货/零售'},
-          {jtype: '工厂工业'},
-          {jtype: '机械仪表'},
-          {jtype: '能源环保'},
-          {jtype: '服装/纺织/食品'},
-          {jtype: '编辑/发行'},
-          {jtype: '其他'},
-        ],
+        jobtypes: [],
         subtimes: [
           {time: '不限'},
           {time: '今天'},
@@ -471,6 +442,7 @@ export default ({
           {time: '一个月内'},
           {time: '三个月内'},
         ],
+        species:[],
         jobnatures: [
           {nature: '不限'},
           {nature: '全职'},
@@ -509,7 +481,7 @@ export default ({
             pageSize: this.pageSize,
             pageNo: page,
             keyword: keyword,
-            time: this.nt,
+            species: this.nt,
             worktype: this.nn,
             salary: this.ns,
             jobtype: this.nj,
@@ -521,11 +493,13 @@ export default ({
 
       },
       handleCommand1(c) {
-        this.nj = c
+        this.nj = c.id
+        this.njname=c.name
         //this.searchKey()
       },
       handleCommand2(c) {
-        this.nt = c
+        this.nt = c.id
+        this.ntname = c.name
       },
       handleCommand3(c) {
         this.nn = c
@@ -533,6 +507,8 @@ export default ({
       handleCommand4(c) {
         this.ns = c
       },
+
+      //热门公司排行
       getByWidth(){
         this.axios.get(this.baseurl+'weight/getweight').then(response => {
           this.weights= response.data;
@@ -559,7 +535,8 @@ export default ({
           this.onePost = response.data;
           var arr = response.data.rwelfares;
           this.welfares = arr.split(",")
-
+          this.onePost.countPost=response.data.count[0]
+          this.onePost.countRecord=response.data.count[1]
         })
          this.showPopo(index,p.eid)
       },
@@ -578,21 +555,20 @@ export default ({
       applyPost() {
         let userinfo=JSON.parse(localStorage.getItem('userInfo'))
         let uid=userinfo['sub']
+        console.log(this.onePost)
         this.$confirm('系统将自动发送简历到该公司，请确认申请该职位?', '提示', {
           confirmButtonText: '申请',
           cancelButtonText: '取消',
           type: 'success'
         }).then(() => {
-          this.axios.get(this.baseurl+'record/applypost', {
-            params: {
-              rid: this.onePost.r_id,
-              eid: this.onePost.id,
-              rpost: this.onePost.r_post,
+          this.axios.post(this.baseurl+'record/applypost', {
+              rid: this.onePost.rid,
+              cid: this.onePost.eid,
+              post: this.onePost.rpost,
               uid:uid
-            }
           }).then(response => {
             this.breakmsg=response.data.msg;
-            if (response.data.success == false) {
+            if (response.data.code === 400) {
               this.$message({
                 duration:5000,
                 type: 'error',
@@ -629,19 +605,28 @@ export default ({
       },
       //获取参数
       getParameter() {
-        this.axios({
-              method: 'get',
-              url: './json/parameter.json',
-            }
-        ).then(response => {
-          this.parameterOne = response.data[0].children;//学历要求
-          this.parameterTwo = response.data[1].children;//工作经验
-          this.parameterThree = response.data[2].children;//职业福利
-          console.log(this.parameter)
-        })
+
+          this.axios({
+                method: 'get',
+                url: this.baseUrl+'parameter/getparameter',
+              }
+          ).then(response => {
+            this.jobtypes= response.data['hyfl']
+            this.species= response.data['gzyq']
+          })
       },
+      //进入公司简介
+      intoCompany(loginId){
+        this.$router.push({
+          path: `/CompanyInfo/${loginId}`,
+        })
+      }
+
     },
-    created: function () {
+  mounted() {
+      this.getParameter()
+  },
+  created () {
       //created  表示页面加载完毕，立即执行
       this.sortPost();
       this.getByWidth();

@@ -45,33 +45,6 @@
                   </div>
                 </div>
               </a>
-              <a href="/stack/13" target="_blank" class="js-stack-item" data-id="13">
-                <div class="tech-item">
-                  <div class="tech-pic"><img src="static/picture/b5cc9fd8401f40ac84e174e227e7f946.gif"></div>
-                  <div class="tech-item-main">
-                    <div class="tech-item-name">Python</div>
-                    <span class="tag-label">语言和框架</span>
-                  </div>
-                </div>
-              </a>
-
-              <a href="/stack/2063" target="_blank" class="js-stack-item" data-id="2063">
-                <div class="tech-item">
-                  <div class="tech-pic"><img src="static/picture/b72f86e95f2e4932bac263f949fd1ff6.gif"></div>
-                  <div class="tech-item-main">
-                    <div class="tech-item-name">Badger</div>
-                    <span class="tag-label">数据存储</span>
-                  </div>
-                </div>
-              </a>
-              <div class="tech-item add-tech-item nc-req-auth js-add-stack" data-top="244" data-top-name="语言&框架&数据">
-                <div class="tech-pic">
-                  <div class="add-tech-icon"> +</div>
-                </div>
-                <div class="tech-item-main">
-                  <a href="javascript:void(0);" class="add-tech-txt">+添加技术栈</a>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -90,24 +63,6 @@
                   </div>
                 </div>
               </a>
-
-              <a href="/stack/2460" target="_blank" class="js-stack-item" data-id="2460">
-                <div class="tech-item">
-                  <div class="tech-pic"><img src="static/picture/ed5b5e66aa2746b0a162e9af4a93eb83.gif"></div>
-                  <div class="tech-item-main">
-                    <div class="tech-item-name">250ok</div>
-                    <span class="tag-label">沟通交流</span>
-                  </div>
-                </div>
-              </a>
-              <div class="tech-item add-tech-item nc-req-auth js-add-stack" data-top="1" data-top-name="技术工具">
-                <div class="tech-pic">
-                  <div class="add-tech-icon"> +</div>
-                </div>
-                <div class="tech-item-main">
-                  <a href="javascript:void(0);" class="add-tech-txt">+添加技术栈</a>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -126,41 +81,6 @@
                   </div>
                 </div>
               </a>
-              <a href="/stack/451" target="_blank" class="js-stack-item" data-id="451">
-                <div class="tech-item">
-                  <div class="tech-pic"><img src="static/picture/202846fbdd0b4b6c970698242eece4d1.gif"></div>
-                  <div class="tech-item-main">
-                    <div class="tech-item-name">Adobe Illustrator</div>
-                    <span class="tag-label">设计</span>
-                  </div>
-                </div>
-              </a>
-              <a href="/stack/265" target="_blank" class="js-stack-item" data-id="265">
-                <div class="tech-item">
-                  <div class="tech-pic"><img src="static/picture/78a7dd3a47114563b9f426e1832d156e.gif"></div>
-                  <div class="tech-item-main">
-                    <div class="tech-item-name">Google Sheets</div>
-                    <span class="tag-label">后台管理系统</span>
-                  </div>
-                </div>
-              </a>
-              <a href="/stack/278" target="_blank" class="js-stack-item" data-id="278">
-                <div class="tech-item">
-                  <div class="tech-pic"><img src="static/picture/d50fd4e12b51467ab6a7565f2deb0789.gif"></div>
-                  <div class="tech-item-main">
-                    <div class="tech-item-name">Sketch</div>
-                    <span class="tag-label">设计</span>
-                  </div>
-                </div>
-              </a>
-              <div class="tech-item add-tech-item nc-req-auth js-add-stack" data-top="242" data-top-name="商业工具">
-                <div class="tech-pic">
-                  <div class="add-tech-icon"> +</div>
-                </div>
-                <div class="tech-item-main">
-                  <a href="javascript:void(0);" class="add-tech-txt">+添加技术栈</a>
-                </div>
-              </div>
             </div>
           </div>
         </div>

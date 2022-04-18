@@ -24,7 +24,7 @@
                       <img src="../../assets/common/picture/阿里-圆-120x120.png">
                     </div>
                     <div class="tech-from-com-main">
-                      <div class="tech-from-com-name" @click="look(company.id)">
+                      <div class="tech-from-com-name" @click="look(company.loginId)">
                         阿里巴巴{{ company.companyname }}
                         <i class="v-tag"></i></div>
                       <div class="tech-from-com-ft">
@@ -78,15 +78,13 @@ export default {
       page: 1,
       vl: true,
       total: 10,
-      companys: [
-        {}
-      ]
+      companys: []
     };
   },
   methods: {
     pageHandler() {
 
-      this.axios.get('http://localhost:4000/api/companyinfo/getallcom', {
+      this.axios.get(this.baseUrl+'companyinfo/getallcom', {
         params: {
           pageSize: this.pageSize,
           pageNo: this.page,
@@ -96,9 +94,9 @@ export default {
         this.companys = response.data.records
       })
     },
-    look(id){
+    look(loginId){
       this.$router.push({
-        path: `/CompanyInfo/${id}`,
+        path: `/CompanyInfo/${loginId}`,
       })
     }
   },
