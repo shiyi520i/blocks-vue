@@ -58,7 +58,7 @@
               placeholder="结束日期"
               v-model="form.rendtime"
               style="width: 100%;"
-              ></el-date-picker>
+          ></el-date-picker>
         </el-col>
       </el-form-item>
       <el-form-item label="是否全职">
@@ -95,6 +95,11 @@
 
 export default {
   name: 'ReleasePost',
+  props: {
+    rid: {
+      type: Number,
+    }
+  },
   data() {
     return {
       form: {
@@ -118,9 +123,9 @@ export default {
         rwelfares: '',//职业福利
       },
       categorys: [],
-      parameterOne:[],
-      parameterTwo:[],
-      parameterThree:[]
+      parameterOne: [],
+      parameterTwo: [],
+      parameterThree: []
     }
   },
   methods: {
@@ -129,8 +134,8 @@ export default {
       let uid = userinfo['sub']
       let w
       let s
-      this.form.rworktype?w=0:w=1
-      this.form.rstats?s=1:s=0
+      this.form.rworktype ? w = 0 : w = 1
+      this.form.rstats ? s = 1 : s = 0
       this.axios.post(this.baseUrl + 'busRecruitinfo/save',
           {
             eid: uid,
@@ -155,33 +160,43 @@ export default {
         this.popos = response.data;
       })
     },
-    getCategory() {
-      this.axios({
-            method: 'get',
-            url: './json/category.json',
-          }
-      ).then(response => {
-        this.categorys = response.data;
-        console.log(this.categorys)
-      })
-    },
     getParameter() {
       this.axios({
             method: 'get',
-            url: './json/parameter.json',
+            url: this.baseUrl + 'parameter/getparameter',
           }
       ).then(response => {
-        this.parameterOne = response.data[0].children;//学历要求
-        this.parameterTwo = response.data[1].children;//工作经验
-        this.parameterThree = response.data[2].children;//职业福利
-        console.log(this.parameter)
+        this.categorys = response.data['hyfl'];//行业分类
+        this.parameterOne = response.data['xlyq'];//学历要求
+        this.parameterTwo = response.data['gzyq'];//工作经验
+        this.parameterThree = response.data['gzfl'];//职业福利
       })
+    },
+    getPostInfo() {
+      console.log(this.rid)
+      if (this.rid != null) {
+        this.axios({
+              method: 'get',
+              url: this.baseUrl + 'busRecruitinfo/postinfo',
+              params: {
+                rid: this.rid
+              }
+            }
+        ).then(response => {
+          this.form = response.data;
+          if(this.form.rworktype==0)
+            this.form.rworktype=true
+          if(this.form.rstats==0)
+            this.form.rstats=true
+          console.log(response.data)
+        })
+      }
     },
     ob() {
       let w
       let s
-      this.form.rworktype?w=0:w=1
-      this.form.rstats?s=1:s=0
+      this.form.rworktype ? w = 0 : w = 1
+      this.form.rstats ? s = 1 : s = 0
       console.log(this.form.rworktype)
       console.log(w)
       console.log(this.form.rstarttime)
@@ -189,8 +204,8 @@ export default {
     }
   },
   mounted() {
-    this.getCategory()
     this.getParameter()
+    this.getPostInfo()
   }
 }
 </script>

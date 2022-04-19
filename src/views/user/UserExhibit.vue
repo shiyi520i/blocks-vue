@@ -118,7 +118,7 @@
             <li>
               <router-link to="/userexhibit/check">
                 <i class="profile-icon p-ico-ft"></i>
-                职位审核
+                企业审核
                 <i class="icon-angle-right"></i>
               </router-link>
             </li>

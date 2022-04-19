@@ -29,9 +29,8 @@
 
                 <div class="discuss-detail">
                   <div class="discuss-head">
-                    <a class="head-pic js-nc-avatar js-nc-card" data-card-uid="1030032973"><img alt="头像"
-                                                                                                src="https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/logo.png"></a>
-                    <a class="d-name level-color-5 js-nc-card" data-card-uid="1030032973">{{ newinfo.author }}</a>
+                    <a class="head-pic js-nc-avatar js-nc-card"><img alt="头像" :src="newinfo.avatar"></a>
+                    <a class="d-name level-color-5 js-nc-card">{{ newinfo.author }}</a>
                     <!--                    <a title="牛客运营" href="authentication.html" class="js-nc-title-tips" target="_blank">
                                           <img class="item.idenClass" data-identity="item.level" src="static/picture/12.png">
                                         </a>-->
@@ -47,7 +46,7 @@
 
 
                     <div class="discuss-content">
-                      <img src="static/picture/305DE276897792E7EA77059332E6E300.jpg" class="discuss-content-img" alt="">
+                      <img :src="newinfo.image" class="discuss-content-img">
                       <a class="discuss-content-tag mr-1">春招</a>
                       <a class="discuss-content-tag mr-1">招聘进度</a>
                       <a class="discuss-content-tag mr-1">秋招</a>
@@ -60,12 +59,11 @@
                   </div>
                   <div class="feed-foot">
                     <div class="feed-origin">
-                      发表在&nbsp;<a href="javascript:;">[站内公告]</a>&nbsp;&nbsp;
+                      发表在&nbsp;<a>[站内公告]</a>&nbsp;&nbsp;
                     </div>
                     <div class="feed-legend">
-                      <span>回复 7</span>
-                      <span>赞 22</span>
-                      <span>浏览 23907</span>
+                      <span>赞 {{newinfo.greatnum}}</span>
+                      <span>浏览 {{newinfo.scannum}}</span>
 
                     </div>
                   </div>

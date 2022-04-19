@@ -7,7 +7,7 @@
         <!--主体内容-->
         <div class="nk-content">
           <div class="js-pendant"></div>
-          <div class="module-box discuss-topic js-copy-mark" data-mark-info="作者：谁动了奶酪">
+          <div class="module-box discuss-topic js-copy-mark">
             <div class="discuss-topic-head">
               <h1 class="discuss-title"><span
                   class="js-post-title post-title">{{results.title}}</span>
@@ -20,28 +20,27 @@
               </h1>
 
               <div class="discuss-author clearfix">
-                <a class="answer-head js-nc-avatar js-nc-card" data-card-uid="537973227">
-                  <img src="static/picture/2a2d5994ca114b42ab6a8a8d16508669.gif" alt="头像">
+                <a class="answer-head js-nc-avatar js-nc-card" >
+                  <img :src="results.avatar" alt="头像">
                 </a>
 
                 <div class="post-detail">
             <span>
                 <a class="js-nc-card level-color-5 post-name">{{results.author}}</a>
-                <a class="js-nc-title-tips"><img class="identity-icon" data-identity="3" src="static/picture/3.png"></a>
             </span>
 
                   <div class="post-legend">
                     <span class="post-time">编辑于  {{results.time}}</span>
                     <div class="feed-legend">
-                      <span style="cursor:pointer;" class="js-post-like nc-req-auth">赞 12</span>
+                      <span style="cursor:pointer;" class="js-post-like nc-req-auth">赞 {{results.greatnum}}</span>
                       <span class="feed-legend-pipe">|</span>
-                      <span style="cursor:pointer;"
+<!--                      <span style="cursor:pointer;"
                             class="js-post-follow nc-req-auth">收藏 13</span>
                       <span class="feed-legend-pipe">|</span>
                       <span style="cursor:pointer;" class="nc-req-auth js-post-replay">回复<span
                           class="feed-legend-num">138</span></span>
-                      <span class="feed-legend-pipe">|</span>
-                      <span>浏览<span class="feed-legend-num">4374</span></span>
+                      <span class="feed-legend-pipe">|</span>-->
+                      <span>浏览<span class="feed-legend-num">{{results.scannum}}</span></span>
                     </div>
 
                   </div>
@@ -97,7 +96,7 @@
                          style="width: 100%; display: inline-block;"><i class="icon-star"></i>(13)</a>
                     </div>
                   </li>
-                  <li class="oprt-item-share">
+<!--                  <li class="oprt-item-share">
                     <div>
                       <a class="oprt-item-new js-share-oprt-item"><i class="icon-nc-share2"></i>分享</a>
                     </div>
@@ -112,7 +111,7 @@
                     <div>
                       <a class="js-nc-report oprt-item-new nc-req-auth js-nc-title-tips" data-id="848212" data-type="8" title="点击举报">举报</a>
                     </div>
-                  </li>
+                  </li>-->
                 </ul>
               </div>
             </div>
@@ -120,7 +119,7 @@
         </div>
 
         <!--主体内容结束-->
-        <div class="nk-bar">
+<!--        <div class="nk-bar">
           <div class="module-box   ">
             <div class="module-head clearfix">
               <h1>技术交流近期热帖</h1>
@@ -144,7 +143,7 @@
               </ul>
             </div>
           </div>
-        </div>
+        </div>-->
       </div>
 
       <!--主体内容结束

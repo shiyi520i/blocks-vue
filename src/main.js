@@ -11,7 +11,6 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import Distpicker from 'v-distpicker'
 import { AuthenticationClient } from 'authing-js-sdk';
-
 import { baseUrl } from '@/utils/config.js';
 // 全局方法挂载
 Vue.prototype.baseUrl = baseUrl

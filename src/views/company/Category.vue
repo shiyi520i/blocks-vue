@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <div class="nk-container    ">
+      <div class="nk-container">
 
         <div class="nk-main tech-page clearfix">
           <div class="module-box">
@@ -21,11 +21,13 @@
                 <div class="tech-from-com-item" v-for="(company,index) in companys" :key="index">
                   <a>
                     <div class="tech-pic">
-                      <img src="../../assets/common/picture/阿里-圆-120x120.png">
+                      <el-avatar :size="60" src="https://empty" @error="errorHandler">
+                        <img :src="company.logo"/>
+                      </el-avatar>
                     </div>
                     <div class="tech-from-com-main">
                       <div class="tech-from-com-name" @click="look(company.loginId)">
-                        阿里巴巴{{ company.companyname }}
+                        {{ company.companyname }}
                         <i class="v-tag"></i></div>
                       <div class="tech-from-com-ft">
                         {{ company.type }}
