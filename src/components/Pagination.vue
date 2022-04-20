@@ -26,13 +26,19 @@ export default {
     cn: {
       type: String,
     },
+    uid: {
+      type: String,
+    },
+    typeNumber: {
+      type: Number,
+    },
     callback: {
       type: Function
     }
   },
   data() {
     return {
-      vl: false,
+      vl: true,
       page: 1,  //显示的是哪一页
       pageSize: 5, //每一页显示的数据条数
       total: 0, //记录总数
@@ -46,7 +52,9 @@ export default {
         params: {
           pageSize: this.pageSize,
           pageNo: page,
-          cn:this.cn //公司名称
+          cn: this.cn,//公司名称
+          uid: this.uid,
+          type: this.typeNumber
         }
       }).then(response => {
         this.total = response.data.total;

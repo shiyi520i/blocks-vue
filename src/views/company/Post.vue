@@ -57,153 +57,79 @@
 
               <div class="mb-3">
                 <div class="txt_center pl-2 pr-2 pt-3 pb-3">
-                  <div class="nei_company_logo align-center mb-2" style="height:54px">
-                    <img title="" style="width: 54px; height: 54px;" alt="logo"
-                         src="${contextPath}/images/front/comp/comp1.png">
-                  </div>
-                  <h5 class="mb-1 text-truncate"></h5>
-                  <a class="text-dark font-weight-bold" title="" target="_blank" href="">{{ popos.name }}</a>
-                  <p>
-                    <small class="d-block text-truncate">{{ popos.type }}</small>
-                  </p>
-                  <p><span class="badge badge-primary mr-1" title="企业认证">企业认证</span>
-                    <span class="badge badge-success mr-1" title="实名认证">实名认证</span>
-                  </p>
-
                   <hr>
-
-                  <div class="su-grid text-center">
-                    <div class="width_33 uk-first-column">
-                      <div>
-                        <el-progress type="circle" :percentage="50" :width="25"></el-progress>
+                  <div class="p-3">
+                    <h5 class="font-weight-bold">联系方式</h5>
+                    <div class="text-muted">
+                      <div class="mt-1">
+                        <i class="fa fa-user-o mr-2"></i><span class="text-muted">{{ onePost.conname }}</span>
                       </div>
-                      <!--<h6 class="mb-1 font-weight-bold">88%</h6>-->
-                      <small class="text-muted">简历查看率</small>
+                      <div class="mt-1">
+                        <i class="fa fa-whatsapp mr-2"></i><span style="color: var(--red)">{{ onePost.Landline }}</span>
+                      </div>
+                      <div class="mt-1 text-truncate">
+                        <i class="fa fa-send-o mr-2"></i><a class="text-muted" target="_blank"
+                                                            href="">{{ onePost.email }}</a>
+                      </div>
                     </div>
-                    <div class="width_33">
-                      <h6 class="mb-1 font-weight-bold">2</h6>
-                      <small class="text-muted">在招职位</small>
-                    </div>
-                    <div class="width_33">
-                      <h6 class="mb-1 font-weight-bold">22222</h6>
-                      <small class="text-muted">被浏览次数</small>
-                    </div>
-                  </div>
-                </div>
 
-                <hr>
-
-                <div class="p-3">
-                  <h5 class="font-weight-bold">联系方式</h5>
-                  <div class="text-muted">
-                    <div class="mt-1">
-                      <i class="fa fa-user-o mr-2"></i><span class="text-muted">{{ popos.conname }}</span>
-                    </div>
-                    <div class="mt-1">
-                      <i class="fa fa-whatsapp mr-2"></i><span style="color: var(--red)">{{ popos.Landline }}</span>
-                    </div>
-                    <div class="mt-1 text-truncate">
-                      <i class="fa fa-send-o mr-2"></i><a class="text-muted" target="_blank"
-                                                          href="">{{ popos.email }}</a>
-                    </div>
                   </div>
 
                 </div>
-
               </div>
             </div>
-          </div>
-        </div><!--col-lg-3-->
-      </div><!--row-->
-    </div><!--container-->
-  </div><!--nei_zhiwei_cont-->
+          </div><!--col-lg-3-->
+        </div><!--row-->
+      </div><!--container-->
+    </div><!--nei_zhiwei_cont-->
+  </div>
 </template>
 <script>
 export default ({
   name: 'Post',
   props: {
-    title: {
+    rid: {
+      type: Number,
+      default: 0
+    },
+    cid: {
       type: String,
-      default: 'hello world'
-    }},
-    data() {
-      return {
-        vl: true,  //一页时是否隐藏
-        baseurl: 'http://localhost:4000/api/',
-        keyword: '',
-        keywords: '',
-        onePost: [],
-        welfares: [],
-        popos: [],//提示框-
-        breakmsg: '',//返回的消息
-      }
-    },
-    methods: {
-      //关键词搜索
-      searchKey() {
-        this.pageHandler(1)
-      },
-      //pagehandler方法 跳转到page页
-      pageHandler(page, pam) {
-        if (pam != null) {
-          this.keyword = pam.hpost;
-        }
-        var keyword = this.keyword;
-        this.page = page;
-        this.axios.get(this.baseurl + 'busRecruitinfo/getpage', {
-          params: {
-            pageSize: this.pageSize,
-            pageNo: page,
-            keyword: keyword,
-            time: this.nt,
-            worktype: this.nn,
-            salary: this.ns,
-            jobtype: this.nj,
+      default: ''
+    }
+  },
+  data() {
+    return {
+      onePost: [],
+      welfares: [],
+      breakmsg: '',//返回的消息
+    }
+  },
+  methods: {
+    //查看一条职位信息
+    lookPost() {
+      this.dialogVisible = true
+      this.axios({
+            method: 'get',
+            url: this.baseUrl + 'busRecruitinfo/postinfo',
+            params: {
+              rid: this.rid,
+            },
           }
-        }).then(response => {
-          this.total = response.data.total;
-          this.results = response.data.records
-        })
-      },
-      //查看一条职位信息
-      lookPost(index, p) {
-        let userinfo = JSON.parse(localStorage.getItem('userInfo'))
-        let uid = userinfo['sub']
-        this.dialogVisible = true
-        this.axios({
-              method: 'post',
-              url: this.baseurl + 'busRecruitinfo/postone',
-              data: {
-                id: p.rid,
-                cid: p.cid,
-                uid: uid,
-                postname: p.rpost
-              },
-              // headers: {'Content-Type':'application/x-www-form-urlencoded'},
-            }
-        ).then(response => {
-          this.onePost = response.data;
-          var arr = response.data.rwelfares;
-          this.welfares = arr.split(",")
+      ).then(response => {
+        this.onePost = response.data;
+        var arr = response.data.rwelfares;
+        this.welfares = arr.split(",")
 
-        })
-        this.showPopo(index, p)
-      },
-      //查看一条公司信息
-      showPopo(index, popo) {
-        console.log(popo)
-        this.axios.post(this.baseurl + 'companyinfo/getcomone',
-            {
-              id: popo.id,
-            }
-        ).then(response => {
-          this.popos = response.data;
-        })
-      }
-    },
+      })
+    }
+  },
   mounted() {
-    console.log(this.title)
+    this.lookPost()
+    console.log(this.rid, this.cid)
   }
 })
 
 </script>
+<style>
+
+</style>

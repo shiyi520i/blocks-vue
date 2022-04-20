@@ -544,7 +544,7 @@ export default ({
             method: 'post',
             url: this.baseurl + 'busRecruitinfo/postone',
             data: {
-              id: p.rid,
+              rid: p.rid,
               cid: p.eid,
               uid: uid,
               post: p.rpost
@@ -656,7 +656,11 @@ export default ({
 
 </script>
 
-<style>
+<!--<style scoped src="../assets/common/css/bootstrap.min.css"></style>
+<style scoped src="../assets/common/css/ui2.css"></style>
+<style scoped src="../assets/common/css/front.css"></style>-->
+
+<style scoped>
 @import '../assets/common/css/bootstrap.min.css';
 @import '../assets/common/css/ui2.css';
 @import '../assets/common/css/front.css';
@@ -664,13 +668,15 @@ export default ({
 .diva {
   float: left;
 }
-
 .aa {
   margin: 0 20px
 }
-
 .divcssa {
   margin: 0 60px
+}
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background-color: #32ca99;
+  color: #FFF;
 }
 </style>
 

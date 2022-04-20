@@ -1,9 +1,10 @@
 <template>
   <div>
+    <br>
     <el-form ref="form" :model="form" label-width="80px">
-      <el-form-item label="企业名称">
+<!--      <el-form-item label="企业名称">
         <el-input v-model="form.name"></el-input>
-      </el-form-item>
+      </el-form-item>-->
       <el-form-item label="岗位名称">
         <el-input v-model="form.rpost"></el-input>
       </el-form-item>
@@ -21,7 +22,8 @@
         </el-select>
       </el-form-item>
       <el-form-item label="工作地址">
-        <el-input type="textarea" v-model="form.rjaddress"></el-input>
+          <v-distpicker :province="select.province" :city="select.city" hide-area></v-distpicker>
+        <el-input  v-model="form.rjaddress"></el-input>
       </el-form-item>
       <el-form-item label="薪资范围" label-width="auto">
         <el-col :span="5">
@@ -31,14 +33,14 @@
           <el-input v-model="form.rmaxsalary" placeholder="最多"></el-input>
         </el-col>
       </el-form-item>
-      <el-form-item label="职业类型">
+<!--      <el-form-item label="职业类型">
         <el-select v-model="form.id" placeholder="请选择职业类型">
           <el-option v-for="category in categorys" :label="category.name" :value="category.id"></el-option>
         </el-select>
-      </el-form-item>
+      </el-form-item>-->
       <el-form-item label="职位福利">
-        <el-select v-model="form.rwelfares" multiple placeholder="请选择职业类型">
-          <el-option v-for="p3 in parameterThree" :label="p3.name" :value="p3.id"></el-option>
+        <el-select v-model="form.welfares" multiple placeholder="请选择">
+          <el-option v-for="p3 in parameterThree" :label="p3.name" :value="p3.name"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="招聘时间">
@@ -48,8 +50,8 @@
               placeholder="开始日期"
               v-model="form.rstarttime"
               style="width: 100%;"
-
-          ></el-date-picker>
+              >
+          </el-date-picker>
         </el-col>
         <el-col class="line" :span="2">--</el-col>
         <el-col :span="11">
@@ -58,7 +60,8 @@
               placeholder="结束日期"
               v-model="form.rendtime"
               style="width: 100%;"
-          ></el-date-picker>
+             >
+          </el-date-picker>
         </el-col>
       </el-form-item>
       <el-form-item label="是否全职">
@@ -84,8 +87,8 @@
     </el-form>
     <div>
   <span slot="footer" class="dialog-footer">
-    <el-button type="primary" @click="onSubmit">发布</el-button>
-    <el-button type="primary" @click="ob">发布</el-button>
+    <el-button type="text" @click="onSubmit" class="ba">发布</el-button>
+<!--    <el-button type="primary" @click="ob">发布</el-button>-->
   </span>
     </div>
   </div>
@@ -120,12 +123,13 @@ export default {
         rendtime: '',//结束时间
         rmaxsalary: '',//最高工资
         rztype: '',//职业类型
-        rwelfares: '',//职业福利
+        welfares: [],//职业福利
       },
       categorys: [],
       parameterOne: [],
       parameterTwo: [],
-      parameterThree: []
+      parameterThree: [],
+      select: { province: '广东省', city: '广州市', area: '海珠区' },
     }
   },
   methods: {
@@ -154,7 +158,10 @@ export default {
             rendtime: this.form.rendtime,
             rmaxsalary: this.form.rmaxsalary,
             rztype: this.form.rztype,
-            rwelfares: Object.values(this.form.rwelfares).toString()
+            rwelfares: Object.values(this.form.welfares).toString(),
+            r_province:this.select.province,
+            r_city:this.select.city
+            //rwelfares: JSON.stringify(this.form.rwelfares)
           }
       ).then(response => {
         this.popos = response.data;
@@ -166,6 +173,7 @@ export default {
             url: this.baseUrl + 'parameter/getparameter',
           }
       ).then(response => {
+
         this.categorys = response.data['hyfl'];//行业分类
         this.parameterOne = response.data['xlyq'];//学历要求
         this.parameterTwo = response.data['gzyq'];//工作经验
@@ -183,24 +191,17 @@ export default {
               }
             }
         ).then(response => {
-          this.form = response.data;
-          if(this.form.rworktype==0)
-            this.form.rworktype=true
-          if(this.form.rstats==0)
-            this.form.rstats=true
-          console.log(response.data)
+            this.form = response.data;
+          if (this.form.rworktype === 0)
+            this.form.rworktype = true
+          if (this.form.rstats === 0)
+            this.form.rstats = true
+          console.log(this.welfares)
         })
       }
     },
     ob() {
-      let w
-      let s
-      this.form.rworktype ? w = 0 : w = 1
-      this.form.rstats ? s = 1 : s = 0
-      console.log(this.form.rworktype)
-      console.log(w)
-      console.log(this.form.rstarttime)
-      console.log(Object.values(this.form.rwelfares).toString())
+      console.log(this.form.welfares,this.select.province,this.select.city)
     }
   },
   mounted() {
@@ -209,3 +210,17 @@ export default {
   }
 }
 </script>
+<style>
+.distpicker-address-wrapper select {
+  padding: .2rem .35rem;
+  height: 35px;
+  font-size: 1px;
+}
+.ba {
+  color: #00BFFF;
+}
+
+.bb {
+  color: #E05D32;
+}
+</style>

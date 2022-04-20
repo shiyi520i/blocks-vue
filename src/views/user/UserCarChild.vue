@@ -8,13 +8,17 @@
           </div>
           <div class="tech-from-com-main">
             <div class="tech-from-com-name">
-              <a @click="dvb=true"> <slot name="companyname">阿里巴巴</slot></a>
+              <a @click="dvb=true">
+                <slot name="companyname">阿里巴巴</slot>
+              </a>
               <i class="v-tag"></i></div>
             <div class="tech-from-com-ft">
-              <a @click="dvb=true"> <slot name="post">职位</slot></a>
+              <a @click="dvb=true">
+                <slot name="post">职位</slot>
+              </a>
             </div>
             <div class="tech-from-com-ft">
-             <slot name="time">时间</slot>
+              <slot name="time">时间</slot>
             </div>
           </div>
         </a>
@@ -24,7 +28,7 @@
         title="详细信息"
         :visible.sync="dvb"
         width="50%">
-      <Post :title="uid"></Post>
+      <Post :rid="rid" :cid="cid"></Post>
     </el-dialog>
   </div>
 </template>
@@ -32,18 +36,23 @@
 import Post from "@/views/company/Post";
 
 export default {
-  name:'UserCarChild',
+  name: 'UserCarChild',
   props: {
-    uid: {
-      uid: String,
-      default: '0'
-    }},
-  components:{
+    rid: {
+      type: Number,
+      default: 0
+    },
+    cid: {
+      type: String,
+      default: ''
+    }
+  },
+  components: {
     Post
   },
-  data(){
-    return{
-     dvb:false,
+  data() {
+    return {
+      dvb: false,
     }
   }
 }
