@@ -12,6 +12,7 @@ import VueAxios from 'vue-axios'
 import Distpicker from 'v-distpicker'
 import { AuthenticationClient } from 'authing-js-sdk';
 import { baseUrl } from '@/utils/config.js';
+import store from '@/store'
 // 全局方法挂载
 Vue.prototype.baseUrl = baseUrl
 
@@ -30,6 +31,7 @@ Vue.config.productionTip = false;
 
 new Vue({
 	router,
+	store,
 	provide: {
 		$authing: authing
 	},

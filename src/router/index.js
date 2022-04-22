@@ -8,7 +8,7 @@ const routes = [
         path: '/',
         name: 'Login',
         component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue'),
-        //redirect: '/category',
+        redirect: '/index',
         children: [
             {
                 path: 'category',
@@ -45,7 +45,10 @@ const routes = [
                         component: () => import(/* webpackChunkName: "about" */ '../views/admin/Editing')},
                     {
                         path: 'postmanage',
-                        component: () => import(/* webpackChunkName: "about" */ '../views/company/PostManage')}
+                        component: () => import(/* webpackChunkName: "about" */ '../views/company/PostManage')},
+                    {
+                        path: 'ApplicantsManage',
+                        component: () => import(/* webpackChunkName: "about" */ '../views/company/ApplicantsManage')}
                 ]
             }, {
                 path: 'CompanyInfo/:id',
@@ -72,6 +75,9 @@ const routes = [
     }, {
         path: '/test',
         component: () => import(/* webpackChunkName: "about" */ '../views/user/test')
+    }, {
+        path: '/index',
+        component: () => import(/* webpackChunkName: "about" */ '../views/index')
     }
 ];
 

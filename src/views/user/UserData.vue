@@ -23,10 +23,10 @@
         </el-descriptions-item>
         <el-descriptions-item>
           <template slot="label">
-            <i class="el-icon-location-outline"></i>
-            居住地
+            <i class="fa fa-user" aria-hidden="true"></i>
+            性别
           </template>
-          苏州市
+          {{ form.sex }}
         </el-descriptions-item>
         <el-descriptions-item>
           <template slot="label">
@@ -83,7 +83,8 @@ export default {
         graduate: '',
         grtime: '',
         position: '',
-        address: ''
+        address: '',
+        sex: ''
       }
     }
   },
@@ -97,6 +98,11 @@ export default {
         params: {}
       }).then(r => {
         this.form = r.data
+        if(r.data.sex===1){
+          this.form.sex='男'
+        }else {
+          this.form.sex='女'
+        }
       })
     }
   },

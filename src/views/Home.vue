@@ -28,11 +28,11 @@ export default {
       let userinfo = JSON.parse(localStorage.getItem('userInfo'))
       let userid = userinfo['sub']
       let username = userinfo['name']
-
+      let roleType=0
       if (userinfo != null) {
         this.axios({
               method: 'post',
-              url:  'http://localhost:4000/api/user/adduser',
+              url: this.baseUrl+'user/adduser',
               data: {
                 loginId:userid,
                 username:username
@@ -43,6 +43,22 @@ export default {
 
         }).catch()
       }
+
+      this.axios({
+            method: 'get',
+            url: this.baseUrl+'userrole/getRole',
+            params: {
+              loginId:userid
+            },
+          }
+      ).then(r=>{
+        roleType=r.data
+      })
+
+      this.$store.commit('setType',roleType)
+      this.$store.commit('setLoginId',userid)
+      this.$store.commit('setName',username)
+
       this.$router.push('/');
 		}
 	}

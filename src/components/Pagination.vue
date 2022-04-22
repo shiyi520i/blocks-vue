@@ -25,6 +25,7 @@ export default {
     },
     cn: {
       type: String,
+      required: false,
     },
     uid: {
       type: String,

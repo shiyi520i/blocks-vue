@@ -45,7 +45,7 @@
           <el-upload
               :action="this.baseUrl+'applylist/imgupload'"
               list-type="picture-card"
-              :on-success="handleSuccess"
+              :on-success="handleSuccess1"
               :before-upload="beforeUpload"
               :on-preview="handlePictureCardPreview"
               :on-remove="handleRemove">
@@ -101,7 +101,7 @@
               <el-upload
                   :action="this.baseUrl+'applylist/imgupload'"
                   list-type="picture-card"
-                  :on-success="handleSuccess"
+                  :on-success="handleSuccess2"
                   :before-upload="beforeUpload"
                   :on-preview="handlePictureCardPreview"
                   :on-remove="handleRemove">
@@ -119,7 +119,7 @@
               <el-upload
                   :action="this.baseUrl+'applylist/imgupload'"
                   list-type="picture-card"
-                  :on-success="handleSuccess"
+                  :on-success="handleSuccess3"
                   :on-preview="handlePictureCardPreview"
                   :before-upload="beforeUpload"
                   :on-remove="handleRemove">
@@ -130,14 +130,14 @@
               </el-dialog>
             </el-form-item>
           </el-col>
-          <el-col  :span="8">
+          <el-col :span="8">
             <el-form-item
                 label="手持证件照："
                 required="true">
               <el-upload
                   :action="this.baseUrl+'applylist/imgupload'"
                   list-type="picture-card"
-                  :on-success="handleSuccess"
+                  :on-success="handleSuccess4"
                   :before-upload="beforeUpload"
                   :on-preview="handlePictureCardPreview"
                   :on-remove="handleRemove">
@@ -168,7 +168,19 @@ export default {
       a: true,
       b: false,
       c: false,
-      form: {},
+      form: {
+        id: 0,
+        unitname: '',
+        address: '',
+        license: '',
+        represent: '',
+        representphone: '',
+        number: 0,
+        frontimg: '',
+        backimg: '',
+        handimg: '',
+        phone: 0,
+      },
       butname: 1,
       dialogImageUrl: '',
       dialogVisible: false
@@ -186,6 +198,7 @@ export default {
         this.a = false
         this.b = false
         this.butname = 3
+        this.submit()
       } else {
         this.a = !this.a
         this.b = !this.b
@@ -210,8 +223,42 @@ export default {
       }
       return isJPG && isLt2M;
     },
-    handleSuccess(res, file) {
+    handleSuccess1(res, file) {
+      this.from.license = res
     },
+    handleSuccess2(res, file) {
+      this.from.frontimg = res
+    },
+    handleSuccess3(res, file) {
+      this.from.backimg = res
+    },
+    handleSuccess4(res, file) {
+      this.from.handimg = res
+    },
+    submit() {
+      this.axios({
+            method: 'post',
+            url: this.baseUrl + 'applylist/saveApply',
+            data: {
+              id: this.form.id,
+              unitname: this.form.unitname,
+              address: this.form.address,
+              license: this.form.license,
+              represent: this.form.represent,
+              representphone: this.form.representphone,
+              number: this.form.number,
+              frontimg: this.form.frontimg,
+              backimg: this.form.backimg,
+              handimg: this.form.handimg,
+              phone: this.form.phone,
+              time: this.form.time,
+              type: this.form.type
+            },
+          }
+      ).then(r => {
+
+      })
+    }
   }
 }
 </script>

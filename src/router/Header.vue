@@ -46,6 +46,7 @@
                   <el-avatar :size="60" @error="false">
                     <img src="https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/avatar.jpg"/>
                   </el-avatar>
+                  <br>
                   <router-link to="/userexhibit">
                     <el-link><i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;个人信息</el-link>
                   </router-link>

@@ -1,9 +1,5 @@
 <template>
   <div>
-    <div>
-      <el-input v-model="cn" placeholder="输入公司进行搜索"></el-input>
-      <el-button icon="el-icon-search" circle></el-button>
-    </div>
 
     <el-table
         :data="tableData"
@@ -12,26 +8,26 @@
       <el-table-column
           column-key="date"
           sortable
-          label="发布时间"
+          label="申请时间"
           width="180">
         <template slot-scope="scope">
           <i class="el-icon-time"></i>
-          <span style="margin-left: 10px">{{ scope.row.rtime }}</span>
+          <span style="margin-left: 10px">{{ scope.row.time }}</span>
         </template>
       </el-table-column>
       <el-table-column
-          label="职位名称"
+          label="姓名"
           width="180">
         <template slot-scope="scope">
-          <span style="margin-left: 0px">{{ scope.row.rpost }}</span>
+          <span style="margin-left: 0px">{{ scope.row.userName }}</span>
         </template>
       </el-table-column>
       <el-table-column
-          label="公司名称"
+          label="申请职位"
           width="180">
         <template slot-scope="scope">
           <div slot="reference" class="name-wrapper">
-            <el-tag size="medium" class="ba">{{ scope.row.rname }}</el-tag>
+            <el-tag size="medium" class="ba">{{ scope.row.post }}</el-tag>
           </div>
         </template>
       </el-table-column>
@@ -41,53 +37,40 @@
               type="text"
               size="mini"
               class="ba"
-              @click="handleEdit(scope.$index, scope.row)">查看
+              @click="handleEdit(scope.$index, scope.row)">查看简历
           </el-button>
           <el-button
               type="text"
               size="mini"
               class="bb"
-              @click="handleDelete(scope.$index, scope.row)">删除
+              @click="handleDelete(scope.$index, scope.row)">删除信息
           </el-button>
         </template>
       </el-table-column>
     </el-table>
 
-    <Pagination :url="url" :cn="cn" @getData="getApplyList"></Pagination>
+    <Pagination :url="url" :typeNumber="typeNumber" @getData="getApplyList"></Pagination>
 
-    <el-drawer
-        title="信息"
-        :visible.sync="drawer"
-        :with-header="false"
-        :destroy-on-close="true">
-      <ReleasePost :rid="rid"/>
-    </el-drawer>
+
 
   </div>
 </template>
 
 <script>
 import Pagination from "@/components/Pagination";
-import ReleasePost from "@/views/company/ReleasePost";
 
 export default {
   data() {
     return {
-      url: 'busRecruitinfo/getpagesim',
-      cn: '',
-      rid: 0,//职位id
+      url: 'record/getrecords',
       tableData: [],
-      drawer: false,
+      typeNumber:2
     }
   },
   components: {
     Pagination,
-    ReleasePost
   },
   methods: {
-    formatter(row, column) {
-      return row.rname;
-    },
     getApplyList(data) {
       this.tableData = data
     },
@@ -133,7 +116,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 .ba {
   color: #00BFFF;
 }

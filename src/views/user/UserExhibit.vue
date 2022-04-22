@@ -57,7 +57,7 @@
           :title="title"
           :visible.sync="dialogVisible"
           width="30%"
-         >
+      >
         <el-upload
             class="upload-demo"
             drag
@@ -84,17 +84,16 @@
       <div class="nk-bar">
 
 
-
-
-
         <div class="module-box">
           <ul class="profile-menu">
             <li>
-              <a href="/profile/492752319?noredirect=true" class="selected">
+              <router-link to="/userexhibit/index" class="selected">
+
                 <i class="profile-icon p-ico-home"></i>
                 用户首页
                 <i class="icon-angle-right"></i>
-              </a>
+
+              </router-link>
             </li>
 
 
@@ -125,18 +124,18 @@
 
 
             <li>
-              <a href="/profile/492752319/circle/joined">
+              <a href="/userexhibit/ApplicantsManage">
                 <i class="profile-icon with-icon-nc icon-nc-circle"></i>
-                圈子
+                应聘管理
                 <i class="icon-angle-right"></i>
               </a>
             </li>
 
 
             <li>
-              <a href="/profile/492752319/project/mine">
+              <a href="/userexhibit/changePassword">
                 <i class="profile-icon p-ico-project "></i>
-                项目
+                修改密码
                 <i class="icon-angle-right"></i>
               </a>
             </li>
@@ -254,12 +253,12 @@
                 </div>
                 <div class="paw-mod-bd">
 
-                  <a >
+                  <a>
                     <i class="icon-nc-people-add"></i>
                     <span class="txt">关注了</span>
                     <span class="num">5</span>
                   </a>
-                  <a >
+                  <a>
                     <i class="icon-nc-people"></i>
                     <span class="txt">关注者</span>
                     <span class="num">0</span>
@@ -298,13 +297,13 @@ export default {
   },
   data() {
     return {
-      title:'',
+      title: '',
       dialogVisible: false,
       d1: false,
-      a:'',
-      fileList:[],
-      avatarUrl:'https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/menAvatar.png',
-      classNum:0
+      a: '',
+      fileList: [],
+      avatarUrl: 'https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/menAvatar.png',
+      classNum: 0
     };
   },
   methods: {
@@ -316,16 +315,16 @@ export default {
           .catch(_ => {
           });
     },
-    changeAvatar(){
-      this.dialogVisible=true
-      this.title="更换头像"
+    changeAvatar() {
+      this.dialogVisible = true
+      this.title = "更换头像"
     },
-    onSuccess(response, file, fileList){
-      this.avatarUrl=response
+    onSuccess(response, file, fileList) {
+      this.avatarUrl = response
     },
-    uploadPdf(){
-      this.dialogVisible=true
-      this.title="简历上传"
+    uploadPdf() {
+      this.dialogVisible = true
+      this.title = "简历上传"
     }
   }
 };
@@ -345,8 +344,11 @@ export default {
 .b {
   color: #32ca99;
 }
-b:hover {background:#f4f4f4;
-  color:#000;}
+
+b:hover {
+  background: #f4f4f4;
+  color: #000;
+}
 
 .c {
   width: 1000px;
