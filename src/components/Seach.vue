@@ -315,15 +315,9 @@
                     <li title="所属行业">{{ onePost.rztype }}</li>
                   </ul>
                   <p>
-                    <a class="nei_job_name text-truncate aa" @click="applyPost"><i class="fa fa-share fa-lg"
-                                                                                   style="color:#32ca99"></i><small
-                        class="text-muted">申请</small></a>
-                    <a class="nei_job_name text-truncate aa"><i class="fa fa-heart fa-lg"
-                                                                style="color:#FF6A6A"></i><small
-                        class="text-muted">收藏</small></a>
-                    <a class="nei_job_name text-truncate aa"><i class="fa fa-comments fa-lg"
-                                                                style="color:#409EFF"></i><small
-                        class="text-muted">沟通</small></a>
+                    <a class="nei_job_name text-truncate aa" @click="applyPost"><i class="fa fa-share fa-lg" style="color:#32ca99"></i><small class="text-muted">申请</small></a>
+                    <a class="nei_job_name text-truncate aa"><i class="fa fa-heart fa-lg" style="color:#FF6A6A"></i><small class="text-muted">收藏</small></a>
+                    <a class="nei_job_name text-truncate aa" @click="connectCompany(onePost.eid)"><i class="fa fa-comments fa-lg" style="color:#409EFF"></i><small class="text-muted">沟通</small></a>
                   </p>
                 </div>
               </div>
@@ -418,22 +412,30 @@
     <!--回到顶部-->
     <el-backtop></el-backtop>
 
+
+    <el-dialog
+        :visible.sync="dialog"
+        width="60%">
+      <Chat :receiver="receiver"></Chat>
+    </el-dialog>
+
   </div><!--app-->
 </template>
 <script>
-
-//import Qs from 'qs'
+import Chat from "@/chat/Chat";
 
 export default ({
   name: 'serch',
   data() {
     return {
+      receiver:'',//信息接收者id
       vl: true,  //一页时是否隐藏
       dialogVisible: false,  //显示弹窗
+      dialog: false,  //显示弹窗
       baseurl: 'http://localhost:4000/api/',
       keyword: '',
       results: [
-        {rpost: '前端', rjdescript: 'a', rprovince: '广东', rcity: '惠州', rztype: '服务业', rwelfares: '餐补', rname: '广东有限公司'}
+        { rjdescript: 'a', rprovince: '广东', rcity: '惠州', rztype: '服务业', rwelfares: '餐补', post: '广东有限公司'}
       ],
       weights: [],
       onePost: [
@@ -483,6 +485,9 @@ export default ({
         {salary: '面议'},
       ],
     }
+  },
+  components:{
+    Chat
   },
   methods: {
     //关键词搜索
@@ -640,6 +645,10 @@ export default ({
       this.$router.push({
         path: `/CompanyInfo/${loginId}`,
       })
+    },
+    connectCompany(id){
+      this.dialog=true
+      this.receiver=id
     }
 
   },

@@ -7,7 +7,9 @@ const store = new Vuex.Store({
     state: {
         type: 0,
         loginId: '',
-        name: ''
+        name: '',
+        chatMessageList:[],
+
     },
     mutations: {
         setType(state, type) {
@@ -18,7 +20,11 @@ const store = new Vuex.Store({
         },
         setName(state, name) {
             state.name = name
-        }
+        },
+        SOCKET_updateChatMessageList(state,data){
+            console.log(data)
+            state.chatMessageList.push(data);
+        },
     }
 })
 

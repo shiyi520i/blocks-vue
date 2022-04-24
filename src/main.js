@@ -13,6 +13,7 @@ import Distpicker from 'v-distpicker'
 import { AuthenticationClient } from 'authing-js-sdk';
 import { baseUrl } from '@/utils/config.js';
 import store from '@/store'
+import VueSocketIO from 'vue-socket.io'
 // 全局方法挂载
 Vue.prototype.baseUrl = baseUrl
 
@@ -20,6 +21,22 @@ Vue.component('v-distpicker', Distpicker)
 Vue.use(ElementUI);
 Vue.use(VueAxios, axios)
 Vue.use(mavonEditor)
+
+Vue.use(
+	new VueSocketIO({
+		debug: false, // debug调试，生产建议关闭
+		connection: "http://localhost:3000",
+		vuex: {
+			store,
+			actionPrefix: 'SOCKET_',
+			mutationPrefix: 'SOCKET_'
+		},
+		options: {     //Optional options,
+			autoConnect:false, //关闭自动连接，在用户登录后在连接。
+		}
+	})
+);
+
 const authing = new AuthenticationClient({
 	appId: '6226abf77a4aa03fc8397fc1',
 	appHost: 'https://shiyi.authing.cn',

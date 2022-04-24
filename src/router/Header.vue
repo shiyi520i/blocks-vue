@@ -33,9 +33,7 @@
           </div>
 
           <div class="nc-nav-header-info" style="margin-left: 0;">
-            <img class="nc-nav-header-icon" style="margin-right: 20px;"
-                 src="../assets/common/picture/1641375989276WRAOB.png"
-                 alt="app">
+            <a @click="msgTip"><i class="fa fa-bell-o" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
 
             <div v-if="iflogin">
               <el-popover
@@ -75,8 +73,14 @@
       <Approve></Approve>
     </el-dialog>
 
+    <el-dialog
+        :visible.sync="alog"
+        width="60%">
+      <Chat></Chat>
+    </el-dialog>
+
     <el-drawer
-        title="标题"
+        title="招聘"
         :visible.sync="drawer"
         :with-header="false">
       <ReleasePost/>
@@ -89,6 +93,8 @@
 
 import Approve from "@/views/company/Approve";
 import ReleasePost from "@/views/company/ReleasePost";
+import Chat from "@/chat/Chat";
+import store from "@/store";
 
 export default {
   name: 'Header',
@@ -97,6 +103,7 @@ export default {
       iflogin: false,
       disabled: false,
       divlog: false,
+      alog: false,
       drawer: false,
       username: '',
       num: 0,
@@ -112,7 +119,8 @@ export default {
   inject: ['$authing'],
   components: {
     Approve,
-    ReleasePost
+    ReleasePost,
+    Chat
   },
   methods: {
     //登入
@@ -128,7 +136,7 @@ export default {
       window.location.href = url;
     },
     //判断是否登录
-    ifLofin() {
+    ifLogin() {
       let userinfo = JSON.parse(localStorage.getItem('userInfo'))
       this.username = userinfo['name'] || '用户姓名'
       if (userinfo != null) {
@@ -141,13 +149,16 @@ export default {
       localStorage.clear();
       window.location.href = this.$authing.buildLogoutUrl({redirectUri: 'http://localhost:4000'});
     },
-
     changeNum(i) {
       this.num = i
+    },
+    msgTip(){
+      //连接socket并初始化用户信息
+      this.alog=true
     }
   },
   created() {
-    this.ifLofin()
+    this.ifLogin()
   }
 };
 
