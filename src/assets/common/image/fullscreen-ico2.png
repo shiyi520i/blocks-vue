@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Error>
-  <Code>NoSuchKey</Code>
-  <Message>The specified key does not exist.</Message>
-  <RequestId>6229A7FF5EA59C3231DBBB97</RequestId>
-  <HostId>ncstatic.oss-cn-hangzhou.aliyuncs.com</HostId>
-  <Key>fe/style/images/common/img/fullscreen-ico2.png</Key>
-</Error>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Error>
-  <Code>NoSuchKey</Code>
-  <Message>The specified key does not exist.</Message>
-  <RequestId>6229A7FF565BBE3639E299AC</RequestId>
-  <HostId>ncstatic.oss-cn-hangzhou.aliyuncs.com</HostId>
-  <Key>nowcoder/2.0.11/stylesheets/v2lib/global/background.png</Key>
-</Error>

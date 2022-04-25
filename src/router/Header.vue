@@ -75,7 +75,8 @@
 
     <el-dialog
         :visible.sync="alog"
-        width="60%">
+        width="60%"
+    >
       <Chat></Chat>
     </el-dialog>
 
@@ -157,6 +158,53 @@ export default {
       this.alog=true
     }
   },
+  mounted() {
+    //插入用户信息
+    let userinfo = JSON.parse(localStorage.getItem('userInfo'))
+    let userid = userinfo['sub']
+    let username = userinfo['name']
+    let roleType=0
+    let avatar=''
+    if (userinfo != null) {
+      this.axios({
+            method: 'post',
+            url: this.baseUrl+'user/adduser',
+            data: {
+              loginId:userid,
+              username:username
+            },
+          }
+      ).then(response => {
+        console.log(response)
+
+      }).catch()
+    }
+
+    this.axios({
+          method: 'get',
+          url: this.baseUrl+'userrole/getRole',
+          params: {
+            loginId:userid
+          },
+        }
+    ).then(r=>{
+      roleType=r.data
+    })
+
+    this.axios({
+          method: 'get',
+          url: this.baseUrl+'user/getUserAvatar'+userid,
+        }
+    ).then(r=>{
+      avatar=r.data.avatar
+    })
+
+
+    store.commit('setType',roleType)
+    store.commit('setLoginId',userid)
+    store.commit('setName',username)
+    store.commit('avatar',avatar)
+  },
   created() {
     this.ifLogin()
   }
@@ -174,6 +222,12 @@ export default {
 @import "../assets/common/css/courseCollection.css";
 @import "../assets/common/css/main.entry.css";
 
+
+.el-dialog__header {
+  padding: 0px 0px 0px;
+}
+
+
 .header_active:after {
   background-color: #32ca99;
   bottom: -8px;
@@ -183,5 +237,11 @@ export default {
   margin-left: -6px;
   position: absolute;
   width: 12px
+}
+.el-dialog__body {
+  padding: 10px 5px;
+  color: #606266;
+  font-size: 14px;
+  word-break: break-all;
 }
 </style>

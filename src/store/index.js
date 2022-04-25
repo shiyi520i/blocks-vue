@@ -8,8 +8,10 @@ const store = new Vuex.Store({
         type: 0,
         loginId: '',
         name: '',
-        chatMessageList:[],
-
+        avatar:'',
+        chatMessageList: [],
+        receiverInfo: [],
+        senderInfo: []
     },
     mutations: {
         setType(state, type) {
@@ -21,9 +23,29 @@ const store = new Vuex.Store({
         setName(state, name) {
             state.name = name
         },
-        SOCKET_updateChatMessageList(state,data){
+        setAvatar(state, avatar) {
+            state.avatar = avatar
+        },
+        SOCKET_updateChatMessageList(state, data) {
             console.log(data)
             state.chatMessageList.push(data);
+        },
+        setSenderInfo(state, data) {
+            state.senderInfo = data;
+        },
+        setReceiverInfo(state, data) {
+            state.receiverInfo = data;
+        },
+    },
+    getters: {
+        getType: state => {
+            return state.type
+        },
+        getName: state => {
+            return state.name
+        },
+        getLoginId: state => {
+            return state.loginId
         },
     }
 })

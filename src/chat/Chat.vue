@@ -10,7 +10,7 @@
           <div class="chat-header">
             <div class="chat-header-user">
               <figure class="avatar">
-                <a href="#" class="profile-detail-bttn"><img
+                <a class="profile-detail-bttn"><img
                     src="https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/avatar.jpg" class="rounded-circle"
                     alt="image"></a>
               </figure>
@@ -24,17 +24,17 @@
           <div class="sidebar active" id="chats" style="width: 300px">
 
 
-            <div class="text-left mb-1 mt-0"><h2 class="title-text"><b>联系</b> 人</h2></div>
+            <div class="text-left mb-1 mt-0"><h2 class="title-text"><b>联系</b> </h2></div>
             <div class="chat-list-content">
               <ul class="chat-list">
-                <li class="chat-list-item">
+                <li class="chat-list-item" v-if="name!==undefined">
                   <figure class="avatar user-online">
-                    <img src="https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/avatar.jpg" alt="image">
+                    <img :src="avatar===''?'https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/avatar.jpg':avatar" alt="image">
                   </figure>
                   <div class="list-body">
                     <div class="chat-bttn">
-                      <h3 class="mb-0 mt-2">Hurin Seary</h3>
-                      <p>What's up, how are you?</p>
+                      <h3 class="mb-0 mt-2" v-text="name===''?'defaultName':name"></h3>
+<!--                      <p>What's up, how are you?</p>-->
                     </div>
                     <div class="list-action mt-2 text-right">
                       <div class="message-count bg-primary">3</div>
@@ -61,17 +61,18 @@
               </ul>
             </div>
           </div>
-
         </div>
 
-        <div class="chat-content">
+
+        <div class="chat-content"  id="interact">
           <!-- chat header -->
           <div class="chat-header">
             <div class="chat-header-user">
-              <figure class="avatar">
-                <img src="https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/avatar.jpg" class="rounded-circle"
-                     alt="image">
-              </figure>
+              <el-avatar
+                  shape="circle"
+                  :src="avatar==''?'https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/avatar.jpg':avatar"
+                  :size="64"
+              ></el-avatar>
               <div>
                 <h5 class="mt-2 mb-0">Alice Maghyn</h5>
                 <small class="text-success">Typing....</small>
@@ -80,93 +81,22 @@
           </div>
           <!-- chat header -->
           <!-- chat body -->
-          <div class="chat-body" style="overflow: hidden;outline: none;">
+          <div class="chat-body" style="overflow: hidden;outline: none;" v-infinite-scroll="">
             <div class="messages-content">
-              <div class="message-item">
+              <div v-for="(msg,index) in msgList"
+                   :key="index" :class="msg.sender===loginId?'message-item outgoing-message':'message-item'">
                 <div class="message-user">
-                  <figure class="avatar">
-                    <img src="https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/avatar.jpg" alt="image">
-                  </figure>
+
                   <div>
-                    <h5>Byrom Guittet</h5>
-                    <div class="time">01:35 PM</div>
+                    <h5 v-text="msg.name"></h5>
+                    <div class="time">{{ msg.time }}</div>
                   </div>
-                </div>
-                <div class="message-wrap">I'm fine, how are you 😃</div>
-              </div>
-
-              <div class="message-item outgoing-message">
-                <div class="message-user">
                   <figure class="avatar">
-                    <img src="https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/avatar.jpg" alt="image">
+                    <img :src="msg.avatar===''?'https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/avatar.jpg':msg.avatar" alt="image">
                   </figure>
-                  <div>
-                    <h5>Byrom Guittet</h5>
-                    <div class="time">01:35 PM<i class="fa fa-check-circle-o" style="color: #32ca99"
-                                                 aria-hidden="true"></i></div>
-                  </div>
                 </div>
-                <div class="message-wrap">I want those files for you. I want you to send 1 PDF and 1 image file.</div>
+                <div class="message-wrap" style="padding: 3px">{{ msg.message }}</div>
               </div>
-
-              <div class="message-item">
-                <div class="message-user">
-                  <figure class="avatar">
-                    <img src="https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/avatar.jpg" alt="image">
-                  </figure>
-                  <div>
-                    <h5>Byrom Guittet</h5>
-                    <div class="time">01:35 PM</div>
-                  </div>
-                </div>
-                <div class="message-wrap">I've found some cool photos for our travel app.</div>
-              </div>
-
-              <div class="message-item outgoing-message">
-                <div class="message-user">
-                  <figure class="avatar">
-                    <img src="images/user-1.png" alt="image">
-                  </figure>
-                  <div>
-                    <h5>Byrom Guittet</h5>
-                    <div class="time">01:35 PM<i class="ti-double-check text-info"></i></div>
-                  </div>
-                </div>
-                <div class="message-wrap">Hey mate! How are things going ?</div>
-              </div>
-
-              <div class="message-item">
-                <div class="message-user">
-                  <figure class="avatar">
-                    <img src="https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/avatar.jpg" alt="image">
-                  </figure>
-                  <div>
-                    <h5>Byrom Guittet</h5>
-                    <div class="time">01:35 PM</div>
-                  </div>
-                </div>
-                <figure>
-                  <img src="https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/avatar.jpg"
-                       class="w-75 img-fluid rounded" alt="image">
-                </figure>
-
-
-              </div>
-
-              <div class="message-item outgoing-message">
-                <div class="message-user">
-                  <figure class="avatar">
-                    <img src="images/user-1.png" alt="image">
-                  </figure>
-                  <div>
-                    <h5>Byrom Guittet</h5>
-                    <div class="time">01:35 PM<i class="ti-double-check text-info"></i></div>
-                  </div>
-                </div>
-                <div class="message-wrap">Hey mate! How are things going ?</div>
-              </div>
-
-
             </div>
           </div>
           <!-- chat body -->
@@ -174,8 +104,9 @@
           <div class="chat-footer">
             <form>
               <input type="text" placeholder="Message.." v-model="inputMsg">
-              <button @click="sendMsg"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+              <el-button @click="sendMsg"><i class="fa fa-paper-plane" aria-hidden="true"></i></el-button>
             </form>
+
           </div>
           <!-- chat footer -->
         </div>
@@ -194,6 +125,12 @@ export default {
   props: {
     receiver: {
       type: String
+    },
+    name: {
+      type: String
+    },
+    userAvatar: {
+      type: String
     }
   },
   data() {
@@ -203,17 +140,41 @@ export default {
 
     }
   },
+  computed: {
+    msgList() {
+      const arr=store.state.chatMessageList
+      return arr.slice(arr.length-5,arr.length)//先返回五条数据
+    },
+    userName() {
+      return store.state.name
+    },
+    loginId() {
+      return store.state.loginId
+    },
+    avatar() {
+      return store.state.avatar
+    },
+  },
   methods: {
     sendMsg() {
-      var time = new Date();
+
+      let time = new Date();
       let data = {
         sender: store.state.loginId,//发送者id
-        receiver: this.receiver,//接收方id
+        avatar: store.state.avatar,//发送者头像
+        name: store.state.name,//发送者姓名
+        receiver: store.state.loginId === '626604922670050e48ed71f9' ? '6238114fe0dba61a880974ad' : '626604922670050e48ed71f9',//接收方id
         time: time.toLocaleString(),//发送时间
-        msg: this.inputMsg,//消息内容
+        message: this.inputMsg,//消息内容
       }
       this.$socket.emit("privateChat", data);
+      store.commit('SOCKET_updateChatMessageList', data);
       console.log(store.state.chatMessageList)
+      this.inputMsg = ''
+/*      this.$nextTick(() => {
+        let msg = document.getElementById('interact') // 获取对象
+        msg.scrollTop = msg.scrollHeight // 滚动高度
+      })*/
     },
     getConList() {
 
@@ -226,12 +187,32 @@ export default {
       userId: store.state.loginId
     }
     this.$socket.emit('ini_user', user)
+    console.log(this.name)
+
   }
 }
 </script>
+<style scoped src="../assets/common/css/main.min.css"></style>
 <style scoped>
-@import "../assets/common/css/main.min.css";
 
+.main-wrapper .right-content .chat-content .chat-body .messages-content .message-item.outgoing-message .message-wrap[data-v-50b210c6] {
+  background-color: #32ca99;
+  color: #fff;
+}
+
+.main-wrapper .right-content .chat-content .chat-footer form button[data-v-50b210c6] {
+  background-color: #32ca99;
+}
+
+.main-wrapper .right-content .chat-content .chat-header[data-v-50b210c6] {
+  margin-top: 10px;
+}
+.bg-primary {
+  background-color: #32ca99!important;
+}
+.text-primary {
+  color: #32ca99!important;
+}
 /*owl.carousel.min.css*/
 .owl-carousel, .owl-carousel .owl-item {
   -webkit-tap-highlight-color: transparent;

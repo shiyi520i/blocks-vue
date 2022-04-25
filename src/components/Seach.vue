@@ -315,9 +315,14 @@
                     <li title="所属行业">{{ onePost.rztype }}</li>
                   </ul>
                   <p>
-                    <a class="nei_job_name text-truncate aa" @click="applyPost"><i class="fa fa-share fa-lg" style="color:#32ca99"></i><small class="text-muted">申请</small></a>
-                    <a class="nei_job_name text-truncate aa"><i class="fa fa-heart fa-lg" style="color:#FF6A6A"></i><small class="text-muted">收藏</small></a>
-                    <a class="nei_job_name text-truncate aa" @click="connectCompany(onePost.eid)"><i class="fa fa-comments fa-lg" style="color:#409EFF"></i><small class="text-muted">沟通</small></a>
+                    <a class="nei_job_name text-truncate aa" @click="applyPost"><i class="fa fa-share fa-lg"
+                                                                                   style="color:#32ca99"></i><small
+                        class="text-muted">申请</small></a>
+                    <a class="nei_job_name text-truncate aa"><i class="fa fa-heart fa-lg"
+                                                                style="color:#FF6A6A"></i><small
+                        class="text-muted">收藏</small></a>
+                    <a class="nei_job_name text-truncate aa" @click="connectCompany(onePost.eid)"><i
+                        class="fa fa-comments fa-lg" style="color:#409EFF"></i><small class="text-muted">沟通</small></a>
                   </p>
                 </div>
               </div>
@@ -416,7 +421,7 @@
     <el-dialog
         :visible.sync="dialog"
         width="60%">
-      <Chat :receiver="receiver"></Chat>
+      <Chat :receiver="receiver" :userAvatar="avatar" :name="name"></Chat>
     </el-dialog>
 
   </div><!--app-->
@@ -428,14 +433,16 @@ export default ({
   name: 'serch',
   data() {
     return {
-      receiver:'',//信息接收者id
+      receiver: '',//信息接收者id
+      avatar: '',//信息接收者头像
+      name: '',//信息接收者姓名
       vl: true,  //一页时是否隐藏
       dialogVisible: false,  //显示弹窗
       dialog: false,  //显示弹窗
       baseurl: 'http://localhost:4000/api/',
       keyword: '',
       results: [
-        { rjdescript: 'a', rprovince: '广东', rcity: '惠州', rztype: '服务业', rwelfares: '餐补', post: '广东有限公司'}
+        {rjdescript: 'a', rprovince: '广东', rcity: '惠州', rztype: '服务业', rwelfares: '餐补', post: '广东有限公司'}
       ],
       weights: [],
       onePost: [
@@ -486,7 +493,7 @@ export default ({
       ],
     }
   },
-  components:{
+  components: {
     Chat
   },
   methods: {
@@ -557,8 +564,11 @@ export default ({
             // headers: {'Content-Type':'application/x-www-form-urlencoded'},
           }
       ).then(response => {
-        this.onePost = response.data;
-        var arr = response.data.rwelfares;
+        this.onePost = response.data
+        this.avatar = this.onePost.rlogo
+        this.name = this.onePost.rname
+        this.receiver = this.onePost.eid
+        var arr = response.data.rwelfares
         this.welfares = arr.split(",")
         this.onePost.countPost = response.data.count[0]
         this.onePost.countRecord = response.data.count[1]
@@ -646,9 +656,9 @@ export default ({
         path: `/CompanyInfo/${loginId}`,
       })
     },
-    connectCompany(id){
-      this.dialog=true
-      this.receiver=id
+    connectCompany(id) {
+      this.dialog = true
+      this.receiver = id
     }
 
   },
@@ -677,12 +687,15 @@ export default ({
 .diva {
   float: left;
 }
+
 .aa {
   margin: 0 20px
 }
+
 .divcssa {
   margin: 0 60px
 }
+
 .el-pagination.is-background .el-pager li:not(.disabled).active {
   background-color: #32ca99;
   color: #FFF;
