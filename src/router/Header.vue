@@ -22,11 +22,13 @@
 
           </div>
           <div style="display: flex; align-items: center; font-size: 14px; margin-left: 20px; margin-left: 20px;">
-            <a @click="drawer=true"
+            <a style="width: 92px"></a>
+
+            <a @click="drawer=true" v-if="this.roleType===1"
                style="width: 92px; height: 32px; background: #EEFAF7; color: #32ca99; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-right: 12px;">
               我要招人 <img src="../assets/common/picture/1645409535023RDRAH.png" style="width: 14px; height: 14px;">
             </a>
-            <a @click="divlog=true"
+            <a @click="divlog=true" v-else
                style="width: 92px; height: 32px; background: #EEFAF7; color: #32ca99; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-right: 8px;">
               企业认证 <img src="../assets/common/picture/1645409535023RDRAH.png" style="width: 14px; height: 14px;">
             </a>
@@ -42,7 +44,7 @@
                   trigger="hover">
                 <div>
                   <el-avatar :size="60" @error="false">
-                    <img src="https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/avatar.jpg"/>
+                    <img :src="avatar===undefined||avatar===''?'https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/avatar.jpg':avatar"/>
                   </el-avatar>
                   <br>
                   <router-link to="/userexhibit">
@@ -52,7 +54,7 @@
                   <el-link @click="handleLogout"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>&nbsp;登出
                   </el-link>
                 </div>
-                <el-button slot="reference" type="text" style="color: #32ca99;">{{ username }}</el-button>
+                <el-button slot="reference" type="text" style="color: #32ca99;">{{ userName===undefined||userName===''?'用户中心':userName }}</el-button>
               </el-popover>
             </div>
             <div v-else>
@@ -106,7 +108,6 @@ export default {
       divlog: false,
       alog: false,
       drawer: false,
-      username: '',
       num: 0,
       menus: [
         {item: '首页', to: '/'},
@@ -139,7 +140,7 @@ export default {
     //判断是否登录
     ifLogin() {
       let userinfo = JSON.parse(localStorage.getItem('userInfo'))
-      this.username = userinfo['name'] || '用户姓名'
+      let username = userinfo['name'] || '用户姓名'
       if (userinfo != null) {
         this.iflogin = true
       }
@@ -151,11 +152,12 @@ export default {
       window.location.href = this.$authing.buildLogoutUrl({redirectUri: 'http://localhost:4000'});
     },
     changeNum(i) {
+      //菜单栏高亮
       this.num = i
     },
-    msgTip(){
+    msgTip() {
       //连接socket并初始化用户信息
-      this.alog=true
+      this.alog = true
     }
   },
   mounted() {
@@ -163,15 +165,15 @@ export default {
     let userinfo = JSON.parse(localStorage.getItem('userInfo'))
     let userid = userinfo['sub']
     let username = userinfo['name']
-    let roleType=0
-    let avatar=''
+    let roleType = 0
+    let avatar = ''
     if (userinfo != null) {
       this.axios({
             method: 'post',
-            url: this.baseUrl+'user/adduser',
+            url: this.baseUrl + 'user/adduser',
             data: {
-              loginId:userid,
-              username:username
+              loginId: userid,
+              username: username
             },
           }
       ).then(response => {
@@ -182,28 +184,43 @@ export default {
 
     this.axios({
           method: 'get',
-          url: this.baseUrl+'userrole/getRole',
+          url: this.baseUrl + 'userrole/getRole',
           params: {
-            loginId:userid
+            loginId: userid
           },
         }
-    ).then(r=>{
-      roleType=r.data
+    ).then(r => {
+      roleType = r.data
     })
 
     this.axios({
           method: 'get',
-          url: this.baseUrl+'user/getUserAvatar'+userid,
+          url: this.baseUrl + 'user/getUserAvatar' + userid,
+          params: {
+            roleType: roleType
+          }
         }
-    ).then(r=>{
-      avatar=r.data.avatar
+    ).then(r => {
+      avatar = r.data[0]
+      username = r.data[1]
     })
 
 
-    store.commit('setType',roleType)
-    store.commit('setLoginId',userid)
-    store.commit('setName',username)
+    store.commit('setType', roleType)
+    store.commit('setLoginId', userid)
+    store.commit('setName', username)
     store.commit('avatar',avatar)
+  },
+  computed: {
+    roleType() {
+      return store.state.type;
+    },
+    userName(){
+      return store.state.name;
+    },
+    avatar(){
+      return store.state.avatar
+    }
   },
   created() {
     this.ifLogin()
@@ -238,6 +255,7 @@ export default {
   position: absolute;
   width: 12px
 }
+
 .el-dialog__body {
   padding: 10px 5px;
   color: #606266;

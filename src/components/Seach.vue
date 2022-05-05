@@ -11,7 +11,7 @@
               <div class="S_input_group">
                 <div class="S_input">
                   <input class="S_input_inner form-control" v-model="keyword" autocomplete="off" value=""
-                         placeholder="请输入职位或公司关键字搜索">
+                            placeholder="请输入职位或公司关键字搜索">
                 </div>
                 <button class="btn btn-secondary S_btn_zheng" @click.prevent="searchKey" id="searchbtn">搜&nbsp;索
                 </button>
@@ -85,6 +85,19 @@
                     <el-dropdown-menu slot="dropdown">
                       <el-dropdown-item v-for="(salary,index) in salarys" :command="salary.salary" :key="index">
                         {{ salary.salary }}
+                      </el-dropdown-item>
+                    </el-dropdown-menu>
+                  </el-dropdown>
+                </div>
+                <div class="divcssa">
+                  <el-dropdown @command="handleCommand5">
+                 <span class="el-dropdown-link">
+                  <font color="#32ca99">{{ np === '' ? '工作城市' : np }}</font>
+                   <i class="el-icon-arrow-down el-icon--right"></i>
+                </span>
+                    <el-dropdown-menu slot="dropdown">
+                      <el-dropdown-item v-for="(province,index) in provinces" :command="province.provinceName" :key="index">
+                        {{ province.provinceName }}
                       </el-dropdown-item>
                     </el-dropdown-menu>
                   </el-dropdown>
@@ -463,6 +476,7 @@ export default ({
       nt: 20,
       nn: '',
       ns: '',
+      np:'',//工作地点
       jobtypes: [],
       subtimes: [
         {time: '不限'},
@@ -491,6 +505,112 @@ export default ({
         {salary: '2万元以上'},
         {salary: '面议'},
       ],
+      provinces: [
+        {
+          "provinceName": "河北省"
+        },
+        {
+          "provinceName": "山西省"
+        },
+        {
+          "provinceName": "内蒙古自治区"
+        },
+        {
+          "provinceName": "辽宁省"
+        },
+        {
+          "provinceName": "吉林省"
+        },
+        {
+          "provinceName": "黑龙江省"
+        },
+        {
+          "provinceName": "江苏省"
+        },
+        {
+          "provinceName": "浙江省"
+        },
+        {
+          "provinceName": "安徽省"
+        },
+        {
+          "provinceName": "福建省"
+        },
+        {
+          "provinceName": "江西省"
+        },
+        {
+          "provinceName": "山东省"
+        },
+        {
+          "provinceName": "河南省"
+        },
+        {
+          "provinceName": "湖北省"
+        },
+        {
+          "provinceName": "湖南省"
+        },
+        {
+          "provinceName": "广东省"
+        },
+        {
+          "provinceName": "广西壮族自治区"
+        },
+        {
+          "provinceName": "海南省"
+        },
+        {
+          "provinceName": "四川省"
+        },
+        {
+          "provinceName": "贵州省"
+        },
+        {
+          "provinceName": "云南省"
+        },
+        {
+          "provinceName": "陕西省"
+        },
+        {
+
+          "provinceName": "甘肃省"
+        },
+        {
+
+          "provinceName": "青海省"
+        },
+        {
+          "provinceName": "西藏自治区"
+        },
+        {
+          "provinceName": "宁夏回族自治区"
+        },
+        {
+          "provinceName": "台湾"
+        },
+        {
+          "provinceName": "北京市"
+        },
+        {
+          "provinceName": "天津市"
+        },
+        {
+          "provinceName": "上海市"
+        },
+        {
+          "provinceName": "重庆市"
+        },
+        {
+          "provinceName": "香港"
+        },
+        {
+          "provinceName": "澳门"
+        },
+        {
+          "provinceName": "新疆维吾尔自治区"
+        }
+      ]
     }
   },
   components: {
@@ -518,6 +638,7 @@ export default ({
           worktype: this.nn,
           salary: this.ns,
           jobtype: this.nj,
+          province:this.np
         }
       }).then(response => {
         this.total = response.data.total;
@@ -538,6 +659,9 @@ export default ({
     },
     handleCommand4(c) {
       this.ns = c
+    },
+    handleCommand5(c) {
+      this.np = c
     },
 
     //热门公司排行
@@ -683,6 +807,8 @@ export default ({
 @import '../assets/common/css/bootstrap.min.css';
 @import '../assets/common/css/ui2.css';
 @import '../assets/common/css/front.css';
+
+
 
 .diva {
   float: left;

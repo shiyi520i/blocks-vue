@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div>
+    <div v-if="roleType===1">
+      <ChangeInfos></ChangeInfos>
+    </div>
+    <div v-else>
       <el-descriptions class="margin-top" title="个人信息" :column="3" :size="size" border>
         <template slot="extra">
           <el-button class="bt" size="small">
@@ -71,8 +74,14 @@
 </template>
 
 <script>
+import ChangeInfos from "@/views/company/ChangeInfos";
+import store from "@/store";
+
 export default {
   name: 'UserData',
+  components: {
+    ChangeInfos
+  },
   data() {
     return {
       form: {
@@ -88,6 +97,11 @@ export default {
       }
     }
   },
+  computed: {
+    roleType() {
+      return store.state.type;
+    }
+  },
   methods: {
     getUserData() {
       let u = JSON.parse(localStorage.getItem('userInfo'))
@@ -98,10 +112,10 @@ export default {
         params: {}
       }).then(r => {
         this.form = r.data
-        if(r.data.sex===1){
-          this.form.sex='男'
-        }else {
-          this.form.sex='女'
+        if (r.data.sex === 1) {
+          this.form.sex = '男'
+        } else {
+          this.form.sex = '女'
         }
       })
     }

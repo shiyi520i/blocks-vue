@@ -31,7 +31,7 @@
     <div>页面加载成功: {{curPageNum}}</div>
     <pdf
         ref="pdf"
-        :src="pdfUrl"
+        :src="url===''?pdfUrl:url"
         :page="pageNum"
         :rotate="pageRotate"
         @password="password"

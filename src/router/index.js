@@ -25,6 +25,7 @@ const routes = [
             },{
                 path: 'userexhibit',
                 component: () => import(/* webpackChunkName: "about" */ '../views/user/UserExhibit'),
+                redirect: '/userexhibit/userdata',
                 children: [
                     {
                     path: 'userdata',
@@ -74,7 +75,7 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/404')
     }, {
         path: '/test',
-        component: () => import(/* webpackChunkName: "about" */ '../views/user/test')
+        component: () => import(/* webpackChunkName: "about" */ '../views/company/ChangeInfos')
     }, {
         path: '/index',
         component: () => import(/* webpackChunkName: "about" */ '../views/index')

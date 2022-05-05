@@ -2,8 +2,6 @@
   <div>
     <div class="nk-container    ">
 
-
-
       <div class="nk-main with-banner-page clearfix" style="width: 100%;">
 
 
@@ -36,7 +34,7 @@
                     </div>
                   </li>
                 </a>
-                <a href="javascript:;" style="height: 100%; display: inline-block; margin: 10px;">
+                <a href="https://www.icourse163.org/course/BIT-268001?outVendor=zw_mooc_pcsybzkcph_" style="height: 100%; display: inline-block; margin: 10px;">
                   <li style="margin:0;">
                     <div>
                       <img src="../assets/common/picture/入口-java-360x260.jpg" alt="">
@@ -47,7 +45,7 @@
                     </div>
                   </li>
                 </a>
-                <a href="javascript:;" style="height: 100%; display: inline-block; margin: 10px;">
+                <a href="https://www.icourse163.org/course/BIT-268001?outVendor=zw_mooc_pcsybzkcph_" style="height: 100%; display: inline-block; margin: 10px;">
                   <li style="margin:0;">
                     <div>
                       <img src="../assets/common/picture/入口-C-360x260.jpg" alt="">
@@ -58,7 +56,7 @@
                     </div>
                   </li>
                 </a>
-                <a href="javascript:;" style="height: 100%; display: inline-block; margin: 10px;">
+                <a href="https://www.icourse163.org/course/BIT-268001?outVendor=zw_mooc_pcsybzkcph_" style="height: 100%; display: inline-block; margin: 10px;">
                   <li style="margin:0;">
                     <div>
                       <img src="../assets/common/picture/入口-算法入门-360x260.jpg" alt="">
@@ -69,7 +67,7 @@
                     </div>
                   </li>
                 </a>
-                <a href="javascript:;" style="height: 100%; display: inline-block; margin: 10px;">
+                <a href="https://www.icourse163.org/course/BIT-268001?outVendor=zw_mooc_pcsybzkcph_" style="height: 100%; display: inline-block; margin: 10px;">
                   <li style="margin:0;">
                     <div>
                       <img src="../assets/common/picture/入口-算法提升-360x260.jpg" alt="">
@@ -102,11 +100,11 @@
 
                   <ul class="strategy-list">
 
-                    <li><a href="javascript:;" target="_blank"><img
+                    <li><a href="https://www.icourse163.org/course/BIT-268001?outVendor=zw_mooc_pcsybzkcph_" target="_blank"><img
                         src="../assets/common/picture/C1F8B45936F73541F2D9C1D76B9B01EE.jpg" alt="" class="pic">
                     </a></li>
 
-                    <li><a href="javascript:;" target="_blank"><img
+                    <li><a href="https://www.icourse163.org/course/BIT-268001?outVendor=zw_mooc_pcsybzkcph_" target="_blank"><img
                         src="../assets/common/picture/31C31542964AA8C17253C35C4D7EF5C4.jpg" alt="" class="pic">
                     </a></li>
 
@@ -114,34 +112,34 @@
                         src="../assets/common/picture/B86B3899CF92842B66114261B77124DF.jpg" alt="" class="pic">
                     </a></li>
 
-                    <li><a href="javascript:;" target="_blank"><img
+                    <li><a href="https://www.icourse163.org/course/BIT-268001?outVendor=zw_mooc_pcsybzkcph_" target="_blank"><img
                         src="../assets/common/picture/03F6DB23634DE00267570E5B4A3C7284.jpg" alt="" class="pic">
                     </a></li>
 
-                    <li><a href="javascript:;" target="_blank"><img
+                    <li><a href="https://www.icourse163.org/course/BIT-268001?outVendor=zw_mooc_pcsybzkcph_" target="_blank"><img
                         src="../assets/common/picture/4E005D8FEFDF528BF36166D571EB7632.jpg" alt="" class="pic">
                     </a></li>
 
-                    <li><a href="javascript:;" target="_blank"><img
+                    <li><a href="https://www.icourse163.org/course/BIT-268001?outVendor=zw_mooc_pcsybzkcph_" target="_blank"><img
                         src="../assets/common/picture/451A6322BE2755C5F6EFB85E493CF7B7.jpg" alt="" class="pic">
                     </a></li>
 
-                    <li><a href="javascript:;" target="_blank"><img
+                    <li><a href="https://www.icourse163.org/course/BIT-268001?outVendor=zw_mooc_pcsybzkcph_" target="_blank"><img
                         src="../assets/common/picture/B0892FACD7509369169FF3D37AA2A7D6.jpg" alt="" class="pic">
                     </a></li>
 
-                    <li><a href="javascript:;" target="_blank"><img
+                    <li><a href="https://www.icourse163.org/course/BIT-268001?outVendor=zw_mooc_pcsybzkcph_" target="_blank"><img
                         src="../assets/common/picture/B4EF1D53C5FC5BF9657D6E757641E3FD.jpg" alt="" class="pic">
                     </a></li>
-                    <li><a href="javascript:;" target="_blank"><img
+                    <li><a href="https://www.icourse163.org/course/BIT-268001?outVendor=zw_mooc_pcsybzkcph_" target="_blank"><img
                         src="../assets/common/picture/A9094BBC3002219664BF10D545310CB9.jpg" alt="" class="pic">
                     </a></li>
 
-                    <li><a href="javascript:;" target="_blank"><img
+                    <li><a href="https://www.icourse163.org/course/BIT-268001?outVendor=zw_mooc_pcsybzkcph_" target="_blank"><img
                         src="../assets/common/picture/808236DF68AB495195B0E8C553B61271.jpg" alt="" class="pic">
                     </a></li>
 
-                    <li><a href="javascript:;" target="_blank"><img
+                    <li><a href="https://www.icourse163.org/course/BIT-268001?outVendor=zw_mooc_pcsybzkcph_" target="_blank"><img
                         src="../assets/common/picture/D0D716035AF5098E85282C2DF1E44EF7.jpg" alt="" class="pic">
                     </a></li>
                   </ul>

@@ -14,21 +14,20 @@
           </a>
           <div class="profile-info-cont">
             <section>
-              <a class="profile-user-name js-nc-title-tips" data-title="如若丶"
-                 data-encode="1">如若丶</a>
+              <a class="profile-user-name js-nc-title-tips">{{userName===''?'默认名称':userName}}</a>
               <span class="sex-ico male-ico js-nc-title-tips" title="男"></span>
             </section>
-            <ul class="profile-cont clearfix">
-              <li><i class="icon-profile-edu"></i>惠州学院</li>
+            <ul class="profile-cont clearfix" v-if="roleType!==1">
+              <li><i class="icon-profile-edu"></i>{{userData.graduate}}</li>
 
               <li><i class="icon-profile-time"></i>2021届</li>
 
-              <li><i class="icon-profile-job"></i>Java工程师</li>
+              <li><i class="icon-profile-job"></i>{{userData.position}}</li>
 
             </ul>
           </div>
         </div>
-        <div class="profile-oprt-box">
+        <div class="profile-oprt-box" v-if="roleType!==1">
           <el-button type="text" class="b"
                      @click="uploadPdf"><i class="fa fa-upload" aria-hidden="true"></i>简历上传
           </el-button>
@@ -61,7 +60,7 @@
         <el-upload
             class="upload-demo"
             drag
-            :action="this.baseUrl+'/news/u'"
+            :action="uploadUrl"
             :on-success="onSuccess"
             multiple>
           <i class="el-icon-upload"></i>
@@ -69,8 +68,8 @@
           <div class="el-upload__tip" slot="tip">只能上传jpg/png/pdf文件，且不超过500kb</div>
         </el-upload>
         <span slot="footer" class="dialog-footer">
-    <el-button @click="dialogVisible = false">取 消</el-button>
-    <el-button type="primary" @click="dialogVisible = false">确 定</el-button></span>
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="dialogVisible = false">确 定</el-button></span>
       </el-dialog>
 
 
@@ -79,7 +78,7 @@
           title="简历预览"
           :visible.sync="d1"
           width="30%">
-        <Pdf :url="url"></Pdf>
+        <Pdf :url="userData.cvurl"></Pdf>
       </el-dialog>
       <div class="nk-bar">
 
@@ -160,7 +159,7 @@
           </ul>
         </div>
       </div>
-      <div class="nk-content">
+      <div class="nk-content" >
         <router-view>
           <div class="module-box">
             <div class="module-head clearfix">
@@ -290,6 +289,7 @@
 
 <script>
 import Pdf from "@/components/Pdf";
+import store from "@/store";
 
 export default {
   components: {
@@ -300,11 +300,24 @@ export default {
       title: '',
       dialogVisible: false,
       d1: false,
-      a: '',
       fileList: [],
+      uploadUrl: '',
       avatarUrl: 'https://1-1310671968.cos.ap-guangzhou.myqcloud.com/images/menAvatar.png',
+      CVUrl:'',
+      userData:[],
       classNum: 0
     };
+  },
+  computed: {
+    roleType() {
+      return store.state.type;
+    },
+    userName(){
+      return store.state.name;
+    },
+    userId(){
+      return store.state.loginId;
+    },
   },
   methods: {
     handleClose(done) {
@@ -315,9 +328,23 @@ export default {
           .catch(_ => {
           });
     },
+    getData(){
+      this.axios({
+            method: 'get',
+            url: this.baseUrl + 'user/getUser' + this.userId,
+          }
+      ).then(r => {
+           this.userData=r.data
+      })
+    },
     changeAvatar() {
       this.dialogVisible = true
       this.title = "更换头像"
+      if(this.roleType===1){
+        this.uploadUrl=this.baseUrl+'upload/logo'
+      }else {
+        this.uploadUrl=this.baseUrl+'upload/avatar'
+      }
     },
     onSuccess(response, file, fileList) {
       this.avatarUrl = response
@@ -325,7 +352,11 @@ export default {
     uploadPdf() {
       this.dialogVisible = true
       this.title = "简历上传"
+      this.uploadUrl=this.baseUrl+'upload/CV'
     }
+  },
+  mounted() {
+    this.getData()
   }
 };
 </script>

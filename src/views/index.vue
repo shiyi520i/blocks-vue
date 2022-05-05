@@ -6,8 +6,8 @@
       <div class="nk-main" style="padding-top: 10px;">
         <section class="section-box">
           <div class="section-title light">
-            <h2><img src="../assets/common/picture/title-nowcoder.png" alt="">关于牛客网</h2>
-            <p>牛客网（北京牛客科技有限公司）成立于 2014 年 9
+            <h2><img src="../assets/common/picture/title-nowcoder.png" alt="">关于Blocks</h2>
+            <p>Blocks（北京牛客科技有限公司）成立于 2014 年 9
               月，是以科技和创新驱动的教育科技公司。牛客网坚持以前沿技术服务于技术、以人工智能和大数据提升学习效率，专注探索在线教育创新模式，致力于为技术求职者提供能力提升解决方案，同时为企业级用户提供更高效的招聘解决方案，并为二者搭建桥梁，构建从学习到职业的良性生态圈。</p>
           </div>
           <div class="section-content">

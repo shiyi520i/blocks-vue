@@ -148,7 +148,9 @@ export default {
     return {
       url: 'applylist/getAll',
       typeNumber: 4,
-      tableData: [],
+      tableData: [
+        {}
+      ],
       popos: [],
       dialogVisible: false
     }
@@ -171,9 +173,43 @@ export default {
       }
     },
     handPass(id) {
+      this.axios.post(this.baseUrl + 'applylist/remove', {
+        id: id
+      }).then(response => {
 
+        })
     },
     handleReject(id) {
+      this.$confirm('是否驳回?', '提示', {
+        confirmButtonText: '是',
+        cancelButtonText: '否',
+        type: 'error'
+      }).then(() => {
+        this.axios.post(this.baseUrl + 'applylist/remove', {
+          id: id
+        }).then(response => {
+          this.breakmsg = response.data.msg;
+          if (response.data.code === 400) {
+            this.$message({
+              duration: 5000,
+              type: 'error',
+              message: this.breakmsg
+            });
+          } else {
+            this.$message({
+              type: 'success',
+              message: '已驳回'
+            });
+          }
+        }).catch(e => {
+          console.log(e)
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消操作'
+        });
+      });
 
     },
     getApplyList(data) {
@@ -202,7 +238,6 @@ export default {
               message: this.breakmsg
             });
           } else {
-            this.getnews()
             this.$message({
               type: 'success',
               message: '删除成功'
