@@ -224,16 +224,17 @@ export default {
       return isJPG && isLt2M;
     },
     handleSuccess1(res, file) {
-      this.from.license = res
+
+      this.form.license = res
     },
     handleSuccess2(res, file) {
-      this.from.frontimg = res
+      this.form.frontimg = res
     },
     handleSuccess3(res, file) {
-      this.from.backimg = res
+      this.form.backimg = res
     },
     handleSuccess4(res, file) {
-      this.from.handimg = res
+      this.form.handimg = res
     },
     submit() {
       this.axios({
@@ -241,6 +242,7 @@ export default {
             url: this.baseUrl + 'applylist/saveApply',
             data: {
               id: this.form.id,
+              loginid:this.$store.state.loginId,
               unitname: this.form.unitname,
               address: this.form.address,
               license: this.form.license,

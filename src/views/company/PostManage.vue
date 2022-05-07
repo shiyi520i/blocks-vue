@@ -53,7 +53,7 @@
       </el-table-column>
     </el-table>
 
-    <Pagination :url="url" :cn="cn" @getData="getApplyList"></Pagination>
+    <Pagination :url="url" :cn="cn" :uid='uid' @getData="getApplyList"></Pagination>
 
     <el-drawer
         title="信息"
@@ -69,6 +69,7 @@
 <script>
 import Pagination from "@/components/Pagination";
 import ReleasePost from "@/views/company/ReleasePost";
+import store from "@/store";
 
 export default {
   data() {
@@ -78,11 +79,17 @@ export default {
       rid: 0,//职位id
       tableData: [],
       drawer: false,
+      uid: this.$store.state.loginId
     }
   },
   components: {
     Pagination,
     ReleasePost
+  },
+  computed:{
+    roleType() {
+      return store.state.type;
+    },
   },
   methods: {
     formatter(row, column) {
@@ -127,9 +134,18 @@ export default {
           message: '已取消操作'
         });
       });
-
       console.log(index, row);
     },
+    getUid() {
+      let userinfo = JSON.parse(localStorage.getItem('userInfo'))
+      let uid = userinfo['sub']
+      if (this.roleType===1){
+        this.uid = uid
+      }
+    }
+  },
+  created() {
+    this.getUid()
   }
 }
 </script>

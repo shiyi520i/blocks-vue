@@ -9,6 +9,9 @@ const routes = [
         name: 'Login',
         component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue'),
         redirect: '/index',
+        meta:{
+            title:'首页'
+        },
         children: [
             {
                 path: 'category',
@@ -24,6 +27,9 @@ const routes = [
                 component: () => import(/* webpackChunkName: "about" */ '../views/user/NewsInfo')
             },{
                 path: 'userexhibit',
+                meta:{
+                    title:'用户中心'
+                },
                 component: () => import(/* webpackChunkName: "about" */ '../views/user/UserExhibit'),
                 redirect: '/userexhibit/userdata',
                 children: [
@@ -49,7 +55,11 @@ const routes = [
                         component: () => import(/* webpackChunkName: "about" */ '../views/company/PostManage')},
                     {
                         path: 'ApplicantsManage',
-                        component: () => import(/* webpackChunkName: "about" */ '../views/company/ApplicantsManage')}
+                        component: () => import(/* webpackChunkName: "about" */ '../views/company/ApplicantsManage')},
+                    {
+                        path: 'ChangePassword',
+                        component: () => import(/* webpackChunkName: "about" */ '../components/ChangePassword')
+                    }
                 ]
             }, {
                 path: 'CompanyInfo/:id',
@@ -64,20 +74,13 @@ const routes = [
         name: 'App',
         component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
     }, {
-        path: '/user-info',
-        name: 'UserInfo',
-        component: () => import(/* webpackChunkName: "about" */ '../views/UserInfo.vue')
-    }, {
-        path: '/e',
-        component: () => import(/* webpackChunkName: "about" */ '../components/MEditor')
-    }, {
         path: '/404',
         component: () => import(/* webpackChunkName: "about" */ '../views/404')
     }, {
-        path: '/test',
-        component: () => import(/* webpackChunkName: "about" */ '../views/company/ChangeInfos')
-    }, {
         path: '/index',
+        meta:{
+            title:'首页'
+        },
         component: () => import(/* webpackChunkName: "about" */ '../views/index')
     }
 ];

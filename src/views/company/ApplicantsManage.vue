@@ -49,7 +49,7 @@
       </el-table-column>
     </el-table>
 
-    <Pagination :url="url" :typeNumber="typeNumber" @getData="getApplyList"></Pagination>
+    <Pagination :url="url" :cid="cid" :typeNumber="typeNumber" @getData="getApplyList"></Pagination>
 
 
 
@@ -64,7 +64,8 @@ export default {
     return {
       url: 'record/getrecords',
       tableData: [],
-      typeNumber:2
+      typeNumber:2,
+      uid:''
     }
   },
   components: {
@@ -110,9 +111,16 @@ export default {
           message: '已取消操作'
         });
       });
-
       console.log(index, row);
     },
+    getUid() {
+      let userinfo = JSON.parse(localStorage.getItem('userInfo'))
+      let cid = userinfo['sub']
+        this.cid = cid
+    }
+  },
+  created() {
+    this.getUid()
   }
 }
 </script>

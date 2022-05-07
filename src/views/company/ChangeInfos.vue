@@ -39,6 +39,16 @@
           </el-form-item>
         </el-col>
         <el-col :span="11">
+          <el-form-item  label="行业类别">
+            <el-select v-model="formInfo.type">
+              <el-option
+                  v-for="item in jobtypes"
+                  :key="item.id"
+                  :label="item.name"
+                  :value="item.id">
+              </el-option>
+            </el-select>
+          </el-form-item>
         </el-col>
       </el-form-item>
       <el-form-item label="地址">
@@ -50,7 +60,7 @@
         </el-col>
         <el-col :span="12">
           <el-form-item>
-            <el-input v-model="formInfo.fullAddress"/>
+            <el-input v-model="formInfo.address"/>
           </el-form-item>
         </el-col>
       </el-form-item>
@@ -74,6 +84,7 @@ export default {
   data() {
     return {
       id: '',
+      jobtypes:[],
       formInfo: {
         companyname: '',
         type: '',
@@ -96,10 +107,11 @@ export default {
       let userid = u['sub']
       this.axios({
             method: 'post',
-            url: this.baseUrl + 'companyinfo/getcomone',
+            url: this.baseUrl + 'companyinfo/saveCompany',
             data: {
               loginId: userid,
               companyname: this.formInfo.companyname,
+              type: this.formInfo.type,
               number: this.formInfo.number,
               landline: this.formInfo.landline,
               email: this.formInfo.email,
@@ -125,14 +137,12 @@ export default {
         });
       })
     },
-    getUserData() {
-      let u = JSON.parse(localStorage.getItem('userInfo'))
-      let userid = u['sub']
+    getCompanyData() {
       this.axios({
         method: 'get',
-        url: this.baseUrl + 'companyinfo/getcomone/',
+        url: this.baseUrl + 'companyinfo/getCompany/',
         params: {
-          loginId: userid
+          loginId: this.$store.state.loginId
         }
       }).then(r => {
         this.formInfo = r.data
@@ -146,9 +156,19 @@ export default {
       this.formInfo.city = data.city.value
       this.formInfo.area = data.area.value
     },
+    getParameter() {
+      this.axios({
+            method: 'get',
+            url: this.baseUrl + 'parameter/getparameter',
+          }
+      ).then(response => {
+        this.jobtypes = response.data['hyfl']
+      })
+    },
   },
   mounted() {
-    this.getUserData()
+    this.getCompanyData()
+    this.getParameter()
   }
 }
 </script>

@@ -23,11 +23,14 @@
                 <li title="所属行业">{{ onePost.rztype }}</li>
               </ul>
               <p>
-                <button id="" class="btn btn-primary  mr-3" type="button" @click="applyPost(onePost)">
-                  <span>申请职位</span>
-                </button>
-                <a class="nei_job_name text-truncate"><i class="fa fa-heart fa-lg" style="color:red"></i>收藏</a>
-                <a class="nei_job_name text-truncate"><i class="fa fa-comments fa-lg" style="color:#409EFF"></i>立即沟通</a>
+                <a class="nei_job_name text-truncate aa" @click="applyPost(onePost)"><i class="fa fa-share fa-lg"
+                                                                               style="color:#32ca99"></i><small
+                    class="text-muted">申请</small></a>
+                <a class="nei_job_name text-truncate aa"><i class="fa fa-heart fa-lg"
+                                                            style="color:#FF6A6A"></i><small
+                    class="text-muted">收藏</small></a>
+                <a class="nei_job_name text-truncate aa" ><i
+                    class="fa fa-comments fa-lg" style="color:#409EFF"></i><small class="text-muted">沟通</small></a>
               </p>
             </div>
           </div>

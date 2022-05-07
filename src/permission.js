@@ -3,9 +3,7 @@
  *
  */
 //路由
-import router from "./router/router";
-//表单验证
-//import { validatenull } from "@/util/validate";
+import router from 'vue-router';
 //进度条
 import NProgress from "nprogress"; // progress bar
 import "nprogress/nprogress.css"; // progress bar style
@@ -16,27 +14,13 @@ NProgress.configure({ showSpinner: false });
  * https://router.vuejs.org/zh/guide/adva
  * nced/navigation-guards.html
  */
- router.beforeEach((to, from, next) => {
-         console.log(to,from,next)
-/*   NProgress.start();
-  if (to.meta.isAuth) {
-    if (store.state.user.username) {
-      next()
-    } else {
-      next({
-        path: 'login',
-        query: {redirect: to.fullPath}
-      })
-    }
-  } else {
-    next()
-  }*/
-} 
-)
+router.beforeEach((to, from, next) => {
+    NProgress.start();
+    return false
+});
 
 //后置路由守卫
-router.afterEach(() => {
-  NProgress.done();
-  const title = store.getters.tag.label;
-  router.$avueRouter.setTitle(title);
+router.afterEach((to,from) => {
+    NProgress.done();
+    document.title = to.meta.title
 });

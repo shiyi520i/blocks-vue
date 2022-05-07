@@ -25,10 +25,24 @@ export default {
 			localStorage.setItem('idToken', id_token);
 			localStorage.setItem('userInfo', JSON.stringify(userInfo));
 
-
-
       this.$router.push('/');
-		}
+		},
+    //调用后端资源
+    handleResourc: async function() {
+      try {
+        let accessToken = localStorage.getItem('accessToken');
+        let res = await fetch('http://localhost:5000/api/protected', {
+          headers: {
+            Authorization: 'Bearer ' + accessToken
+          },
+          method: 'GET'
+        });
+        let data = await res.json();
+        alert(JSON.stringify(data));
+      } catch (err) {
+        alert('无权访问接口');
+      }
+    },
 	}
 }
 </script>

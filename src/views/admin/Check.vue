@@ -123,13 +123,11 @@
           </el-form-item>
         </el-form>
         <el-button
-            type="text"
             class="ba"
             size="medium"
             @click="handPass(popos.id)">通过
         </el-button>
         <el-button
-            type="text"
             class="bb"
             size="medium"
             @click="handleReject(popos.id)">驳回
@@ -173,7 +171,7 @@ export default {
       }
     },
     handPass(id) {
-      this.axios.post(this.baseUrl + 'applylist/remove', {
+      this.axios.post(this.baseUrl + 'applylist/pass', {
         id: id
       }).then(response => {
 

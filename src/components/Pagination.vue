@@ -30,6 +30,9 @@ export default {
     uid: {
       type: String,
     },
+    cid: {
+      type: String,
+    },
     typeNumber: {
       type: Number,
     },
@@ -55,6 +58,7 @@ export default {
           pageNo: page,
           cn: this.cn,//公司名称
           uid: this.uid,
+          cid: this.cid,
           type: this.typeNumber
         }
       }).then(response => {

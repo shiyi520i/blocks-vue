@@ -454,9 +454,7 @@ export default ({
       dialog: false,  //显示弹窗
       baseurl: 'http://localhost:4000/api/',
       keyword: '',
-      results: [
-        {rjdescript: 'a', rprovince: '广东', rcity: '惠州', rztype: '服务业', rwelfares: '餐补', post: '广东有限公司'}
-      ],
+      results: [],
       weights: [],
       onePost: [
         {countPost: 0, countRecord: 0}

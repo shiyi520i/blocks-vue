@@ -2,7 +2,7 @@
   <div>
     <Header/>
     <div class="nk-container">
-      <img src="../assets/common/picture/banner-about.png" alt="banner" class="banner">
+      <img src="../assets/common/img/blocks.jpg" alt="banner" class="banner">
       <div class="nk-main" style="padding-top: 10px;">
         <section class="section-box">
           <div class="section-title light">

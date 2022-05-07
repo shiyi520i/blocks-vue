@@ -191,25 +191,22 @@ export default {
         }
     ).then(r => {
       roleType = r.data
-    })
-
-    this.axios({
-          method: 'get',
-          url: this.baseUrl + 'user/getUserAvatar' + userid,
-          params: {
-            roleType: roleType
+      store.commit('setType', roleType)
+      this.axios({
+            method: 'get',
+            url: this.baseUrl + 'user/getUserAvatar/' + userid,
+            params: {
+              roleType: roleType
+            }
           }
-        }
-    ).then(r => {
-      avatar = r.data[0]
-      username = r.data[1]
+      ).then(r => {
+        avatar = r.data[0]
+        username = r.data[1]
+        store.commit('setName', username)
+        store.commit('avatar',avatar)
+      })
     })
-
-
-    store.commit('setType', roleType)
     store.commit('setLoginId', userid)
-    store.commit('setName', username)
-    store.commit('avatar',avatar)
   },
   computed: {
     roleType() {
